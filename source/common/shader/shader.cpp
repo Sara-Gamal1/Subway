@@ -31,11 +31,11 @@ bool our::ShaderProgram::attach(const std::string &filename, GLenum type) const
     //  the shader. The returned string will be empty if there is no errors.
 
     std::string error = checkForShaderCompilationErrors(shader);
-    // if (error != "")
-    // {
-    //     printf("error in compilation: %s\n", error);
-    //     return false;
-    // }
+    if (error != "")
+    {
+        printf("error in compilation: %s\n", error);
+        return false;
+    }
     glAttachShader(program, shader);
     // We return true if the compilation succeeded
     return true;
@@ -51,11 +51,11 @@ bool our::ShaderProgram::link() const
 
     glLinkProgram(program);
     std::string error = checkForLinkingErrors(program);
-    // if (error != "")
-    // {
-    //     printf("error in linking: %s\n", error);
-    //     return false;
-    // }
+    if (error != "")
+    {
+        printf("error in linking: %s\n", error);
+        return false;
+    }
 
     return true;
 }
