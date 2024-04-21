@@ -1,5 +1,4 @@
 #include "material.hpp"
-
 #include "../asset-loader.hpp"
 #include "deserialize-utils.hpp"
 
@@ -10,8 +9,8 @@ namespace our
     void Material::setup() const
     {
         // TODO: (Req 7) Write this function
-        this->pipelineState.setup();
-        this->shader->use();
+        pipelineState.setup();
+        shader->use();
     }
 
     // This function read the material data from a json object
@@ -52,14 +51,15 @@ namespace our
     void TexturedMaterial::setup() const
     {
         // TODO: (Req 7) Write this function
-        Material::setup();
+        TintedMaterial::setup();
         shader->set("alphaThreshold", alphaThreshold);
         glActiveTexture(GL_TEXTURE0);
         texture->bind();
 
         if (sampler)
-            sampler->bind(texture->getOpenGLName());
-        shader->set("tex", texture->getOpenGLName());
+            sampler->bind(0);
+
+        shader->set("tex", 0);
     }
 
     // This function read the material data from a json object
