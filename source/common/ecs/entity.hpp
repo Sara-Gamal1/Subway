@@ -116,7 +116,7 @@ namespace our
             // TODO: (Req 8) Go through the components list and find the given component "component".
             //  If found, delete the found component and remove it from the components list
 
-            auto it = components.find(component);
+            auto it = std::find(components.begin(), components.end(), component);
             if (it != components.end())
             {
                 delete *it;
