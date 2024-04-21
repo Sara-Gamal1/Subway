@@ -132,6 +132,7 @@ namespace our
             while (it != components.end())
             {
                 delete *it;
+                it++;
             }
             components.clear();
         }
