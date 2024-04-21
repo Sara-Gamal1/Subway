@@ -26,7 +26,7 @@ namespace our {
             skyPipelineState.faceCulling.enabled=true;
             skyPipelineState.faceCulling.culledFace= GL_FRONT;
             skyPipelineState.depthTesting.enabled=true;
-            skyPipelineState.depthTesting.function=GL_LESS;
+            skyPipelineState.depthTesting.function=GL_LEQUAL;
 
             
             // Load the sky texture (note that we don't need mipmaps since we want to avoid any unnecessary blurring while rendering the sky)
@@ -184,16 +184,17 @@ namespace our {
             //TODO: (Req 10) setup the sky material
             skyMaterial->setup();
             //TODO: (Req 10) Get the camera position
-            glm::mat4 cameraPosition;
+            glm::vec3 cameraPosition=camera->getOwner()->getLocalToWorldMatrix()*glm::vec4(0.0,0.0,0.0,1.0);
             //TODO: (Req 10) Create a model matrix for the sky such that it always follows the camera (sky sphere center = camera position)
-            glm::mat4 M;
+            glm::mat4 identity(1.0f);
+            glm::mat4 M = glm::translate(identity, cameraPosition);
             //TODO: (Req 10) We want the sky to be drawn behind everything (in NDC space, z=1)
             // We can acheive the is by multiplying by an extra matrix after the projection but what values should we put in it?
             glm::mat4 alwaysBehindTransform = glm::mat4(
                 1.0f, 0.0f, 0.0f, 0.0f,
                 0.0f, 1.0f, 0.0f, 0.0f,
-                0.0f, 0.0f, 1.0f, 0.0f,
-                0.0f, 0.0f, 0.0f, 1.0f
+                0.0f, 0.0f, 0.0f, 0.0f,
+                0.0f, 0.0f, 1.0f, 1.0f
             );
             //TODO: (Req 10) set the "transform" uniform
             glm::mat4 transform=alwaysBehindTransform*VP*M;
