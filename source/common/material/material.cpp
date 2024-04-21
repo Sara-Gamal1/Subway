@@ -53,11 +53,13 @@ namespace our
     {
         // TODO: (Req 7) Write this function
         Material::setup();
-        shader->set("alphaThreshold",alphaThreshold);
+        shader->set("alphaThreshold", alphaThreshold);
         glActiveTexture(GL_TEXTURE0);
         texture->bind();
-        sampler->bind(0);
-        shader->set("tex",0 );
+
+        if (sampler)
+            sampler->bind(texture->getOpenGLName());
+        shader->set("tex", texture->getOpenGLName());
     }
 
     // This function read the material data from a json object
