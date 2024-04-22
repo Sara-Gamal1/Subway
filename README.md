@@ -23,7 +23,7 @@ Technologies used in the project:
 <p>1. Clone the repository</p>
 
 ```
-..git clone https://github.com/Sara-Gamal1/graphics-project
+git clone https://github.com/Sara-Gamal1/graphics-project
 ```
 
 <p>2. Build using CMake</p>
