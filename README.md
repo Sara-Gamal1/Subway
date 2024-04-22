@@ -1,6 +1,11 @@
-﻿# graphics-project  (subway)
+﻿# Subway
 
-![image](https://github.com/Sara-Gamal1/graphics-project/assets/93356614/20b687e2-1f87-41fa-8e27-eecede40c707)
+<div align="center">
+
+	![image](https://github.com/Sara-Gamal1/graphics-project/assets/93356614/20b687e2-1f87-41fa-8e27-eecede40c707)
+
+</div>
+
 
 
 
