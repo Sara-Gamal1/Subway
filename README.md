@@ -20,9 +20,15 @@ Technologies used in the project:
 
 <h2>🛠️ Installation Steps:</h2>
 
-<p>1. Build using CMake</p>
+<p>1. Clone the repository</p>
 
-<p>2. Run game executable</p>
+```
+..git clone https://github.com/Sara-Gamal1/graphics-project
+```
+
+<p>2. Build using CMake</p>
+
+<p>3. Run game executable</p>
 
 ```
 ../bin/GAME_APPLICATION.exe
