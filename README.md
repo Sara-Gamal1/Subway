@@ -16,13 +16,7 @@
 	<code><img height="50" src="https://www.saashub.com/images/app/service_logos/38/b48cc85cebb2/large.png?1553244024" alt="GLFW" title="GLFW"/></code>
 <code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/9/96/CMake-logo-triangle-high-res.png" alt="GLFW" title="GLFW"/></code></div>
 
-Technologies used in the project:
 
-* C++
-* OpenGL
-* glm
-* GLFW
-* CMake
 
 <h2>🛠️ Installation Steps:</h2>
 
