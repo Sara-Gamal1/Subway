@@ -60,7 +60,7 @@ namespace our
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
             glBufferData(GL_ELEMENT_ARRAY_BUFFER, elements.size() * sizeof(unsigned int), elements.data(), GL_STATIC_DRAW);
             // Unbind VAO
-            glBindVertexArray(0);
+            // glBindVertexArray(0);
         }
 
         // this function should render the mesh
@@ -69,7 +69,7 @@ namespace our
             // TODO: (Req 2) Write this function
             glBindVertexArray(VAO);
             glDrawElements(GL_TRIANGLES, elementCount, GL_UNSIGNED_INT, (void *)0);
-            glBindVertexArray(0);
+            // glBindVertexArray(0);
         }
 
         // this function should delete the vertex & element buffers and the vertex array object
