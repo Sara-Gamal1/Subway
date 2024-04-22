@@ -3,12 +3,8 @@
 
 <div align="center">
    <img align="center" height=310px src="https://github.com/Sara-Gamal1/graphics-project/assets/93356614/1dbf8419-5d26-4cdf-a1e1-7e22013f4fd0" alt="logo">
-
-   ### ”Please, Help me to cross the road. 🐸“
 </div>
 
-
-![image](https://github.com/Sara-Gamal1/graphics-project/assets/93356614/1dbf8419-5d26-4cdf-a1e1-7e22013f4fd0)
 
 
 <h2>💻 Built with</h2>
