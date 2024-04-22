@@ -2,21 +2,25 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb/stb_image.h>
-
-#include <iostream>
+#include "iostream"
+#include "glm/glm.hpp"
 
 our::Texture2D *our::texture_utils::empty(GLenum format, glm::ivec2 size)
 {
     /*
     1- create a new Texture2D object
     2- bind the texture
-    3- set the texture data
+    3- set the texture data to nul
     */
     our::Texture2D *texture = new our::Texture2D();
     // TODO: (Req 11) Finish this function to create an empty texture with the given size and format
     texture->bind();
-    glTexStorage2D(GL_TEXTURE_2D, 1, format, size.x, size.y);
-    // glTexImage2D(GL_TEXTURE_2D, 0, format, size.x, size.y, 0, format, GL_UNSIGNED_BYTE, nullptr);
+    GLsizei levels = 1;
+    if (format != GL_DEPTH_COMPONENT24)
+    {
+        levels = (GLsizei)glm::floor(glm::log2((float)glm::max(size[0], size[1]))) + 1;
+    }
+    glTexStorage2D(GL_TEXTURE_2D, levels, format, size.x, size.y);
     return texture;
 }
 

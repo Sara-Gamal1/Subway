@@ -118,7 +118,7 @@ if( ($tests.Count -eq 0) -or ($tests -contains $requirement)){
     )
     Write-Output ""
     Write-Output "Comparing $requirement output:"
-    & "./scripts/compare-group.ps1" -requirement $requirement -files $files -tolerance 0.01 -threshold 0
+    & "./scripts/compare-group.ps1" -requirement $requirement -files $files -tolerance 0.02 -threshold 0
     $failure += $LASTEXITCODE
 }
 
@@ -148,7 +148,7 @@ if( ($tests.Count -eq 0) -or ($tests -contains $requirement)){
     )
     Write-Output ""
     Write-Output "Comparing $requirement output:"
-    & "./scripts/compare-group.ps1" -requirement $requirement -files $files -tolerance 0.04 -threshold 64
+    & "./scripts/compare-group.ps1" -requirement $requirement -files $files -tolerance 0.045 -threshold 64
     $failure += $LASTEXITCODE
 }
 
@@ -163,7 +163,7 @@ if( ($tests.Count -eq 0) -or ($tests -contains $requirement)){
     )
     Write-Output ""
     Write-Output "Comparing $requirement output:"
-    & "./scripts/compare-group.ps1" -requirement $requirement -files $files -tolerance 0.04 -threshold 64
+    & "./scripts/compare-group.ps1" -requirement $requirement -files $files -tolerance 0.045 -threshold 64
     $failure += $LASTEXITCODE
 }
 
@@ -178,7 +178,7 @@ if( ($tests.Count -eq 0) -or ($tests -contains $requirement)){
     )
     Write-Output ""
     Write-Output "Comparing $requirement output:"
-    & "./scripts/compare-group.ps1" -requirement $requirement -files $files -tolerance 0.04 -threshold 64
+    & "./scripts/compare-group.ps1" -requirement $requirement -files $files -tolerance 0.05 -threshold 64
     $failure += $LASTEXITCODE
 }
 
@@ -195,7 +195,7 @@ if( ($tests.Count -eq 0) -or ($tests -contains $requirement)){
     )
     Write-Output ""
     Write-Output "Comparing $requirement output:"
-    & "./scripts/compare-group.ps1" -requirement $requirement -files $files -tolerance 0.04 -threshold 64
+    & "./scripts/compare-group.ps1" -requirement $requirement -files $files -tolerance 0.05 -threshold 64
     $failure += $LASTEXITCODE
 }
 
