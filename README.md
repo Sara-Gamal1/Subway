@@ -1,5 +1,4 @@
-﻿# Subway
-
+﻿<h1 align='center'>🎉Subway🎉</h1>
 
 <div align="center">
    <img align="center" height=310px src="https://github.com/Sara-Gamal1/graphics-project/assets/93356614/1dbf8419-5d26-4cdf-a1e1-7e22013f4fd0" alt="logo">
@@ -14,15 +13,9 @@
 	<code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Opengl-logo.svg/2560px-Opengl-logo.svg.png" alt="OpenGL" title="OpenGL"/></code>
 	<code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/GLM_logo.png" alt="GLM" title="GLM"/></code>
 	<code><img height="50" src="https://www.saashub.com/images/app/service_logos/38/b48cc85cebb2/large.png?1553244024" alt="GLFW" title="GLFW"/></code>
-<code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/9/96/CMake-logo-triangle-high-res.png" alt="GLFW" title="GLFW"/></code></div>
+<code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/9/96/CMake-logo-triangle-high-res.png" alt="Cmake" title="Cmake"/></code></div>
 
-Technologies used in the project:
 
-* C++
-* OpenGL
-* glm
-* GLFW
-* CMake
 
 <h2>🛠️ Installation Steps:</h2>
 
