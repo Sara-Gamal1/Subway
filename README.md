@@ -30,7 +30,7 @@ git clone https://github.com/Sara-Gamal1/graphics-project
 <p>3. Run game executable</p>
 
 ```
-../bin/GAME_APPLICATION.exe
+./bin/GAME_APPLICATION.exe
 ```
 
 
