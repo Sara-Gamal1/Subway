@@ -85,10 +85,11 @@ namespace our
         glm::vec3 playerPosition; // The player's position in the world
         Entity *playerEntity;     // The player entity if it exists
         bool collided = false;
-        for (auto &playerEntity : world->getEntities())
+        for (auto entity : world->getEntities())
         {
             // search for the player entity
             // Get the player component if it exists
+            playerEntity = entity;
             player = playerEntity->getComponent<PlayerComponent>();
             // If the player component exists
             if (player)
@@ -110,96 +111,94 @@ namespace our
         glm::vec3 playerEnd = playerEntity->getComponent<CollisionComponent>()->end + playerPosition;     // get the player's end position
         BoundingBox playerBox = {playerStart[0], playerEnd[0], playerStart[1], playerEnd[1], playerStart[2], playerEnd[2]};
 
-        // // For each entity in the world
-        // int iterator = 0;
-        // for (auto entity : world->getEntities())
-        // {
-        //     // Get the collision component if it exists
-        //     // std::string type = data.value("type", "");
-        //     CollisionComponent *collision = entity->getComponent<CollisionComponent>();
-        //     // If the collision component exists
-        //     if (collision)
-        //     {
+        // For each entity in the world
+        for (auto entity : world->getEntities())
+        {
+            // Get the collision component if it exists
+            // std::string type = data.value("type", "");
+            CollisionComponent *collision = entity->getComponent<CollisionComponent>();
+            // If the collision component exists
+            if (collision)
+            {
 
-        //         iterator += 1;
-        //         auto objectPosition = entity->localTransform.position; // get the object's position in the world
-        //         auto objectScale = entity->localTransform.scale;       // get the object's scale
+                auto objectPosition = entity->localTransform.position; // get the object's position in the world
+                auto objectScale = entity->localTransform.scale;       // get the object's scale
 
-        //         // Get object collision bounding box
-        //         glm::vec3 objectStart = (collision->start + objectPosition); // get the object's start position
-        //         glm::vec3 objectEnd = (objectPosition + collision->end);     // get the object's end position
+                // Get object collision bounding box
+                glm::vec3 objectStart = (collision->start + objectPosition); // get the object's start position
+                glm::vec3 objectEnd = (objectPosition + collision->end);     // get the object's end position
 
-        //         BoundingBox obstacleBox = {objectStart[0], objectEnd[0], objectStart[1] - 1, objectEnd[1] - 1, objectStart[2], objectEnd[2]};
-        //         collided = checkCollision(playerBox, obstacleBox);
+                BoundingBox obstacleBox = {objectStart[0], objectEnd[0], objectStart[1] - 1, objectEnd[1] - 1, objectStart[2], objectEnd[2]};
+                collided = checkCollision(playerBox, obstacleBox);
 
-        //         if (collided)
-        //         {
-        //             //TODO: remeber to remove it
-        //             if (entity->getComponent<PlayerComponent>())
-        //             {
-        //                 // std::cout << "Collide with Player"<< std::endl;
-        //                 continue;
-        //             }
+                if (collided)
+                {
+                    // TODO: remeber to remove it
+                    if (entity->getComponent<PlayerComponent>())
+                    {
+                        // std::cout << "Collide with Player"<< std::endl;
+                        continue;
+                    }
 
-        //             // Player hits an obstacle
-        //             if (entity->getComponent<FenceComponent>())
-        //             { // if the object is an obstacle
-        //                 std::cout << "collided with obstacle : FenceComponent " << std::endl;
+                    // Player hits an obstacle
+                    if (entity->getComponent<FenceComponent>())
+                    { // if the object is an obstacle
+                        std::cout << "collided with obstacle : FenceComponent " << std::endl;
+                        // if (collisionStartTime == 0)
+                        //     collisionStartTime = deltaTime; // start counting the time of collision for postprocessing effect
+                        // else if (glfwGetTime() - collisionStartTime >= 1)
+                        // {
+                        //     continue;
+                        // }
+                        // CollisionSystem::decreaseHearts(world, heartCount);
+                        // if (heartCount < 1)
+                        // {
+                        //     // if the player has no more hearts
+                        //     heartCount = 3;                // reset the heart count
+                        //     app->changeState("game-over"); // go to the game over state
+                        // }
+                    }
+                    else if (entity->getComponent<TrainComponent>())
+                    {
+                        std::cout << "collided with obstacle : TrainComponent " << std::endl;
+                    }
+                    else
+                    {
+                        std::cout << "other Obstacle " << std::endl;
+                    }
+                    // // Player takes a heart
+                    // else if (entity->getComponent<GemHeartComponent>()) // if the object is a gem heart
+                    // {
+                    //     if (heartCount < 3) // if the player has less than 3 hearts which is max
+                    //     {
+                    //         heartCount++; // increase the count of hearts
+                    //     }
+                    //     // Make heart to disappear
+                    //     // entity->localTransform.scale = glm::vec3(0.0f, 0.0f, 0.0f);
+                    //     // entity->localTransform.position = glm::vec3(0.0f, 0.0f, 0.0f);
+                    //     for (auto heartEntity : world->getEntities())
+                    //     {                                                                        // search for the heart entity
+                    //         HeartComponent *heart = heartEntity->getComponent<HeartComponent>(); // get the heart component if it exists
+                    //         if (heart && heart->heartNumber == heartCount)
+                    //         {                                                // if the heart component exists and it's the heart that we want to increase
+                    //             heartEntity->localTransform.scale.x = 0.05f; // make the heart appear
+                    //             heartEntity->localTransform.scale.y = 0.05f; // make the heart appear
+                    //             heartEntity->localTransform.scale.z = 0.05f; // make the heart appear
+                    //             break;
+                    //         }
+                    //     }
+                    // }
 
-        //                 // if (collisionStartTime == 0)
-        //                 //     collisionStartTime = deltaTime; // start counting the time of collision for postprocessing effect
-        //                 // else if (glfwGetTime() - collisionStartTime >= 1)
-        //                 // {
-        //                 //     continue;
-        //                 // }
-
-        //                 // CollisionSystem::decreaseHearts(world, heartCount);
-
-        //                 // if (heartCount < 1)
-        //                 // {
-        //                 //     // if the player has no more hearts
-        //                 //     heartCount = 3;                // reset the heart count
-        //                 //     app->changeState("game-over"); // go to the game over state
-        //                 // }
-        //             }
-        //             else
-        //             {
-        //                 std::cout << "tooooooooot " << std::endl;
-        //             }
-
-        // // Player takes a heart
-        // else if (entity->getComponent<GemHeartComponent>()) // if the object is a gem heart
-        // {
-        //     if (heartCount < 3) // if the player has less than 3 hearts which is max
-        //     {
-        //         heartCount++; // increase the count of hearts
-        //     }
-        //     // Make heart to disappear
-        //     // entity->localTransform.scale = glm::vec3(0.0f, 0.0f, 0.0f);
-        //     // entity->localTransform.position = glm::vec3(0.0f, 0.0f, 0.0f);
-        //     for (auto heartEntity : world->getEntities())
-        //     {                                                                        // search for the heart entity
-        //         HeartComponent *heart = heartEntity->getComponent<HeartComponent>(); // get the heart component if it exists
-        //         if (heart && heart->heartNumber == heartCount)
-        //         {                                                // if the heart component exists and it's the heart that we want to increase
-        //             heartEntity->localTransform.scale.x = 0.05f; // make the heart appear
-        //             heartEntity->localTransform.scale.y = 0.05f; // make the heart appear
-        //             heartEntity->localTransform.scale.z = 0.05f; // make the heart appear
-        //             break;
-        //         }
-        //     }
-        // }
-
-        // RepeatComponent *repeatComponent = entity->getComponent<RepeatComponent>();
-        // glm::vec3 &repeatPosition = entity->localTransform.position;
-        // if (repeatComponent)
-        // {                                                   // if the object is a repeat object
-        //     repeatPosition += repeatComponent->translation; // move the object forward
-        // }
-        // break;
-        // }
-        // }
-        // }
+                    // RepeatComponent *repeatComponent = entity->getComponent<RepeatComponent>();
+                    // glm::vec3 &repeatPosition = entity->localTransform.position;
+                    // if (repeatComponent)
+                    // {                                                   // if the object is a repeat object
+                    //     repeatPosition += repeatComponent->translation; // move the object forward
+                    // }
+                    // break;
+                }
+            }
+        }
         return (collided);
     }
 

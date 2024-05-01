@@ -15,7 +15,7 @@ namespace our {
     class FenceComponent : public Component {
     public:
         Application *app;
-        static std::string getID() { return "coin"; }
+        static std::string getID() { return "fence"; }
 
         void enter(Application *app)
         {
