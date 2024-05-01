@@ -537,9 +537,9 @@
                         "mesh": "fence",
                         "material": "fence"
                     },
-                                        {
-                                            "type": "fence"
-                                        },
+                    {
+                        "type": "fence"
+                    },
                     {
                         "type": "Collision",
                         "start": [
@@ -577,9 +577,9 @@
                         "mesh": "fence",
                         "material": "fence"
                     },
-                                        {
-                                            "type": "fence"
-                                        },
+                    {
+                        "type": "fence"
+                    },
                     {
                         "type": "Collision",
                         "start": [
@@ -657,9 +657,9 @@
                         "mesh": "train",
                         "material": "train"
                     },
-                                        {
-                                            "type": "train"
-                                        },
+                    {
+                        "type": "train"
+                    },
                     {
                         "type": "Collision",
                         "start": [
