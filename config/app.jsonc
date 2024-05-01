@@ -291,7 +291,7 @@
                     }
                 ],
                 "children": [
-                        {
+                        {   
                             "position": [
                                 0,
                                 -5,
@@ -308,6 +308,23 @@
                                 0.35
                             ],
                             "components": [
+                                {
+                                    "type": "player",
+                                    "speed": 4
+                                },
+                                {
+                                    "type": "Collision",
+                                    "start": [
+                                        -0.3,
+                                        -0.6,
+                                        -0.2
+                                    ],
+                                    "end": [
+                                        0.3,
+                                        1,
+                                        0.5
+                                    ]
+                                },
                                 {
                                     "type": "Mesh Renderer",
                                     "mesh": "jake",
@@ -519,6 +536,19 @@
                         "type": "Mesh Renderer",
                         "mesh": "fence",
                         "material": "fence"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.5,
+                            -5,
+                            -0.2
+                        ],
+                        "end": [
+                            0.5,
+                            6,
+                            0.1
+                        ]
                     }
                 ]
             },
@@ -543,6 +573,19 @@
                         "type": "Mesh Renderer",
                         "mesh": "fence",
                         "material": "fence"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.5,
+                            -5,
+                            -0.2
+                        ],
+                        "end": [
+                            0.5,
+                            6,
+                            0.1
+                        ]
                     }
                 ]
             },
@@ -567,6 +610,19 @@
                         "type": "Mesh Renderer",
                         "mesh": "fence",
                         "material": "fence"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.5,
+                            -5,
+                            -0.2
+                        ],
+                        "end": [
+                            0.5,
+                            6,
+                            0.1
+                        ]
                     }
                 ]
             },
