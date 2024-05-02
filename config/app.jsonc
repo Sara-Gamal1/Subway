@@ -315,14 +315,14 @@
                                 {
                                     "type": "Collision",
                                     "start": [
-                                        -0.3,
-                                        -0.6,
-                                        -0.2
+                                        -2,
+                                        -5,
+                                        -1
                                     ],
                                     "end": [
-                                        0.3,
-                                        1,
-                                        0.5
+                                        2,
+                                        4,
+                                        5
                                     ]
                                 },
                                 {
@@ -516,9 +516,10 @@
                 ]
             },
             {
+                "name": "left fence",
                 "position": [
-                    -13,
-                    -7,
+                    -13, // right and left
+                    -7, // up ans down
                     -5
                 ],
                 "rotation": [
@@ -556,6 +557,7 @@
                 ]
             },
             {
+                "name": "right fence",
                 "position": [
                     13, // right and left
                     -7, // up ans down
@@ -596,6 +598,7 @@
                 ]
             },
             {
+                "name": "middle fence",
                 "position": [
                     0, // right and left
                     -7, // up ans down
@@ -634,47 +637,47 @@
                         ]
                     }
                 ]
-            },
-            {
-                "position": [
-                    15, // right and left
-                    -9, // up and down
-                    -30 // far and near direction
-                ],
-                "rotation": [
-                    270,
-                    90,
-                    0
-                ],
-                "scale": [
-                    0.03,
-                    0.03,
-                    0.03
-                ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "train",
-                        "material": "train"
-                    },
-                    {
-                        "type": "train"
-                    },
-                    {
-                        "type": "Collision",
-                        "start": [
-                            -0.5,
-                            -5,
-                            -0.2
-                        ],
-                        "end": [
-                            0.5,
-                            6,
-                            0.1
-                        ]
-                    }
-                ]
             }
+            // {
+            //     "position": [
+            //         15, // right and left
+            //         -9, // up and down
+            //         -30 // far and near direction
+            //     ],
+            //     "rotation": [
+            //         270,
+            //         90,
+            //         0
+            //     ],
+            //     "scale": [
+            //         0.03,
+            //         0.03,
+            //         0.03
+            //     ],
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "train",
+            //             "material": "train"
+            //         },
+            //         {
+            //             "type": "train"
+            //         },
+            //         {
+            //             "type": "Collision",
+            //             "start": [
+            //                 -0.5,
+            //                 -10,
+            //                 -0.2
+            //             ],
+            //             "end": [
+            //                 0.5,
+            //                 10,
+            //                 0.1
+            //             ]
+            //         }
+            //     ]
+            // }
         ]
     }
 }

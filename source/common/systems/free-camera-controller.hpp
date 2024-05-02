@@ -29,10 +29,10 @@ namespace our
         bool key1_pressed = false;
         bool key2_pressed = false;
         our::JumpState jumpState = our::JumpState::GROUNDED;
-        int collisionFactor = 1;
+        int collisionFactor = 2;
 
-        float jumpSpeed = 17;
-        float jumpMaxHeight = 10;
+        float jumpSpeed = 12;
+        float jumpMaxHeight = 20;
 
     public:
         // When a state enters, it should call this function and give it the pointer to the application
@@ -134,6 +134,7 @@ namespace our
                     jumpState = our::JumpState::JUMPING;
                     // Start the jump
                     position.y += (deltaTime * jumpSpeed * collisionFactor);
+                    position.z -= (deltaTime * 4);
                 }
             }
             // If the player jumps higher than the max height, we set the jump state to FALLING
@@ -151,11 +152,13 @@ namespace our
             if (jumpState == our::JumpState::JUMPING)
             {
                 position.y += (deltaTime * jumpSpeed);
+                position.z -= deltaTime * 4;
             }
             else if (jumpState == our::JumpState::FALLING)
             {
                 // We update the player position based on the jump state
                 position.y -= (deltaTime * jumpSpeed);
+                position.z -= deltaTime * 4;
             }
             else
             {
