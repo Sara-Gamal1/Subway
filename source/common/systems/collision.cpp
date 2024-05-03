@@ -22,7 +22,7 @@
 
 namespace our
 {
-    bool debug = false;
+    bool debug = true;
     struct BoundingBox
     {
         float minX, maxX;
@@ -138,12 +138,6 @@ namespace our
                     {
                         std::cout << "other Obstacle " << std::endl;
                     }
-                }
-                else if (debug)
-                {
-                    std::cout << entity->name << std::endl;
-                    std::cout << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
-                }
                 }
                 else if (debug)
                 {
