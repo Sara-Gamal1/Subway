@@ -10,6 +10,7 @@
 #include "coin.hpp"
 #include "train.hpp"
 #include "fence.hpp"
+#include "end-line.hpp"
 namespace our
 {
 
@@ -55,6 +56,10 @@ namespace our
         else if (type == TrainComponent::getID())
         {
             component = entity->addComponent<TrainComponent>();
+        }
+        else if (type == EndLineComponent::getID())
+        {
+            component = entity->addComponent<EndLineComponent>();
         }
         if (component)
             component->deserialize(data);

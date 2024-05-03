@@ -8,6 +8,7 @@
 #include "../components/coin.hpp"
 #include "../components/train.hpp"
 #include "../components/fence.hpp"
+#include "../components/end-line.hpp"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
@@ -137,7 +138,7 @@ namespace our
                         std::cout << "my hearts =" << player->hearts << std::endl;
                         std::cout << "collided with obstacle : TrainComponent " << std::endl;
                     }
-                    if (entity->getComponent<CoinComponent>())
+                    else if (entity->getComponent<CoinComponent>())
                     { // if the object is an obstacle
 
                         if (this->lastCoinPosition != entity->localTransform.position)
@@ -147,6 +148,12 @@ namespace our
                         }
                         std::cout << "my score =" << player->score << std::endl;
                         std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
+                    }
+                    else if (entity->getComponent<EndLineComponent>())
+                    { // if the object is an obstacle
+
+                        std::cout << "congratulation you won with score" << player->score << std::endl;
+                        app->changeState("win"); 
                     }
                     else
                     {

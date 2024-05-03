@@ -90,6 +90,8 @@ set(COMMON_SOURCES
         source/common/components/movement.hpp
         source/common/components/movement.cpp
         source/common/components/component-deserializer.hpp
+        source/common/components/end-line.hpp
+        source/common/components/end-line.cpp
 
         source/common/systems/forward-renderer.hpp
         source/common/systems/forward-renderer.cpp
@@ -127,6 +129,7 @@ set(STATES_SOURCES
         source/states/entity-test-state.hpp
         source/states/renderer-test-state.hpp
         source/states/game-over-state.hpp
+        source/states/win-state.hpp
 )
 
 # For each example, we add an executable target

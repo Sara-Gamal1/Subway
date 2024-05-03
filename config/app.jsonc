@@ -29,12 +29,10 @@
                 "wall": "assets/textures/wall.jpg",
                 "jake": "assets/textures/Jake.jpg",
                 "train":"assets/textures/train2.jpg",
-                "coin":"assets/textures/coin.png"
-
+                "coin":"assets/textures/coin.png",
+                "end_line":"assets/textures/endLine.jpg"
             },
             "meshes": {
-              
-               
                 "plane": "assets/models/plane.obj",
                 "sphere": "assets/models/sphere.obj",
                 "jake": "assets/models/jake.obj",
@@ -43,6 +41,7 @@
                 "train": "assets/models/train.obj",
                 "coin":"assets/models/coin3.obj",
                 "heart":"assets/models/heart.obj"
+
             },
             "samplers": {
                 "default": {},
@@ -175,6 +174,20 @@
                         }
                     },
                    "texture": "coin",
+                    "sampler": "default"
+                }
+                ,"end_line": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "texture": "end_line",
                     "sampler": "default"
                 }
             }
@@ -731,6 +744,48 @@
                             0,
                             60,
                             0
+                        ]
+                    }
+                ]
+            },
+            {
+                "name":"end_line",
+                "position": [
+                    0, //right & left
+                    -9, //up & down
+                    -20 //near & far
+                ],
+                "rotation": [
+                    90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    20,
+                    7,
+                    1
+                ]
+                ,
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "end_line"
+                    },
+                    {
+                        "type": "end_line"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -100,
+                            -10,
+                            -30
+                        ],
+                        "end": [
+                            100,
+                            10,
+                            30
                         ]
                     }
                 ]
