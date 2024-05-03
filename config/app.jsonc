@@ -241,14 +241,14 @@
                                 {
                                     "type": "Collision",
                                     "start": [
-                                        -0.3,
-                                        -0.6,
-                                        -0.2
+                                        -2,
+                                        -5,
+                                        -1
                                     ],
                                     "end": [
-                                        0.3,
-                                        1,
-                                        0.5
+                                        2,
+                                        4,
+                                        5
                                     ]
                                 },
                                 {
@@ -643,6 +643,8 @@
             },
              {
                  "position": [
+             {
+                 "position": [
                     15, // right and left
                     -9, // up and down
                     -30 // far and near direction
@@ -669,6 +671,9 @@
                     {
                         "type": "Collision",
                         "start": [
+                            -10,
+                            -10,
+                            -30
                             -10,
                             -10,
                             -30
