@@ -31,9 +31,7 @@ namespace our
         bool update(World *world, float deltaTime, int heartCount,
                     float collisionStartTime);
 
-        // this function checks masala height if it is higher than threshold it decreases in height, otherwise, ti increases in height
-        void checkMasalaHeight(World *world, float deltaTime);
         // This function is called when the player collides with an obstacle
-        void decreaseHearts(World *world, int &heartCount);
+        void decreaseHearts(World *world, int count);
     };
 }

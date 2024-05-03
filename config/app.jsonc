@@ -28,7 +28,7 @@
                 "wood": "assets/textures/wood.jpg",
                 "wall": "assets/textures/wall.jpg",
                 "jake": "assets/textures/Jake.jpg",
-                "train":"assets/textures/train2.jpg",
+                "train":"assets/textures/trains.png",
                 "coin":"assets/textures/coin.png",
                 "end_line":"assets/textures/endLine.jpg"
             },
@@ -38,7 +38,7 @@
                 "jake": "assets/models/jake.obj",
                 "wall":"assets/models/wall.obj",
                 "fence": "assets/models/fence.obj",
-                "train": "assets/models/train.obj",
+                "train": "assets/models/train4.obj",
                 "coin":"assets/models/coin3.obj",
                 "heart":"assets/models/heart.obj"
 
@@ -218,7 +218,7 @@
                             0,
                             // -10
                              -5
-                              // 0
+                            //   0
                         ],
                         "angularVelocity": [
                             0,
@@ -287,9 +287,9 @@
                            {
                 "name": "heart1",
                 "position": [
-                    10, 
-                    8.5, 
-                    -10
+                    1.02, 
+                    0.85, 
+                    -1
                 ],
                 "rotation": [
                     0,
@@ -297,15 +297,20 @@
                     0
                 ],
                 "scale": [
-                    0.1,
-                    0.1,
-                    0.1
+                    0,
+                    0.01,
+                    0.009
                 ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "heart",
                         "material": "heart"
+                    }
+                    ,
+                    {
+                         "type":"heart",
+                          "number":1
                     }
                     
                 ]
@@ -313,9 +318,9 @@
                             {
                 "name": "heart2",
                 "position": [
-                    9, 
-                    8.5, 
-                    -10
+                   0.94, 
+                    0.85, 
+                    -1
                 ],
                 "rotation": [
                     0,
@@ -323,9 +328,9 @@
                     0
                 ],
                 "scale": [
-                    0.1,
-                    0.1,
-                    0.1
+                   0,
+                    0.01,
+                    0.009
                 ],
                 "components": [
                     {
@@ -333,14 +338,22 @@
                         "mesh": "heart",
                         "material": "heart"
                     }
+                    ,
+                    {
+                         "type":"heart",
+                "number":2
+                    }
                     
                 ]
             },                {
                 "name": "heart3",
+                
+                   
+                
                 "position": [
-                    8, 
-                    8.5, 
-                    -10
+                   0.86, 
+                    0.85, 
+                    -1
                 ],
                 "rotation": [
                     0,
@@ -348,15 +361,20 @@
                     0
                 ],
                 "scale": [
-                    0.1,
-                    0.1,
-                    0.1
+                   0,
+                    0.01,
+                    0.009
                 ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "heart",
                         "material": "heart"
+                    },
+
+                    {
+                         "type":"heart",
+                      "number":3
                     }
                     
                 ]
@@ -484,6 +502,7 @@
                 ]
             },
             {
+                "name":"wall",
                 "position": [
                     22,
                     -20,
@@ -644,7 +663,7 @@
                         "start": [
                             -0.5,
                             -5,
-                            -5
+                            -3
                         ],
                         "end": [
                             0.5,
@@ -654,21 +673,21 @@
                     }
                 ]
             },
-             {
+             {"name":"train",
                  "position": [
                     15, // right and left
-                    -9, // up and down
-                    -30 // far and near direction
+                    -10, // up and down
+                    -70 // far and near direction
                 ],
                 "rotation": [
-                    270,
-                    90,
+                    0,
+                    180,
                     0
                 ],
                 "scale": [
-                    0.03,
-                    0.03,
-                    0.03
+                    0.5,
+                    1,
+                    2
                 ],
                 "components": [
                     {
@@ -747,49 +766,49 @@
                         ]
                     }
                 ]
-            },
-            {
-                "name":"end_line",
-                "position": [
-                    0, //right & left
-                    -9, //up & down
-                    -20 //near & far
-                ],
-                "rotation": [
-                    90,
-                    0,
-                    0
-                ],
-                "scale": [
-                    20,
-                    7,
-                    1
-                ]
-                ,
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "end_line"
-                    },
-                    {
-                        "type": "end_line"
-                    },
-                    {
-                        "type": "Collision",
-                        "start": [
-                            -100,
-                            -10,
-                            -30
-                        ],
-                        "end": [
-                            100,
-                            10,
-                            30
-                        ]
-                    }
-                ]
             }
+            // {
+            //     "name":"end_line",
+            //     "position": [
+            //         0, //right & left
+            //         -9, //up & down
+            //         -20 //near & far
+            //     ],
+            //     "rotation": [
+            //         90,
+            //         0,
+            //         0
+            //     ],
+            //     "scale": [
+            //         20,
+            //         7,
+            //         1
+            //     ]
+            //     ,
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "plane",
+            //             "material": "end_line"
+            //         },
+            //         {
+            //             "type": "end_line"
+            //         },
+            //         {
+            //             "type": "Collision",
+            //             "start": [
+            //                 -10,
+            //                 -10,
+            //                 -10
+            //             ],
+            //             "end": [
+            //                 10,
+            //                 10,
+            //                 10
+            //             ]
+            //         }
+            //     ]
+            // }
         ]
     }
 }

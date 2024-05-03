@@ -8,6 +8,7 @@
 #include <systems/movement.hpp>
 #include <asset-loader.hpp>
 #include <systems/collision.hpp>
+#include<iostream>
 
 // This state shows how to use the ECS framework and deserialization.
 class Playstate : public our::State
@@ -18,10 +19,12 @@ class Playstate : public our::State
     our::FreeCameraControllerSystem cameraController;
     our::MovementSystem movementSystem;
     our::CollisionSystem collisionSystem;
+   
 
     void onInitialize() override
     {
         // First of all, we get the scene configuration from the app config
+       
         auto &config = getApp()->getConfig()["scene"];
         // If we have assets in the scene config, we deserialize them
         if (config.contains("assets"))

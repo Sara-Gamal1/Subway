@@ -101,9 +101,10 @@ class Menustate: public our::State {
         // - The body {} which contains the code to be executed. 
 
         ///easy button
+
         buttons[0].position = {1040.0f, 170.0f};
         buttons[0].size = {200.0f, 61.0f};
-        buttons[0].action = [this](){this->getApp()->changeState("play");};
+        buttons[0].action = [this](){this->getApp()->changeState("play");}; //2nd parameter for hardness(level)
 
         //medium button
         buttons[1].position = {1010.0f, 260.0f};

@@ -11,6 +11,7 @@
 #include "train.hpp"
 #include "fence.hpp"
 #include "end-line.hpp"
+#include "heart.hpp"
 namespace our
 {
 
@@ -60,6 +61,10 @@ namespace our
         else if (type == EndLineComponent::getID())
         {
             component = entity->addComponent<EndLineComponent>();
+        }
+        else if (type == HeartComponent::getID())
+        {
+            component = entity->addComponent<HeartComponent>();
         }
         if (component)
             component->deserialize(data);

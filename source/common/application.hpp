@@ -102,6 +102,7 @@ namespace our {
             if(it != states.end()){
                 nextState = it->second;
             }
+            
         }
 
         // Closes the Application

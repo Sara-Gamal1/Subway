@@ -9,6 +9,8 @@
 #include "../components/train.hpp"
 #include "../components/fence.hpp"
 #include "../components/end-line.hpp"
+#include "../components/heart.hpp"
+#include "../components/camera.hpp"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
@@ -23,7 +25,7 @@
 
 namespace our
 {
-    bool debug = true;
+    bool debug = false;
     struct BoundingBox
     {
         float minX, maxX;
@@ -114,29 +116,71 @@ namespace our
 
                         if (this->lastFencePosition != entity->localTransform.position)
                         {
+
+                            std::cout << "my hearts =" << player->hearts << std::endl;
+                            std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
                             if (player->hearts <= 1)
                             {
                                 app->changeState("game-over");
                             }
                             else
                             {
-                                player->hearts = player->hearts - 1;
-                                this->lastFencePosition = entity->localTransform.position;
+                                CameraComponent *camera;
+                                for (auto entity : world->getEntities())
+                                {
+                                    camera = entity->getComponent<CameraComponent>();
+                                    if (camera)
+                                        break;
+                                }
+
+                                if (camera)
+                                {
+                                    Entity *entity = camera->getOwner();
+                                    glm::vec3 &position = entity->localTransform.position;
+                                    position.x = 0;
+                                    position.y = 5;
+                                    position.z = 40;
+                                    decreaseHearts(world, player->hearts);
+                                    player->hearts = player->hearts - 1;
+                                    this->lastFencePosition = entity->localTransform.position;
+                                }
                             }
                         }
-
-                        std::cout << "my hearts =" << player->hearts << std::endl;
-                        std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
                     }
                     else if (entity->getComponent<TrainComponent>())
                     {
-                        if (player->hearts <= 1)
+                        if (this->lastFencePosition != entity->localTransform.position)
                         {
-                            app->changeState("game-over");
+                            std::cout << "my hearts =" << player->hearts << std::endl;
+                            std::cout << "collided with obstacle : TrainComponent " << std::endl;
+                            if (player->hearts <= 1)
+                            {
+
+                                app->changeState("game-over");
+                            }
+                            else
+                            {
+                                CameraComponent *camera;
+                                for (auto entity : world->getEntities())
+                                {
+                                    camera = entity->getComponent<CameraComponent>();
+                                    if (camera)
+                                        break;
+                                }
+
+                                if (camera)
+                                {
+                                    Entity *entity = camera->getOwner();
+                                    glm::vec3 &position = entity->localTransform.position;
+                                    position.x = 0;
+                                    position.y = 5;
+                                    position.z = 40;
+                                    decreaseHearts(world, player->hearts);
+                                    player->hearts = player->hearts - 1;
+                                    this->lastFencePosition = entity->localTransform.position;
+                                }
+                            }
                         }
-                        player->hearts = player->hearts - 1;
-                        std::cout << "my hearts =" << player->hearts << std::endl;
-                        std::cout << "collided with obstacle : TrainComponent " << std::endl;
                     }
                     else if (entity->getComponent<CoinComponent>())
                     { // if the object is an obstacle
@@ -153,7 +197,7 @@ namespace our
                     { // if the object is an obstacle
 
                         std::cout << "congratulation you won with score" << player->score << std::endl;
-                        app->changeState("win"); 
+                        app->changeState("win");
                     }
                     else
                     {
@@ -168,5 +212,20 @@ namespace our
             }
         }
         return collided;
+    }
+
+    void CollisionSystem::decreaseHearts(World *world, int count)
+    {
+        for (auto heartEntity : world->getEntities())
+        {
+            HeartComponent *heart = heartEntity->getComponent<HeartComponent>();
+            if (heart && heart->heartNumber == count)
+            {
+                heartEntity->localTransform.scale.x = 0.0f;
+                heartEntity->localTransform.scale.y = 0.0f;
+                heartEntity->localTransform.scale.z = 0.0f;
+                break;
+            }
+        }
     }
 }
