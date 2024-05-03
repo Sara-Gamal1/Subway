@@ -6,14 +6,17 @@
 #include <iterator>
 #include <string>
 #include <glm/glm.hpp>
-
+#include <imgui.h>
+#include <glm/gtc/type_ptr.hpp>
 namespace our
 {
 
     class World; // A forward declaration of the World Class
 
+   
     class Entity
     {
+         bool debug = true;
         World *world;                      // This defines what world own this entity
         std::list<Component *> components; // A list of components that are owned by this entity
 
@@ -140,5 +143,18 @@ namespace our
         // Entities should not be copyable
         Entity(const Entity &) = delete;
         Entity &operator=(Entity const &) = delete;
+
+        void showGUI()
+        {
+            if (debug && name != "")
+            {
+                if (ImGui::CollapsingHeader(name.c_str()))
+                {
+                    ImGui::InputFloat3("position", glm::value_ptr(localTransform.position), 3, 0.0f);
+                    ImGui::InputFloat3("rotation", glm::value_ptr(localTransform.rotation), 3, 0.0f);
+                    ImGui::InputFloat3("scaling", glm::value_ptr(localTransform.scale), 3, 0.0f);
+                }
+            }
+        }
     };
 }

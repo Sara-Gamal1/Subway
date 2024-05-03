@@ -51,6 +51,16 @@ namespace our
         void destroy();
         // This function should be called every frame to draw the given world
         void render(World *world);
+      void showGUI(World *world)
+        {
+            bool showDemoWindow = true;
+            ImGui::ShowDemoWindow(&showDemoWindow);
+            ImGui::Begin("Entities");
+
+            for (auto entity : world->getEntities())
+                entity->showGUI();
+            ImGui::End();
+        }
     };
 
 }

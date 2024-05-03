@@ -47,7 +47,7 @@ class Playstate : public our::State
         // Here, we just run a bunch of systems to control the world logic
         movementSystem.update(&world, (float)deltaTime);
         cameraController.update(&world, (float)deltaTime);
-        didCollide = collisionSystem.update(&world,0, 0, 0);
+        didCollide = collisionSystem.update(&world, 0, 0, 0);
         // And finally we use the renderer system to draw the scene
         renderer.render(&world);
 
@@ -72,4 +72,9 @@ class Playstate : public our::State
         // and we delete all the loaded assets to free memory on the RAM and the VRAM
         our::clearAllAssets();
     }
+    void onImmediateGui()
+    {
+        renderer.showGUI(&world);
+    }
+   
 };

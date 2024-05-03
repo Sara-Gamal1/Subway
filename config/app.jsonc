@@ -25,24 +25,24 @@
                 }
             },
             "textures": {
-                "moon": "assets/textures/moon.jpg",
-                "grass": "assets/textures/grass_ground_d.jpg",
                 "wood": "assets/textures/wood.jpg",
-                "glass": "assets/textures/glass-panels.png",
-                "monkey": "assets/textures/monkey.png",
                 "wall": "assets/textures/wall.jpg",
-                "jake": "assets/textures/jake.png",
-                "train":"assets/textures/train2.jpg"
+                "jake": "assets/textures/Jake.jpg",
+                "train":"assets/textures/train2.jpg",
+                "coin":"assets/textures/coin.png"
+
             },
             "meshes": {
-                "cube": "assets/models/cube.obj",
-                "monkey": "assets/models/monkey.obj",
+              
+               
                 "plane": "assets/models/plane.obj",
                 "sphere": "assets/models/sphere.obj",
                 "jake": "assets/models/jake.obj",
                 "wall":"assets/models/wall.obj",
                 "fence": "assets/models/fence.obj",
-                "train": "assets/models/train.obj"
+                "train": "assets/models/train.obj",
+                "coin":"assets/models/coin3.obj",
+                "heart":"assets/models/heart.obj"
             },
             "samplers": {
                 "default": {},
@@ -51,24 +51,7 @@
                 }
             },
             "materials": {
-                "metal": {
-                    "type": "tinted",
-                    "shader": "tinted",
-                    "pipelineState": {
-                        "faceCulling": {
-                            "enabled": false
-                        },
-                        "depthTesting": {
-                            "enabled": true
-                        }
-                    },
-                    "tint": [
-                        0.45,
-                        0.4,
-                        0.5,
-                        1
-                    ]
-                },
+               
                 "fence": {
                     "type": "tinted",
                     "shader": "tinted",
@@ -87,6 +70,24 @@
                         1
                     ]
                 },
+                 "heart": {
+                    "type": "tinted",
+                    "shader": "tinted",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        0,
+                        0,
+                        1
+                    ]
+                },
                 "train": {
                     "type": "textured",
                     "shader": "textured",
@@ -98,103 +99,11 @@
                             "enabled": true
                         }
                     },
-                    // "tint": [
-                    //     1,
-                    //     0,
-                    //     0,
-                    //     1
-                    // ],
+                    
                     "texture": "train",
                     "sampler": "default"
                 },
-                "glass": {
-                    "type": "textured",
-                    "shader": "textured",
-                    "pipelineState": {
-                        "faceCulling": {
-                            "enabled": false
-                        },
-                        "depthTesting": {
-                            "enabled": true
-                        },
-                        "blending": {
-                            "enabled": true,
-                            "sourceFactor": "GL_SRC_ALPHA",
-                            "destinationFactor": "GL_ONE_MINUS_SRC_ALPHA"
-                        },
-                        "depthMask": false
-                    },
-                    "transparent": true,
-                    "tint": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ],
-                    "texture": "glass",
-                    "sampler": "pixelated"
-                },
-                "grass": {
-                    "type": "textured",
-                    "shader": "textured",
-                    "pipelineState": {
-                        "faceCulling": {
-                            "enabled": false
-                        },
-                        "depthTesting": {
-                            "enabled": true
-                        }
-                    },
-                    "tint": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ],
-                    "texture": "grass",
-                    "sampler": "default"
-                },
-                "monkey": {
-                    "type": "textured",
-                    "shader": "textured",
-                    "pipelineState": {
-                        "faceCulling": {
-                            "enabled": false
-                        },
-                        "depthTesting": {
-                            "enabled": true
-                        }
-                    },
-                    "tint": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ],
-                    "texture": "monkey",
-                    "sampler": "default"
-                },
-                "moon": {
-                    "type": "textured",
-                    "shader": "textured",
-                    "pipelineState": {
-                        "faceCulling": {
-                            "enabled": false
-                        },
-                        "depthTesting": {
-                            "enabled": true
-                        }
-                    },
-                    "tint": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ],
-                    "texture": "moon",
-                    "sampler": "default"
-                },
-                "wood": {
+                 "wood": {
                     "type": "textured",
                     "shader": "textured",
                     "pipelineState": {
@@ -254,7 +163,20 @@
                     "texture": "jake",
                     "sampler": "default"
                 }
-                
+                ,"coin": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                   "texture": "coin",
+                    "sampler": "default"
+                }
             }
         },
 
@@ -268,7 +190,9 @@
                     // -100
                 ],
                 "components": [
-                    {
+                   
+                    
+                    { 
                         "type": "Camera"
                     },
                     {
@@ -280,8 +204,8 @@
                             0,
                             0,
                             // -10
-                            -5
-                            //    0
+                             -5
+                              // 0
                         ],
                         "angularVelocity": [
                             0,
@@ -291,7 +215,7 @@
                     }
                 ],
                 "children": [
-                        {   
+                        {  "name":"jake",
                             "position": [
                                 0,
                                 -5,
@@ -305,12 +229,14 @@
                             "scale": [
                                 0.35,
                                 0.35,
-                                0.35
+                            0.35
                             ],
                             "components": [
                                 {
                                     "type": "player",
-                                    "speed": 4
+                                    "speed": 4,
+                                    "score":0,
+                                    "hearts":3
                                 },
                                 {
                                     "type": "Collision",
@@ -344,7 +270,84 @@
                                     ]
                                 }
                             ]
-                        }
+                        },
+                           {
+                "name": "heart1",
+                "position": [
+                    10, 
+                    8.5, 
+                    -10
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "heart",
+                        "material": "heart"
+                    }
+                    
+                ]
+            },
+                            {
+                "name": "heart2",
+                "position": [
+                    9, 
+                    8.5, 
+                    -10
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "heart",
+                        "material": "heart"
+                    }
+                    
+                ]
+            },                {
+                "name": "heart3",
+                "position": [
+                    8, 
+                    8.5, 
+                    -10
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "heart",
+                        "material": "heart"
+                    }
+                    
+                ]
+            }
                 ]
             },
             {
@@ -515,87 +518,90 @@
                     }
                 ]
             },
+            // {
+            //     "name": "left fence",
+            //     "position": [
+            //         -13, // right and left
+            //         -7, // up ans down
+            //         -5
+            //     ],
+            //     "rotation": [
+            //         0,
+            //         90,
+            //         0
+            //     ],
+            //     "scale": [
+            //         0.7,
+            //         0.7,
+            //         0.7
+            //     ],
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "fence",
+            //             "material": "fence"
+            //         },
+            //         {
+            //             "type": "fence"
+            //         },
+            //         {
+            //             "type": "Collision",
+            //             "start": [
+            //                 -0.5,
+            //                 -5,
+            //                 -0.2
+            //             ],
+            //             "end": [
+            //                 0.5,
+            //                 6,
+            //                 0.1
+            //             ]
+            //         }
+            //     ]
+            // },
+            // {
+            //     "name": "right fence",
+            //     "position": [
+            //         13, // right and left
+            //         -7, // up ans down
+            //         -5
+            //     ],
+            //     "rotation": [
+            //         0,
+            //         90,
+            //         0
+            //     ],
+            //     "scale": [
+            //         0.7,
+            //         0.7,
+            //         0.7
+            //     ],
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "fence",
+            //             "material": "fence"
+            //         },
+            //         {
+            //             "type": "fence"
+            //         },
+            //         {
+            //             "type": "Collision",
+            //             "start": [
+            //                 -0.5,
+            //                 -5,
+            //                 -0.2
+            //             ],
+            //             "end": [
+            //                 0.5,
+            //                 6,
+            //                 0.1
+            //             ]
+            //         }
+            //     ]
+            // },
             {
-                "position": [
-                    -13,
-                    -7,
-                    -5
-                ],
-                "rotation": [
-                    0,
-                    90,
-                    0
-                ],
-                "scale": [
-                    0.7,
-                    0.7,
-                    0.7
-                ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "fence",
-                        "material": "fence"
-                    },
-                    {
-                        "type": "fence"
-                    },
-                    {
-                        "type": "Collision",
-                        "start": [
-                            -0.5,
-                            -5,
-                            -0.2
-                        ],
-                        "end": [
-                            0.5,
-                            6,
-                            0.1
-                        ]
-                    }
-                ]
-            },
-            {
-                "position": [
-                    13, // right and left
-                    -7, // up ans down
-                    -5
-                ],
-                "rotation": [
-                    0,
-                    90,
-                    0
-                ],
-                "scale": [
-                    0.7,
-                    0.7,
-                    0.7
-                ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "fence",
-                        "material": "fence"
-                    },
-                    {
-                        "type": "fence"
-                    },
-                    {
-                        "type": "Collision",
-                        "start": [
-                            -0.5,
-                            -5,
-                            -0.2
-                        ],
-                        "end": [
-                            0.5,
-                            6,
-                            0.1
-                        ]
-                    }
-                ]
-            },
-            {
+                "name": "middle fence",
                 "position": [
                     0, // right and left
                     -7, // up ans down
@@ -625,18 +631,18 @@
                         "start": [
                             -0.5,
                             -5,
-                            -0.2
+                            -5
                         ],
                         "end": [
                             0.5,
                             6,
-                            0.1
+                            5
                         ]
                     }
                 ]
             },
-            {
-                "position": [
+             {
+                 "position": [
                     15, // right and left
                     -9, // up and down
                     -30 // far and near direction
@@ -663,18 +669,63 @@
                     {
                         "type": "Collision",
                         "start": [
-                            -0.5,
-                            -5,
-                            -0.2
+                            -10,
+                            -10,
+                            -30
                         ],
                         "end": [
-                            0.5,
-                            6,
-                            0.1
+                            10,
+                            10,
+                            30
                         ]
                     }
                 ]
+            },
+            {
+            "name":"coin",
+           "position": [
+                    0, // right and left
+                    0, // up and down
+                    0 // far and near direction
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ],
+                "scale": [
+                    0.03,
+                    0.015,
+                    0.1
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                         "mesh": "coin",
+                        "material": "coin"
+                    }
+                    // {
+                    //     "type": "coin"
+                    // },
+                    // {
+                    //     "type": "Collision",
+                    //     "start": [
+                    //         -10,
+                    //         -10,
+                    //         -30
+                    //     ],
+                    //     "end": [
+                    //         10,
+                    //         10,
+                    //         30
+                    //     ]
+                    // }
+                ]
+
+
             }
+          
+
         ]
     }
 }

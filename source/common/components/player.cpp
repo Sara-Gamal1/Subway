@@ -8,6 +8,8 @@ namespace our {
     void PlayerComponent::deserialize(const nlohmann::json &data) {
         if (!data.is_object()) return;
         this->speed = data.value("speed", this->speed);
+        this->score = data.value("score", this->score);
+        this->hearts = data.value("hearts", this->hearts);
         if(data.contains("components")){
             if(const auto& components = data["components"]; components.is_array()){
                 for(auto& component: components){

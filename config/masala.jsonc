@@ -1,0 +1,1445 @@
+{
+    "start-scene": "menu",
+    "difficulty": [
+        1,
+        2,
+        4
+    ],
+    "window": {
+        "title": "Masalat Molthba",
+        "size": {
+            "width": 1280,
+            "height": 720
+        },
+        "fullscreen": false
+    },
+    "scene": {
+        "renderer": {
+            "sky": "assets/textures/sky.jpg",
+            "postprocess": "assets/shaders/postprocess/vignette.frag"
+        },
+        "assets": {
+            "shaders": {
+                "tinted": {
+                    "vs": "assets/shaders/tinted.vert",
+                    "fs": "assets/shaders/tinted.frag"
+                },
+                "textured": {
+                    "vs": "assets/shaders/textured.vert",
+                    "fs": "assets/shaders/textured.frag"
+                },
+                "light": {
+                    "vs": "assets/shaders/light.vert",
+                    "fs": "assets/shaders/light.frag"
+                }
+            },
+            "textures": {
+                "moon": "assets/textures/moon.jpg",
+                "wood": "assets/textures/wood.jpg",
+                "glass": "assets/textures/glass-panels.png",
+                "monkey": "assets/textures/monkey.png",
+                "masala": "assets/textures/masala/FancObel_t.jpeg",
+                "house_albedo": "assets/textures/house/house_albedo.jpg",
+                "house_specular": "assets/textures/house/house_specular.jpg",
+                "house_roughness": "assets/textures/house/house_roughness.jpg",
+                "house_ambient_occlusion": "assets/textures/house/house_ambient_occlusion.jpg",
+                "house_emissive": "assets/textures/house/house_emissive.jpg",
+                "road_albedo": "assets/textures/road_albedo2.png",
+                "road_specular": "assets/textures/road_specular2.png",
+                "road_roughness": "assets/textures/road_roughness2.png",
+                "road_ambient_occlusion": "assets/textures/road_AO2.png",
+                "road_emissive": "assets/textures/road_emissive2.png",
+                "road": "assets/textures/road.jpg",
+                "house2_normal": "assets/textures/cottage_normal.png",
+                "house2_diffuse": "assets/textures/cottage_diffuse.png",
+                "road2": "assets/textures/road2.jpg",
+                "man_norm": "assets/textures/rp_dennis_posed_004_norm.jpg",
+                "man_diff": "assets/textures/rp_dennis_posed_004_dif.jpg",
+                "finalLine": "assets/textures/finalLine.jpg",
+                "street_light": "assets/textures/streat_light.png",
+                "gem_heart": "assets/textures/gem_heart.png"
+            },
+            "meshes": {
+                "cube": "assets/models/cube.obj",
+                "monkey": "assets/models/monkey.obj",
+                "plane": "assets/models/plane.obj",
+                "sphere": "assets/models/sphere.obj",
+                "masala": "assets/models/masala.obj",
+                "house2": "assets/models/house2.obj",
+                "man": "assets/models/man.obj",
+                "heart": "assets/models/heart.obj",
+                "StreetLight": "assets/models/streetlamp.obj",
+                "gem_heart": "assets/models/gem_heart.obj"
+            },
+            "samplers": {
+                "default": {},
+                "pixelated": {
+                    "MAG_FILTER": "GL_NEAREST"
+                }
+            },
+            "materials": {
+                "metal": {
+                    "type": "tinted",
+                    "shader": "tinted",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        0.36,
+                        0.4,
+                        0.5,
+                        1
+                    ]
+                },
+                "glass": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        },
+                        "blending": {
+                            "enabled": true,
+                            "sourceFactor": "GL_SRC_ALPHA",
+                            "destinationFactor": "GL_ONE_MINUS_SRC_ALPHA"
+                        },
+                        "depthMask": false
+                    },
+                    "transparent": true,
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "glass",
+                    "sampler": "pixelated"
+                },
+                "monkey": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "monkey",
+                    "sampler": "default"
+                },
+                "moon": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "moon",
+                    "sampler": "default"
+                },
+                "masala": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "masala",
+                    "sampler": "default"
+                },
+                "house2": {
+                    "type": "lighted",
+                    "shader": "light",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "house2_diffuse",
+                    "albedo": "house_albedo",
+                    "specular": "house_specular",
+                    "roughness": "house_roughness",
+                    "ambient_occlusion": "house_ambient_occlusion",
+                    "emissive": "house_emissive",
+                    "sampler": "default"
+                },
+                "man": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "man_diff",
+                    "albedo": "man_norm",
+                    "sampler": "default"
+                },
+                "road": {
+                    "type": "lighted",
+                    "shader": "light",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "road",
+                    "albedo": "road_albedo",
+                    "specular": "road_specular",
+                    "roughness": "road_roughness",
+                    "emissive": "road_emissive",
+                    "ambient_occlusion": "road_ambient_occlusion",
+                    "sampler": "default"
+                },
+                "road2": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "road2",
+                    "sampler": "default"
+                },
+                "finalLine": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "finalLine",
+                    "sampler": "default"
+                },
+                "heart": {
+                    "type": "tinted",
+                    "shader": "tinted",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                "StreetLight": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "street_light",
+                    "sampler": "default"
+                },
+                "gem_heart": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "gem_heart",
+                    "sampler": "default"
+                }
+            }
+        },
+        "world": [
+            {
+                "position": [
+                    0,
+                    50,
+                    5
+                ],
+                "components": [
+                    {
+                        "name": "camera",
+                        "type": "Camera"
+                    },
+                    {
+                        "name": "cameraController",
+                        "type": "Free Camera Controller"
+                    }
+                ],
+                "children": [
+                    {
+                        "position": [
+                            0,
+                            -2,
+                            -3
+                        ],
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ],
+                        "scale": [
+                            0.8,
+                            0.8,
+                            0.8
+                        ],
+                        "components": [
+                            {
+                                "type": "Player",
+                                "speed": 4
+                            },
+                            {
+                                "type": "Collision",
+                                "start": [
+                                    -0.3,
+                                    -0.6,
+                                    -0.2
+                                ],
+                                "end": [
+                                    0.3,
+                                    1,
+                                    0.5
+                                ]
+                            },
+                            {
+                                "name": "1",
+                                "type": "Mesh Renderer",
+                                "mesh": "man",
+                                "material": "man"
+                            }
+                        ]
+                    },
+                    {
+                        "position": [
+                            -1,
+                            2,
+                            -4
+                        ],
+                        "rotation": [
+                            0,
+                            -40,
+                            0
+                        ],
+                        "scale": [
+                            0.05,
+                            0.05,
+                            0.05
+                        ],
+                        "components": [
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "heart",
+                                "material": "heart"
+                            },
+                            {
+                                "type": "Heart",
+                                "number": 1
+                            },
+                            {
+                                "type": "Movement",
+                                "angularVelocity": [
+                                    0,
+                                    270,
+                                    0
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "position": [
+                            0,
+                            2,
+                            -4
+                        ],
+                        "rotation": [
+                            0,
+                            -40,
+                            0
+                        ],
+                        "scale": [
+                            0.05,
+                            0.05,
+                            0.05
+                        ],
+                        "components": [
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "heart",
+                                "material": "heart"
+                            },
+                            {
+                                "type": "Heart",
+                                "number": 2
+                            },
+                            {
+                                "type": "Movement",
+                                "angularVelocity": [
+                                    0,
+                                    270,
+                                    0
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "position": [
+                            1,
+                            2,
+                            -4
+                        ],
+                        "rotation": [
+                            0,
+                            -40,
+                            0
+                        ],
+                        "scale": [
+                            0.05,
+                            0.05,
+                            0.05
+                        ],
+                        "components": [
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "heart",
+                                "material": "heart"
+                            },
+                            {
+                                "type": "Heart",
+                                "number": 3
+                            },
+                            {
+                                "type": "Movement",
+                                "angularVelocity": [
+                                    0,
+                                    270,
+                                    0
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    0,
+                    -1,
+                    0
+                ],
+                "rotation": [
+                    -90,
+                    90,
+                    0
+                ],
+                "scale": [
+                    1000,
+                    10,
+                    1
+                ],
+                "components": [
+                    {
+                        "name": "road1",
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    20,
+                    -1,
+                    0
+                ],
+                "rotation": [
+                    -90,
+                    90,
+                    0
+                ],
+                "scale": [
+                    1000,
+                    10,
+                    1
+                ],
+                "components": [
+                    {
+                        "name": "road2",
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road2"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -20,
+                    -1,
+                    0
+                ],
+                "rotation": [
+                    -90,
+                    90,
+                    0
+                ],
+                "scale": [
+                    1000,
+                    10,
+                    1
+                ],
+                "components": [
+                    {
+                        "name": "road2",
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road2"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -7,
+                    -7,
+                    -100
+                ],
+                "scale": [
+                    1,
+                    0.9,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    10,
+                    false,
+                    true
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "masala",
+                        "material": "masala"
+                    },
+                    {
+                        "type": "Masala"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.5,
+                            -5,
+                            -0.2
+                        ],
+                        "end": [
+                            0.5,
+                            6,
+                            0.1
+                        ]
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -50
+                        ],
+                        "random": true
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -7,
+                    -7,
+                    -50
+                ],
+                "scale": [
+                    1,
+                    0.9,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    10,
+                    false,
+                    true
+                ],
+                "components": [
+                    {
+                        "name": "2",
+                        "type": "Mesh Renderer",
+                        "mesh": "masala",
+                        "material": "masala"
+                    },
+                    {
+                        "type": "Masala"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.5,
+                            -5,
+                            -0.2
+                        ],
+                        "end": [
+                            0.5,
+                            6,
+                            0.1
+                        ]
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -50
+                        ],
+                        "random": true
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -7,
+                    -7,
+                    -30
+                ],
+                "scale": [
+                    1,
+                    0.9,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    10,
+                    false,
+                    true
+                ],
+                "components": [
+                    {
+                        "name": "2",
+                        "type": "Mesh Renderer",
+                        "mesh": "masala",
+                        "material": "masala"
+                    },
+                    {
+                        "type": "Masala"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.5,
+                            -5,
+                            -0.2
+                        ],
+                        "end": [
+                            0.5,
+                            6,
+                            0.1
+                        ]
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -50
+                        ],
+                        "random": true
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -7,
+                    -7,
+                    -10
+                ],
+                "duplicates": [
+                    2,
+                    10,
+                    false,
+                    true
+                ],
+                "components": [
+                    {
+                        "name": "omar masala",
+                        "type": "Mesh Renderer",
+                        "mesh": "masala",
+                        "material": "masala"
+                    },
+                    {
+                        "type": "Masala"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.5,
+                            -5,
+                            -0.2
+                        ],
+                        "end": [
+                            0.5,
+                            6,
+                            0.1
+                        ]
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -100
+                        ],
+                        "random": true
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -18,
+                    0,
+                    -20
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    36,
+                    false,
+                    false
+                ],
+                "components": [
+                    {
+                        "name": "house2",
+                        "type": "Mesh Renderer",
+                        "mesh": "house2",
+                        "material": "house2"
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -200
+                        ]
+                    },
+                    {
+                        "type": "Light",
+                        "lightType": "spot",
+                        "color": [
+                            1,
+                            0.2,
+                            0.2
+                        ],
+                        "attenuation": [
+                            0,
+                            0,
+                            0.001
+                        ],
+                        "coneAngles": [
+                            40,
+                            50
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -18,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    36,
+                    false,
+                    false
+                ],
+                "components": [
+                    {
+                        "name": "house2",
+                        "type": "Mesh Renderer",
+                        "mesh": "house2",
+                        "material": "house2"
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -200
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -18,
+                    0,
+                    20
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    36,
+                    false,
+                    false
+                ],
+                "components": [
+                    {
+                        "name": "house2",
+                        "type": "Mesh Renderer",
+                        "mesh": "house2",
+                        "material": "house2"
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -200
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -18,
+                    0,
+                    40
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    36,
+                    false,
+                    false
+                ],
+                "components": [
+                    {
+                        "name": "house2",
+                        "type": "Mesh Renderer",
+                        "mesh": "house2",
+                        "material": "house2"
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -200
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -18,
+                    0,
+                    60
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    36,
+                    false,
+                    false
+                ],
+                "components": [
+                    {
+                        "name": "house2",
+                        "type": "Mesh Renderer",
+                        "mesh": "house2",
+                        "material": "house2"
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -200
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -18,
+                    0,
+                    80
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    36,
+                    false,
+                    false
+                ],
+                "components": [
+                    {
+                        "name": "house2",
+                        "type": "Mesh Renderer",
+                        "mesh": "house2",
+                        "material": "house2"
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -200
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -18,
+                    0,
+                    100
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    36,
+                    false,
+                    false
+                ],
+                "components": [
+                    {
+                        "name": "house2",
+                        "type": "Mesh Renderer",
+                        "mesh": "house2",
+                        "material": "house2"
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -200
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -18,
+                    0,
+                    120
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    36,
+                    false,
+                    false
+                ],
+                "components": [
+                    {
+                        "name": "house2",
+                        "type": "Mesh Renderer",
+                        "mesh": "house2",
+                        "material": "house2"
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -200
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -18,
+                    0,
+                    140
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    36,
+                    false,
+                    false
+                ],
+                "components": [
+                    {
+                        "name": "house2",
+                        "type": "Mesh Renderer",
+                        "mesh": "house2",
+                        "material": "house2"
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -200
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -18,
+                    0,
+                    160
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    36,
+                    false,
+                    false
+                ],
+                "components": [
+                    {
+                        "name": "house2",
+                        "type": "Mesh Renderer",
+                        "mesh": "house2",
+                        "material": "house2"
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -200
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -18,
+                    0,
+                    180
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    36,
+                    false,
+                    false
+                ],
+                "components": [
+                    {
+                        "name": "house2",
+                        "type": "Mesh Renderer",
+                        "mesh": "house2",
+                        "material": "house2"
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -200
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -18,
+                    0,
+                    200
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    2,
+                    36,
+                    false,
+                    false
+                ],
+                "components": [
+                    {
+                        "name": "house2",
+                        "type": "Mesh Renderer",
+                        "mesh": "house2",
+                        "material": "house2"
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -200
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    0,
+                    50,
+                    0
+                ],
+                "name": "spot light",
+                "components": [
+                    {
+                        "type": "Light",
+                        "lightType": "spot",
+                        "color": [
+                            1,
+                            0.2,
+                            0.2
+                        ],
+                        "attenuation": [
+                            0,
+                            0,
+                            0.001
+                        ],
+                        "coneAngles": [
+                            40,
+                            50
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    0,
+                    -0.9,
+                    -500
+                ],
+                "rotation": [
+                    90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    10,
+                    2,
+                    1
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "finalLine"
+                    },
+                    {
+                        "type": "FinalLine"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -8.5,
+                    -0.9,
+                    -30
+                ],
+                "scale": [
+                    1,
+                    0.8,
+                    1
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "StreetLight",
+                        "material": "StreetLight"
+                    },
+                    {
+                        "type": "Light",
+                        "lightType": "spot",
+                        "direction": [
+                            10,
+                            -30,
+                            0.0
+                        ],
+                        "color": [
+                            120,
+                            43,
+                            33
+                        ],
+                        "attenuation": [
+                            0.08,
+                            0.08,
+                            0.08
+                        ],
+                        "coneAngles": [
+                            80,
+                            120
+                        ]
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -30
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    11,
+                    -0.9,
+                    -30
+                ],
+                "scale": [
+                    1,
+                    0.8,
+                    1
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "StreetLight",
+                        "material": "StreetLight"
+                    },
+                    {
+                        "type": "Light",
+                        "lightType": "spot",
+                        "direction": [
+                            10,
+                            -30,
+                            0.0
+                        ],
+                        "color": [
+                            120,
+                            43,
+                            33
+                        ],
+                        "attenuation": [
+                            0.08,
+                            0.08,
+                            0.08
+                        ],
+                        "coneAngles": [
+                            80,
+                            120
+                        ]
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -30
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    0,
+                    1,
+                    -70
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.03,
+                    0.03,
+                    0.03
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "gem_heart",
+                        "material": "gem_heart"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.5,
+                            -5,
+                            -0.2
+                        ],
+                        "end": [
+                            0.5,
+                            6,
+                            0.1
+                        ]
+                    },
+                    {
+                        "type": "GemHeart"
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "angularVelocity": [
+                            0,
+                            90,
+                            0
+                        ]
+                    },
+                    {
+                        "type": "Repeat",
+                        "translation": [
+                            0,
+                            0,
+                            -50
+                        ],
+                        "random": true
+                    }
+                ]
+            }
+        ]
+    }
+}

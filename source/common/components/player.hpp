@@ -16,6 +16,8 @@ namespace our {
     public:
         glm::float32 speed = 1; // Each frame, the entity should move as follows: position += linearVelocity * deltaTime
         Application *app;
+        int score;
+        int hearts;
         static std::string getID() { return "player"; }
 
         void enter(Application *app)

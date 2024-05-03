@@ -97,6 +97,7 @@ set(COMMON_SOURCES
         source/common/systems/collision.cpp
         source/common/systems/free-camera-controller.hpp
         source/common/systems/movement.hpp
+        
 )
 
 # Define the directories in which to search for the included headers
@@ -125,6 +126,7 @@ set(STATES_SOURCES
         source/states/material-test-state.hpp
         source/states/entity-test-state.hpp
         source/states/renderer-test-state.hpp
+        source/states/game-over-state.hpp
 )
 
 # For each example, we add an executable target
