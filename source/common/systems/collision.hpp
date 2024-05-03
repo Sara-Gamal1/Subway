@@ -15,6 +15,8 @@ namespace our
     {
 
     public:
+        glm::vec3 lastCoinPosition;
+        glm::vec3 lastFencePosition;
         CollisionSystem()
         {
         }

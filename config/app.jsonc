@@ -684,9 +684,9 @@
             {
             "name":"coin",
            "position": [
-                    0, // right and left
-                    0, // up and down
-                    0 // far and near direction
+                    0.7, // right and left
+                    -5, // up and down
+                    -2 // far and near direction
                 ],
                 "rotation": [
                     0,
@@ -703,23 +703,23 @@
                         "type": "Mesh Renderer",
                          "mesh": "coin",
                         "material": "coin"
+                    },
+                    {
+                        "type": "coin"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.6,
+                            -0.6,
+                            -0.6
+                        ],
+                        "end": [
+                            0.6,
+                            0.6,
+                            0.6
+                        ]
                     }
-                    // {
-                    //     "type": "coin"
-                    // },
-                    // {
-                    //     "type": "Collision",
-                    //     "start": [
-                    //         -10,
-                    //         -10,
-                    //         -30
-                    //     ],
-                    //     "end": [
-                    //         10,
-                    //         10,
-                    //         30
-                    //     ]
-                    // }
                 ]
 
 

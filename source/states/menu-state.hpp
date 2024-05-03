@@ -45,7 +45,7 @@ class Menustate: public our::State {
     // A variable to record the time since the state is entered (it will be used for the fading effect).
     float time;
     // An array of the button that we can interact with
-    std::array<Button, 2> buttons;
+    std::array<Button, 4> buttons;
 
     void onInitialize() override {
         // First, we create a material for the menu's background
@@ -56,7 +56,7 @@ class Menustate: public our::State {
         menuMaterial->shader->attach("assets/shaders/textured.frag", GL_FRAGMENT_SHADER);
         menuMaterial->shader->link();
         // Then we load the menu texture
-        menuMaterial->texture = our::texture_utils::loadImage("assets/textures/menu2.jpg");
+        menuMaterial->texture = our::texture_utils::loadImage("assets/textures/menu3.png");
         // Initially, the menu material will be black, then it will fade in
         menuMaterial->tint = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
 
@@ -99,13 +99,26 @@ class Menustate: public our::State {
         // - The argument list () which is the arguments that the lambda should receive when it is called.
         //      We leave it empty since button actions receive no input.
         // - The body {} which contains the code to be executed. 
-        buttons[0].position = {830.0f, 607.0f};
-        buttons[0].size = {400.0f, 33.0f};
+
+        ///easy button
+        buttons[0].position = {1040.0f, 170.0f};
+        buttons[0].size = {200.0f, 61.0f};
         buttons[0].action = [this](){this->getApp()->changeState("play");};
 
-        buttons[1].position = {830.0f, 644.0f};
-        buttons[1].size = {400.0f, 33.0f};
-        buttons[1].action = [this](){this->getApp()->close();};
+        //medium button
+        buttons[1].position = {1010.0f, 260.0f};
+        buttons[1].size = {200.0f, 61.0f};
+        buttons[1].action = [this](){this->getApp()->changeState("play");};
+
+        //hard button
+        buttons[2].position = {1040.0f, 350.0f};
+        buttons[2].size = {200.0f, 61.0f};
+        buttons[2].action = [this](){this->getApp()->changeState("play");};
+
+        //exit button
+        buttons[3].position = {725.0f, 450.0f};
+        buttons[3].size = {500.0f, 61.0f};
+        buttons[3].action = [this](){this->getApp()->close();};
     }
 
     void onDraw(double deltaTime) override {

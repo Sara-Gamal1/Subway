@@ -110,11 +110,20 @@ namespace our
                     // Player hits an obstacle
                     if (entity->getComponent<FenceComponent>())
                     { // if the object is an obstacle
-                        if (player->hearts == 1)
+
+                        if (this->lastFencePosition != entity->localTransform.position)
                         {
-                            app->changeState("game-over");
+                            if (player->hearts <= 1)
+                            {
+                                app->changeState("game-over");
+                            }
+                            else
+                            {
+                                player->hearts = player->hearts - 1;
+                                this->lastFencePosition = entity->localTransform.position;
+                            }
                         }
-                        player->hearts = player->hearts - 1;
+
                         std::cout << "my hearts =" << player->hearts << std::endl;
                         std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
                     }
@@ -130,7 +139,12 @@ namespace our
                     }
                     if (entity->getComponent<CoinComponent>())
                     { // if the object is an obstacle
-                        player->score = player->score + 10;
+
+                        if (this->lastCoinPosition != entity->localTransform.position)
+                        {
+                            player->score = player->score + 10;
+                            this->lastCoinPosition = entity->localTransform.position;
+                        }
                         std::cout << "my score =" << player->score << std::endl;
                         std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
                     }
