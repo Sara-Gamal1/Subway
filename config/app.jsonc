@@ -696,12 +696,12 @@
                 "scale": [
                     0.03,
                     0.015,
-                    0.1
+                    0.01
                 ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
-                         "mesh": "coin",
+                        "mesh": "coin",
                         "material": "coin"
                     },
                     {
@@ -719,13 +719,22 @@
                             0.6,
                             0.6
                         ]
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "angularVelocity": [
+                            0,
+                            60,
+                            0
+                        ]
                     }
                 ]
-
-
             }
-          
-
         ]
     }
 }
