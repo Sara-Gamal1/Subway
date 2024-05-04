@@ -1,0 +1,138 @@
+               { "world":                
+               [
+                {"name":" middle train",
+                "position": [
+                    11, // right and left       11 or -11
+                    -10, // up and down
+                    -100 // far and near direction
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    0
+                ],
+                "scale": [
+                    0.6,
+                    1,
+                    1
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "train",
+                        "material": "train"
+                    },
+                    {
+                        "type": "train"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -10,
+                            -10,
+                            -24
+                        ],
+                        "end": [
+                            10,
+                            10,
+                            30
+                        ]
+                    }
+                ]
+            }
+            ,
+            {"name":"coin",
+            "position": [
+                    8, // right and left   8 or 0 or -8
+                    -2, // up and down
+                    -200 // far and near direction
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ],
+                "scale": [
+                    0.03,
+                    0.015,
+                    0.01
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "coin",
+                        "material": "coin"
+                    },
+                    {
+                        "type": "coin"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -3.5,
+                            -4.5,
+                            -2
+                        ],
+                        "end": [
+                            3.5,
+                            4.5,
+                            2
+                        ]
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "angularVelocity": [
+                            0,
+                            60,
+                            0
+                        ]
+                    }
+                ]
+            }
+            ,
+            {"name": "middle fence",
+                "position": [
+                    0, // right and left
+                    -7, // up ans down
+                    -20
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.7,
+                    0.7,
+                    0.7
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    },
+                    {
+                        "type": "fence"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.5,
+                            -5,
+                            3
+                        ],
+                        "end": [
+                            0.5,
+                            6,
+                            5
+                        ]
+                    }
+                ]
+            }
+            ]}

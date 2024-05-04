@@ -25,7 +25,7 @@
 
 namespace our
 {
-    bool debug = true;
+    bool debug = false;
     struct BoundingBox
     {
         float minX, maxX;

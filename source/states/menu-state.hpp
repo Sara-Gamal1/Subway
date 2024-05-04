@@ -23,6 +23,7 @@ struct Button {
         return position.x <= v.x && position.y <= v.y &&
             v.x <= position.x + size.x &&
             v.y <= position.y + size.y;
+        
     }
 
     // This function returns the local to world matrix to transform a rectangle of size 1x1
@@ -56,7 +57,7 @@ class Menustate: public our::State {
         menuMaterial->shader->attach("assets/shaders/textured.frag", GL_FRAGMENT_SHADER);
         menuMaterial->shader->link();
         // Then we load the menu texture
-        menuMaterial->texture = our::texture_utils::loadImage("assets/textures/menu3.png");
+        menuMaterial->texture = our::texture_utils::loadImage("assets/textures/menu.png");
         // Initially, the menu material will be black, then it will fade in
         menuMaterial->tint = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
 
@@ -102,23 +103,23 @@ class Menustate: public our::State {
 
         ///easy button
 
-        buttons[0].position = {1040.0f, 170.0f};
-        buttons[0].size = {200.0f, 61.0f};
+        buttons[0].position = {250.0f, 540.0f};
+        buttons[0].size = {280.0f, 61.0f};
         buttons[0].action = [this](){this->getApp()->changeState("play");}; //2nd parameter for hardness(level)
 
         //medium button
-        buttons[1].position = {1010.0f, 260.0f};
-        buttons[1].size = {200.0f, 61.0f};
+        buttons[1].position = {750.0f, 540.0f};
+        buttons[1].size = {280.0f, 61.0f};
         buttons[1].action = [this](){this->getApp()->changeState("play");};
 
         //hard button
-        buttons[2].position = {1040.0f, 350.0f};
-        buttons[2].size = {200.0f, 61.0f};
+        buttons[2].position = {470.0f, 640.0f};
+        buttons[2].size = {350.0f, 61.0f};
         buttons[2].action = [this](){this->getApp()->changeState("play");};
 
         //exit button
-        buttons[3].position = {725.0f, 450.0f};
-        buttons[3].size = {500.0f, 61.0f};
+        buttons[3].position = {1130.0f, 620.0f};
+        buttons[3].size = {100.0f, 70.0f};
         buttons[3].action = [this](){this->getApp()->close();};
     }
 
