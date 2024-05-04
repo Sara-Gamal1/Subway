@@ -97,7 +97,7 @@
             ,
             {"name": "middle fence",
                 "position": [
-                    0, // right and left
+                    0, // right and left   0or 13 or -13
                     -7, // up ans down
                     -20
                 ],
