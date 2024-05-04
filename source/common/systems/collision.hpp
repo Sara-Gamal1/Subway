@@ -33,5 +33,6 @@ namespace our
 
         // This function is called when the player collides with an obstacle
         void decreaseHearts(World *world, int count);
+        void hideCoins(Entity *entity);
     };
 }

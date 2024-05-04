@@ -25,7 +25,7 @@
 
 namespace our
 {
-    bool debug = false;
+    bool debug = true;
     struct BoundingBox
     {
         float minX, maxX;
@@ -140,6 +140,9 @@ namespace our
                                     position.x = 0;
                                     position.y = 5;
                                     position.z = 40;
+                                    playerEntity->localTransform.position.x = 0;
+                                    playerEntity->localTransform.position.y = -5;
+                                    playerEntity->localTransform.position.z = 30;
                                     decreaseHearts(world, player->hearts);
                                     player->hearts = player->hearts - 1;
                                     this->lastFencePosition = entity->localTransform.position;
@@ -175,6 +178,9 @@ namespace our
                                     position.x = 0;
                                     position.y = 5;
                                     position.z = 40;
+                                    playerEntity->localTransform.position.x = 0;
+                                    playerEntity->localTransform.position.y = -5;
+                                    playerEntity->localTransform.position.z = 30;
                                     decreaseHearts(world, player->hearts);
                                     player->hearts = player->hearts - 1;
                                     this->lastFencePosition = entity->localTransform.position;
@@ -187,6 +193,8 @@ namespace our
 
                         if (this->lastCoinPosition != entity->localTransform.position)
                         {
+                            hideCoins(entity);
+
                             player->score = player->score + 10;
                             this->lastCoinPosition = entity->localTransform.position;
                         }
@@ -227,5 +235,11 @@ namespace our
                 break;
             }
         }
+    }
+    void CollisionSystem::hideCoins(Entity *entity)
+    {
+        entity->localTransform.scale.x = 0.0f;
+        entity->localTransform.scale.y = 0.0f;
+        entity->localTransform.scale.z = 0.0f;
     }
 }

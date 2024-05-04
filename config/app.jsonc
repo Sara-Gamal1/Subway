@@ -217,7 +217,7 @@
                             0,
                             0,
                             // -10
-                             -5
+                            -5
                             //   0
                         ],
                         "angularVelocity": [
@@ -228,62 +228,7 @@
                     }
                 ],
                 "children": [
-                        {  "name":"jake",
-                            "position": [
-                                0,
-                                -5,
-                                -5
-                            ],
-                            "rotation": [
-                                0,
-                                180,
-                                0
-                            ],
-                            "scale": [
-                                0.35,
-                                0.35,
-                            0.35
-                            ],
-                            "components": [
-                                {
-                                    "type": "player",
-                                    "speed": 4,
-                                    "score":0,
-                                    "hearts":3
-                                },
-                                {
-                                    "type": "Collision",
-                                    "start": [
-                                        -0.3,
-                                        -0.6,
-                                        -0.2
-                                    ],
-                                    "end": [
-                                        0.3,
-                                        1,
-                                        0.5
-                                    ]
-                                },
-                                {
-                                    "type": "Mesh Renderer",
-                                    "mesh": "jake",
-                                    "material": "jake"
-                                },
-                                {
-                                    "type": "Movement",
-                                    "linearVelocity": [
-                                        0,
-                                        0,
-                                        0
-                                    ],
-                                    "angularVelocity": [
-                                        0,
-                                        0,
-                                        0
-                                    ]
-                                }
-                            ]
-                        },
+                      
                            {
                 "name": "heart1",
                 "position": [
@@ -380,7 +325,63 @@
                 ]
             }
                 ]
-            },
+            },  {  "name":"jake",
+                            "position": [
+                                0,
+                                -5,
+                                30
+                            ],
+                            "rotation": [
+                                0,
+                                180,
+                                0
+                            ],
+                            "scale": [
+                                0.45,
+                                0.55,
+                            0.005
+                            ],
+                            "components": [
+                                {
+                                    "type": "player",
+                                    "speed": 4,
+                                    "score":0,
+                                    "hearts":3
+                                },
+                                {
+                                    "type": "Collision",
+                                    "start": [
+                                        -0.3,
+                                        -0.6,
+                                        -0.2
+                                    ],
+                                    "end": [
+                                        0.3,
+                                        1,
+                                        0.5
+                                    ]
+                                },
+                                {
+                                    "type": "Mesh Renderer",
+                                    "mesh": "jake",
+                                    "material": "jake"
+                                },
+                                 {
+                                    "type": "Movement",
+                                    "linearVelocity": [
+                                        0,
+                                        0,
+                                       -5
+                                //  0
+                                    ],
+                                    "angularVelocity": [
+                                        0,
+                                        0,
+                                        0
+                                    ]
+                                }
+                            ]
+                        },
             {
                 "position": [
                     0,
@@ -663,7 +664,7 @@
                         "start": [
                             -0.5,
                             -5,
-                            -3
+                            -1
                         ],
                         "end": [
                             0.5,
@@ -673,9 +674,9 @@
                     }
                 ]
             },
-             {"name":"train",
+             {"name":" middle train",
                  "position": [
-                    15, // right and left
+                    -11, // right and left
                     -10, // up and down
                     -70 // far and near direction
                 ],
@@ -685,9 +686,9 @@
                     0
                 ],
                 "scale": [
-                    0.5,
+                    0.6,
                     1,
-                    2
+                    1
                 ],
                 "components": [
                     {
@@ -703,22 +704,23 @@
                         "start": [
                             -10,
                             -10,
-                            -30
+                            5
                         ],
                         "end": [
                             10,
                             10,
-                            30
+                            45
                         ]
                     }
                 ]
-            },
-            {
+            }
+       
+           , {
             "name":"coin",
            "position": [
-                    0.7, // right and left
-                    -5, // up and down
-                    -2 // far and near direction
+                    -8, // right and left
+                    -2, // up and down
+                    -150 // far and near direction
                 ],
                 "rotation": [
                     0,
@@ -742,14 +744,14 @@
                     {
                         "type": "Collision",
                         "start": [
-                            -0.6,
-                            -0.6,
-                            -0.6
+                            -3.5,
+                            -4.5,
+                            6.9
                         ],
                         "end": [
-                            0.6,
-                            0.6,
-                            0.6
+                          3.5,
+                            4.5,
+                            7
                         ]
                     },
                     {
@@ -767,7 +769,61 @@
                     }
                 ]
             }
-            // {
+        //       , {
+        //     "name":"coin",
+        //    "position": [
+        //             8, // right and left
+        //             -2, // up and down
+        //            -150 // far and near direction
+        //         ],
+        //         "rotation": [
+        //             0,
+        //             0,
+        //             90
+        //         ],
+        //         "scale": [
+        //             0.03,
+        //             0.015,
+        //             0.01
+        //         ],
+        //         "components": [
+        //             {
+        //                 "type": "Mesh Renderer",
+        //                 "mesh": "coin",
+        //                 "material": "coin"
+        //             },
+        //             {
+        //                 "type": "coin"
+        //             },
+        //             {
+        //                 "type": "Collision",
+        //                 "start": [
+        //                     -8,
+        //                     -8,
+        //                     6.5
+        //                 ],
+        //                 "end": [
+        //                   8,
+        //                     8,
+        //                     7
+        //                 ]
+        //             },
+        //             {
+        //                 "type": "Movement",
+        //                 "linearVelocity": [
+        //                     0,
+        //                     0,
+        //                     0
+        //                 ],
+        //                 "angularVelocity": [
+        //                     0,
+        //                     60,
+        //                     0
+        //                 ]
+        //             }
+        //         ]
+        //     }
+           // {
             //     "name":"end_line",
             //     "position": [
             //         0, //right & left

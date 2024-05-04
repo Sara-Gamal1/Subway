@@ -3,7 +3,7 @@
 #include "../ecs/world.hpp"
 #include "../components/camera.hpp"
 #include "../components/free-camera-controller.hpp"
-
+#include "../components/player.hpp"
 #include "../application.hpp"
 
 #include <glm/glm.hpp>
@@ -32,7 +32,7 @@ namespace our
         int collisionFactor = 2;
 
         float jumpSpeed = 12;
-        float jumpMaxHeight = 20;
+        float jumpMaxHeight = 10;
 
     public:
         // When a state enters, it should call this function and give it the pointer to the application
@@ -44,6 +44,21 @@ namespace our
         // This should be called every frame to update all entities containing a FreeCameraControllerComponent
         void update(World *world, float deltaTime)
         {
+
+            PlayerComponent *player; // The player component if it exists
+            Entity *playerEntity;    // The player entity if it exists
+
+            for (auto entity : world->getEntities())
+            {
+                // search for the player entity
+                // Get the player component if it exists
+                playerEntity = entity;
+                player = playerEntity->getComponent<PlayerComponent>();
+                if (player)
+                    break;
+                // If the player component exists
+            }
+
             // First of all, we search for an entity containing both a CameraComponent and a FreeCameraControllerComponent
             // As soon as we find one, we break
             CameraComponent *camera = nullptr;
@@ -76,6 +91,7 @@ namespace our
 
             // We get a reference to the entity's position and rotation
             glm::vec3 &position = entity->localTransform.position;
+            glm::vec3 &positionjake = playerEntity->localTransform.position;
             glm::vec3 &rotation = entity->localTransform.rotation;
 
             // If the left mouse button is pressed, we get the change in the mouse location
@@ -113,19 +129,6 @@ namespace our
             if (app->getKeyboard().isPressed(GLFW_KEY_LEFT_SHIFT))
                 current_sensitivity *= controller->speedupFactor;
 
-            // We change the camera position based on the keys WASD/QE
-            // S & W moves the player back and forth
-            // if (app->getKeyboard().isPressed(GLFW_KEY_W))
-            //     position += front * (deltaTime * current_sensitivity.z);
-            // if (app->getKeyboard().isPressed(GLFW_KEY_S))
-            //     position -= front * (deltaTime * current_sensitivity.z);
-            // // Q & E moves the player up and down
-            // if (app->getKeyboard().isPressed(GLFW_KEY_Q))
-            //     position += up * (deltaTime * current_sensitivity.y);
-            // if (app->getKeyboard().isPressed(GLFW_KEY_E))
-            //     position -= up * (deltaTime * current_sensitivity.y);
-            // A & D moves the player left or right
-            // Jump logic
             if (app->getKeyboard().isPressed(GLFW_KEY_SPACE))
             {
                 if (jumpState == our::JumpState::GROUNDED)
@@ -133,16 +136,17 @@ namespace our
                     // We set the jump state to JUMPING
                     jumpState = our::JumpState::JUMPING;
                     // Start the jump
-                    position.y += (deltaTime * jumpSpeed * collisionFactor);
+                    positionjake.y += (deltaTime * jumpSpeed * collisionFactor);
+                    positionjake.z -= (deltaTime * 4);
                     position.z -= (deltaTime * 4);
                 }
             }
             // If the player jumps higher than the max height, we set the jump state to FALLING
-            if (position.y >= jumpMaxHeight)
+            if (positionjake.y >= jumpMaxHeight)
             {
                 jumpState = our::JumpState::FALLING;
             }
-            else if (position.y <= 1)
+            else if (positionjake.y <= -4)
             {
                 // If the player was falling, we set the jump state to GROUNDED
                 jumpState = our::JumpState::GROUNDED;
@@ -151,27 +155,29 @@ namespace our
             // We update the player position based on the jump state
             if (jumpState == our::JumpState::JUMPING)
             {
-                position.y += (deltaTime * jumpSpeed);
+                positionjake.y += (deltaTime * jumpSpeed);
+                positionjake.z -= deltaTime * 4;
                 position.z -= deltaTime * 4;
             }
             else if (jumpState == our::JumpState::FALLING)
             {
                 // We update the player position based on the jump state
-                position.y -= (deltaTime * jumpSpeed);
+                positionjake.y -= (deltaTime * jumpSpeed);
+                positionjake.z -= deltaTime * 4;
                 position.z -= deltaTime * 4;
             }
             else
             {
                 // We make sure the player is grounded
-                position.y = 1;
+                positionjake.y = -4;
             }
             if (app->getKeyboard().isPressed(GLFW_KEY_D) && jumpState == our::JumpState::GROUNDED)
             {
                 if (!key1_pressed)
                 {
                     key1_pressed = true;
-                    if (position.x < 15)
-                        position.x += 15;
+                    if (positionjake.x < 8)
+                        positionjake.x += 8;
                 }
             }
             else
@@ -186,8 +192,8 @@ namespace our
                 if (!key2_pressed)
                 {
                     key2_pressed = true;
-                    if (position.x > -15)
-                        position.x -= 15;
+                    if (positionjake.x > -8)
+                        positionjake.x -= 8;
                 }
             }
             else
