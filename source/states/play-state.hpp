@@ -8,7 +8,7 @@
 #include <systems/movement.hpp>
 #include <asset-loader.hpp>
 #include <systems/collision.hpp>
-#include<iostream>
+#include <iostream>
 
 // This state shows how to use the ECS framework and deserialization.
 class Playstate : public our::State
@@ -19,12 +19,11 @@ class Playstate : public our::State
     our::FreeCameraControllerSystem cameraController;
     our::MovementSystem movementSystem;
     our::CollisionSystem collisionSystem;
-   
+    int playerScore = 0;
 
     void onInitialize() override
     {
         // First of all, we get the scene configuration from the app config
-       
         auto &config = getApp()->getConfig()["scene"];
         // If we have assets in the scene config, we deserialize them
         if (config.contains("assets"))
@@ -50,7 +49,7 @@ class Playstate : public our::State
         // Here, we just run a bunch of systems to control the world logic
         movementSystem.update(&world, (float)deltaTime);
         cameraController.update(&world, (float)deltaTime);
-        didCollide = collisionSystem.update(&world, 0, 0, 0);
+        didCollide = collisionSystem.update(&world, 0, 0, 0, playerScore);
         // And finally we use the renderer system to draw the scene
         renderer.render(&world);
 
@@ -77,7 +76,21 @@ class Playstate : public our::State
     }
     void onImmediateGui()
     {
-        renderer.showGUI(&world);
+        // to show U more menus (useful for debugging)
+        // renderer.showGUI(&world);
+        // start gui
+        ImGui::Begin("Score", 0, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoDecoration);
+        // set window position
+        ImGui::SetWindowPos(ImVec2(10, 10));
+        // set window size
+        ImGui::SetWindowSize(ImVec2(600, 100));
+        // set font
+        ImGui::SetWindowFontScale(5.0f);
+        // initialize score
+        std::string score_screen = "Score: " + std::to_string(playerScore);
+        // initialize color
+        ImGui::TextColored(ImVec4(0.957f, 0.352f, 0.0f, 1.0f), score_screen.c_str());
+        // end gui
+        ImGui::End();
     }
-   
 };

@@ -41,9 +41,8 @@ namespace our
     }
 
     bool CollisionSystem::update(World *world, float deltaTime, int heartCount,
-                                 float collisionStartTime)
+                                 float collisionStartTime, int &playerScore)
     {
-        // checkMasalaHeight(world, 0.05);
         PlayerComponent *player;  // The player component if it exists
         glm::vec3 playerPosition; // The player's position in the world
         Entity *playerEntity;     // The player entity if it exists
@@ -189,13 +188,14 @@ namespace our
                         }
                     }
                     else if (entity->getComponent<CoinComponent>())
-                    { // if the object is an obstacle
-
+                    {
+                        // if the object is an obstacle
                         if (this->lastCoinPosition != entity->localTransform.position)
                         {
                             hideCoins(entity);
-
+                            // increase the player score by 10
                             player->score = player->score + 10;
+                            playerScore = player->score;
                             this->lastCoinPosition = entity->localTransform.position;
                         }
                         std::cout << "my score =" << player->score << std::endl;

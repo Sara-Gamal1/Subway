@@ -633,7 +633,8 @@
             //         }
             //     ]
             // },
-            {"name": "middle fence",
+            {
+                "name": "middle fence",
                 "position": [
                     0, // right and left
                     -7, // up ans down
@@ -674,7 +675,8 @@
                 ]
             }
             ,
-            {"name":" middle train",
+            {
+                "name":" middle train",
                  "position": [
                     -11, // right and left
                     -10, // up and down
@@ -713,13 +715,67 @@
                         ]
                     }
                 ]
-            }
-            ,
-            {"name":"coin",
+            },
+            {
+            "name":"coin",
             "position": [
                     8, // right and left
                     -2, // up and down
-                    -300 // far and near direction
+                    -15 // far and near direction
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ],
+                "scale": [
+                    0.03,
+                    0.015,
+                    0.01
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "coin",
+                        "material": "coin"
+                    },
+                    {
+                        "type": "coin"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -3.5,
+                            -4.5,
+                            -2
+                        ],
+                        "end": [
+                            3.5,
+                            4.5,
+                            2
+                        ]
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "angularVelocity": [
+                            0,
+                            60,
+                            0
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "coin",
+                "position": [
+                    8, // right and left
+                    -2, // up and down
+                    -25 // far and near direction
                 ],
                 "rotation": [
                     0,
@@ -792,6 +848,7 @@
         //                 "material": "coin"
         //             },
         //             {
+        //             {
         //                 "type": "coin"
         //             },
         //             {
@@ -823,7 +880,8 @@
         //         ]
         //     }
         ,  
-            {"name":"end_line",
+            {
+                "name":"end_line",
                 "position": [
                     0, //right & left
                     -9, //up & down
