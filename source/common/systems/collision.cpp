@@ -121,6 +121,7 @@ namespace our
                             if (player->hearts <= 1)
                             {
                                 app->changeState("game-over");
+                                playerScore = 0;
                             }
                             else
                             {
