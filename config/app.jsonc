@@ -30,7 +30,8 @@
                 "jake": "assets/textures/Jake.jpg",
                 "train":"assets/textures/trains.png",
                 "coin":"assets/textures/coin.png",
-                "end_line":"assets/textures/endLine.jpg"
+                "end_line":"assets/textures/endLine.jpg",
+                "dog":"assets/textures/dog.png"
             },
             "meshes": {
                 "plane": "assets/models/plane.obj",
@@ -40,7 +41,8 @@
                 "fence": "assets/models/fence.obj",
                 "train": "assets/models/train4.obj",
                 "coin":"assets/models/coin3.obj",
-                "heart":"assets/models/heart.obj"
+                "heart":"assets/models/heart.obj",
+                "dog":"assets/models/dog.obj"
 
             },
             "samplers": {
@@ -101,7 +103,22 @@
                     "texture": "train",
                     "sampler": "default"
                 },
-                 "wood": {
+                "dog": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    
+                    "texture": "dog",
+                    "sampler": "default"
+                },
+                "wood": {
                     "type": "textured",
                     "shader": "textured",
                     "pipelineState": {
@@ -172,7 +189,7 @@
                             "enabled": true
                         }
                     },
-                   "texture": "coin",
+                    "texture": "coin",
                     "sampler": "default"
                 }
                 ,"end_line": {
@@ -198,7 +215,7 @@
                 "position": [
                     0,
                     5, // z direction
-                    40 //is the start of road
+                    50 //is the start of road
                     // -100
                 ],
                 "components": [ 
@@ -213,7 +230,6 @@
                         "linearVelocity": [
                             0,
                             0,
-                            // -10
                             -5
                             //   0
                         ],
@@ -317,7 +333,7 @@
                 }
                 ]
             },  
-                { "name":"jake",
+            { "name":"jake",
                     "position": [
                         0,
                         -5,
@@ -373,7 +389,47 @@
                         ]
                     }
                     ]
+            },
+            { "name":"dog",
+                    "position": [
+                        2,
+                        -5,
+                        35
+                    ],
+                    "rotation": [
+                        0,
+                        180,
+                        0
+                    ],
+                    "scale": [
+                        5,
+                        5,
+                        5
+                    ],
+                    "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "dog",
+                        "material": "dog"
                     },
+                    {
+                        "type": "dog"
+                    },
+                        {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                            -5
+                        ],
+                        "angularVelocity": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                    ]
+            },
             {   "name":"wood",
                 "position": [
                     0,

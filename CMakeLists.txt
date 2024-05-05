@@ -92,8 +92,10 @@ set(COMMON_SOURCES
         source/common/components/component-deserializer.hpp
         source/common/components/end-line.hpp
         source/common/components/end-line.cpp
-         source/common/components/heart.hpp
+        source/common/components/heart.hpp
         source/common/components/heart.cpp
+        source/common/components/dog.hpp
+        source/common/components/dog.cpp
 
         source/common/systems/forward-renderer.hpp
         source/common/systems/forward-renderer.cpp

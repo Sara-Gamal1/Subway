@@ -12,6 +12,7 @@
 #include "fence.hpp"
 #include "end-line.hpp"
 #include "heart.hpp"
+#include "dog.hpp"
 namespace our
 {
 
@@ -65,6 +66,10 @@ namespace our
         else if (type == HeartComponent::getID())
         {
             component = entity->addComponent<HeartComponent>();
+        }
+        else if (type == DogComponent::getID())
+        {
+            component = entity->addComponent<DogComponent>();
         }
         if (component)
             component->deserialize(data);

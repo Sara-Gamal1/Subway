@@ -11,6 +11,7 @@
 #include "../components/end-line.hpp"
 #include "../components/heart.hpp"
 #include "../components/camera.hpp"
+#include "../components/dog.hpp"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
@@ -46,6 +47,9 @@ namespace our
         PlayerComponent *player;  // The player component if it exists
         glm::vec3 playerPosition; // The player's position in the world
         Entity *playerEntity;     // The player entity if it exists
+        DogComponent *dog;  // The player component if it exists
+        glm::vec3 dogPosition; // The player's position in the world
+        Entity *dogEntity;     // The player entity if it exists
         bool collided = false;
         for (auto entity : world->getEntities())
         {
@@ -59,6 +63,23 @@ namespace our
                 playerPosition =
                     glm::vec3(playerEntity->getLocalToWorldMatrix() *
                               glm::vec4(playerEntity->localTransform.position, 1)); // get the player's position in the world
+                break;
+                // glm::vec3 &position = entity->localTransform.position;
+            }
+        }
+
+        for (auto entity : world->getEntities())
+        {
+            // search for the player entity
+            // Get the player component if it exists
+            dogEntity = entity;
+            dog = dogEntity->getComponent<DogComponent>();
+            // If the player component exists
+            if (dog)
+            {
+                dogPosition =
+                    glm::vec3(dogEntity->getLocalToWorldMatrix() *
+                              glm::vec4(dogEntity->localTransform.position, 1)); // get the player's position in the world
                 break;
                 // glm::vec3 &position = entity->localTransform.position;
             }
@@ -136,10 +157,13 @@ namespace our
                                 glm::vec3 &position = entity->localTransform.position;
                                 position.x = 0;
                                 position.y = 5;
-                                position.z = 40;
+                                position.z = 50;
                                 playerEntity->localTransform.position.x = 0;
                                 playerEntity->localTransform.position.y = -5;
                                 playerEntity->localTransform.position.z = 30;
+                                dogEntity->localTransform.position.x = 2;
+                                dogEntity->localTransform.position.y = -5;
+                                dogEntity->localTransform.position.z = 35;
                                 decreaseHearts(world, player->hearts);
                                 player->hearts = player->hearts - 1;
                             }
@@ -171,10 +195,13 @@ namespace our
                                 glm::vec3 &position = entity->localTransform.position;
                                 position.x = 0;
                                 position.y = 5;
-                                position.z = 40;
+                                position.z = 50;
                                 playerEntity->localTransform.position.x = 0;
                                 playerEntity->localTransform.position.y = -5;
                                 playerEntity->localTransform.position.z = 30;
+                                dogEntity->localTransform.position.x = 2;
+                                dogEntity->localTransform.position.y = -5;
+                                dogEntity->localTransform.position.z = 35;
                                 decreaseHearts(world, player->hearts);
                                 player->hearts = player->hearts - 1;
                             }

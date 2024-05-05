@@ -1,5 +1,6 @@
 #include "world.hpp"
 #include "../common/components/movement.hpp"
+#include "../common/components/dog.hpp"
 #include "../common/components/player.hpp"
 #include <iostream>
 #include <vector>
@@ -22,13 +23,17 @@ namespace our
             if (element->getComponent<MovementComponent>() && element->getComponent<PlayerComponent>())
             {
                 MovementComponent *move = element->getComponent<MovementComponent>();
-                move->linearVelocity = glm::vec3(0, 0, -5 * 2 * this->level);
+                move->linearVelocity.z *=  2 * this->level;
             }
-
+            if (element->getComponent<DogComponent>() )
+            {
+                MovementComponent *move = element->getComponent<MovementComponent>();
+                move->linearVelocity.z *= 2 * this->level;
+            }
             if (element->getComponent<CameraComponent>() && element->getComponent<FreeCameraControllerComponent>())
             {
                 MovementComponent *move = element->getComponent<MovementComponent>();
-                move->linearVelocity = glm::vec3(0, 0, -5 * 2 * this->level);
+                move->linearVelocity.z *=  2 * this->level;
             }
             if (entityData.contains("children"))
             {
