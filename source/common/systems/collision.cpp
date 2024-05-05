@@ -113,85 +113,77 @@ namespace our
                     if (entity->getComponent<FenceComponent>())
                     { // if the object is an obstacle
 
-                        if (this->lastFencePosition != entity->localTransform.position)
+                        std::cout << "my hearts =" << player->hearts << std::endl;
+                        std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
+                        if (player->hearts <= 1)
                         {
-
-                            std::cout << "my hearts =" << player->hearts << std::endl;
-                            std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
-                            if (player->hearts <= 1)
+                            app->changeState("game-over");
+                            playerScore = 0;
+                        }
+                        else
+                        {
+                            CameraComponent *camera;
+                            for (auto entity : world->getEntities())
                             {
-                                app->changeState("game-over");
-                                playerScore = 0;
-                            }
-                            else
-                            {
-                                CameraComponent *camera;
-                                for (auto entity : world->getEntities())
-                                {
-                                    camera = entity->getComponent<CameraComponent>();
-                                    if (camera)
-                                        break;
-                                }
-
+                                camera = entity->getComponent<CameraComponent>();
                                 if (camera)
-                                {
-                                    Entity *entity = camera->getOwner();
-                                    glm::vec3 &position = entity->localTransform.position;
-                                    position.x = 0;
-                                    position.y = 5;
-                                    position.z = 40;
-                                    playerEntity->localTransform.position.x = 0;
-                                    playerEntity->localTransform.position.y = -5;
-                                    playerEntity->localTransform.position.z = 30;
-                                    decreaseHearts(world, player->hearts);
-                                    player->hearts = player->hearts - 1;
-                                    this->lastFencePosition = entity->localTransform.position;
-                                }
+                                    break;
+                            }
+
+                            if (camera)
+                            {
+                                Entity *entity = camera->getOwner();
+                                glm::vec3 &position = entity->localTransform.position;
+                                position.x = 0;
+                                position.y = 5;
+                                position.z = 40;
+                                playerEntity->localTransform.position.x = 0;
+                                playerEntity->localTransform.position.y = -5;
+                                playerEntity->localTransform.position.z = 30;
+                                decreaseHearts(world, player->hearts);
+                                player->hearts = player->hearts - 1;
                             }
                         }
                     }
                     else if (entity->getComponent<TrainComponent>())
                     {
-                        if (this->lastFencePosition != entity->localTransform.position)
+                        
+                        std::cout << "my hearts =" << player->hearts << std::endl;
+                        std::cout << "collided with obstacle : TrainComponent " << std::endl;
+                        if (player->hearts <= 1)
                         {
-                            std::cout << "my hearts =" << player->hearts << std::endl;
-                            std::cout << "collided with obstacle : TrainComponent " << std::endl;
-                            if (player->hearts <= 1)
-                            {
 
-                                app->changeState("game-over");
-                            }
-                            else
+                            app->changeState("game-over");
+                        }
+                        else
+                        {
+                            CameraComponent *camera;
+                            for (auto entity : world->getEntities())
                             {
-                                CameraComponent *camera;
-                                for (auto entity : world->getEntities())
-                                {
-                                    camera = entity->getComponent<CameraComponent>();
-                                    if (camera)
-                                        break;
-                                }
-
+                                camera = entity->getComponent<CameraComponent>();
                                 if (camera)
-                                {
-                                    Entity *entity = camera->getOwner();
-                                    glm::vec3 &position = entity->localTransform.position;
-                                    position.x = 0;
-                                    position.y = 5;
-                                    position.z = 40;
-                                    playerEntity->localTransform.position.x = 0;
-                                    playerEntity->localTransform.position.y = -5;
-                                    playerEntity->localTransform.position.z = 30;
-                                    decreaseHearts(world, player->hearts);
-                                    player->hearts = player->hearts - 1;
-                                    this->lastFencePosition = entity->localTransform.position;
-                                }
+                                    break;
+                            }
+
+                            if (camera)
+                            {
+                                Entity *entity = camera->getOwner();
+                                glm::vec3 &position = entity->localTransform.position;
+                                position.x = 0;
+                                position.y = 5;
+                                position.z = 40;
+                                playerEntity->localTransform.position.x = 0;
+                                playerEntity->localTransform.position.y = -5;
+                                playerEntity->localTransform.position.z = 30;
+                                decreaseHearts(world, player->hearts);
+                                player->hearts = player->hearts - 1;
                             }
                         }
                     }
                     else if (entity->getComponent<CoinComponent>())
                     {
                         // if the object is an obstacle
-                        if (this->lastCoinPosition != entity->localTransform.position)
+                        if (this->lastCoinPosition != entity->localTransform.position && entity->localTransform.scale.x!=0)
                         {
                             hideCoins(entity);
                             // increase the player score by 10
