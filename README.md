@@ -33,6 +33,11 @@ git clone https://github.com/Sara-Gamal1/graphics-project
 ./bin/GAME_APPLICATION.exe
 ```
 
+## <img align= center width=60px height=60px src="https://media1.giphy.com/media/igsIZv3VwIIlRIpq5G/giphy.gif?cid=ecf05e47faatmwdhcst7c2d4eontr459hjd35zf3an324elo&rid=giphy.gif&ct=s"> File Structure 
+<br>
+<div align= center>
+<img  height="450px" src="https://github.com/BasmaElhoseny01/frog-frenzy/assets/71986226/97bd1f07-1cae-4d27-9366-4e4624015c96">
+</div>
 
 
 <h2 align='center' <a name = "Contributors"> ⭐ Contributors ⭐ </h2>
