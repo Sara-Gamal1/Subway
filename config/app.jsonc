@@ -718,58 +718,13 @@
                     0.015,
                     0.01
                 ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "coin",
-                        "material": "coin"
-                    },
-                    {
-                        "type": "coin"
-                    },
-                    {
-                        "type": "Collision",
-                        "start": [
-                            -3.5,
-                            -4.5,
-                            -2
-                        ],
-                        "end": [
-                            3.5,
-                            4.5,
-                            2
-                        ]
-                    },
-                    {
-                        "type": "Movement",
-                        "linearVelocity": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "angularVelocity": [
-                            0,
-                            60,
-                            0
-                        ]
-                    }
-                ]
-            },
-            {   "name": "coin2",
-                "position": [
-                    8, // right and left
-                    -2, // up and down
-                    -25 // far and near direction
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    90
-                ],
-                "scale": [
-                    0.03,
-                    0.015,
-                    0.01
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    5,   ///number of repeats in z
+                    -5  ////translatopn in z
                 ],
                 "components": [
                     {
@@ -807,113 +762,7 @@
                         ]
                     }
                 ]
-            },
-            {   "name": "coin3",
-                "position": [
-                    8, // right and left
-                    -2, // up and down
-                    -35 // far and near direction
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    90
-                ],
-                "scale": [
-                    0.03,
-                    0.015,
-                    0.01
-                ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "coin",
-                        "material": "coin"
-                    },
-                    {
-                        "type": "coin"
-                    },
-                    {
-                        "type": "Collision",
-                        "start": [
-                            -3.5,
-                            -4.5,
-                            -2
-                        ],
-                        "end": [
-                            3.5,
-                            4.5,
-                            2
-                        ]
-                    },
-                    {
-                        "type": "Movement",
-                        "linearVelocity": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "angularVelocity": [
-                            0,
-                            60,
-                            0
-                        ]
-                    }
-                ]
-            },
-            {   "name": "coin4",
-                "position": [
-                    8, // right and left
-                    -2, // up and down
-                    -45 // far and near direction
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    90
-                ],
-                "scale": [
-                    0.03,
-                    0.015,
-                    0.01
-                ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "coin",
-                        "material": "coin"
-                    },
-                    {
-                        "type": "coin"
-                    },
-                    {
-                        "type": "Collision",
-                        "start": [
-                            -3.5,
-                            -4.5,
-                            -2
-                        ],
-                        "end": [
-                            3.5,
-                            4.5,
-                            2
-                        ]
-                    },
-                    {
-                        "type": "Movement",
-                        "linearVelocity": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "angularVelocity": [
-                            0,
-                            60,
-                            0
-                        ]
-                    }
-                ]
-            },  
+            }, 
             {   "name":"end_line",
                 "position": [
                     0, //right & left
