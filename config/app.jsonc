@@ -446,6 +446,14 @@
                     1000,
                     1
                 ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -2000  ////translatopn in z
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -470,6 +478,14 @@
                     0.1,
                     0.15
                 ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    200,   ///number of repeats in z
+                    -70  ////translatopn in z
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -479,54 +495,6 @@
                 ]
             },
             {   "name":"wall2",
-                "position": [
-                    -22,
-                    -20,
-                    -90
-                ],
-                "rotation": [
-                    -90,
-                    0,
-                    270
-                ],
-                "scale": [
-                    0.2,
-                    0.1,
-                    0.15
-                ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "wall",
-                        "material": "wall"
-                    }
-                ]
-            },
-            {   "name":"wall3",
-                "position": [
-                    -22,
-                    -20,
-                    -160
-                ],
-                "rotation": [
-                    -90,
-                    0,
-                    270
-                ],
-                "scale": [
-                    0.2,
-                    0.1,
-                    0.15
-                ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "wall",
-                        "material": "wall"
-                    }
-                ]
-            },
-            {   "name":"wall4",
                 "position": [
                     22,
                     -20,
@@ -542,53 +510,13 @@
                     0.1,
                     0.15
                 ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "wall",
-                        "material": "wall"
-                    }
-                ]
-            },
-            {   "name":"wall5",
-                "position": [
-                    22,
-                    -20,
-                    -80
-                ],
-                "rotation": [
-                    -90,
-                    0,
-                    90
-                ],
-                "scale": [
-                    0.2,
-                    0.1,
-                    0.15
-                ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "wall",
-                        "material": "wall"
-                    }
-                ]
-            },
-            {   "name":"wall6",
-                "position": [
-                    22,
-                    -20,
-                    -150
-                ],
-                "rotation": [
-                    -90,
-                    0,
-                    90
-                ],
-                "scale": [
-                    0.2,
-                    0.1,
-                    0.15
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    200,   ///number of repeats in z
+                    -70  ////translatopn in z
                 ],
                 "components": [
                     {
@@ -614,6 +542,14 @@
                     0.7,
                     0.7
                 ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    200,   ///number of repeats in z
+                    -400  ////translatopn in z
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -633,16 +569,16 @@
                         "end": [
                             0.5,
                             6,
-                            3
+                            5
                         ]
                     }
                 ]
             },
-            {   "name": "left fence",
+            {   "name": "left fence1",
                 "position": [
                     -13, // right and left
                     -7, // up ans down
-                    -300
+                    -200
                 ],
                 "rotation": [
                     0,
@@ -654,6 +590,62 @@
                     0.7,
                     0.7
                 ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -1000  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    },
+                    {
+                        "type": "fence"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.5,
+                            -5,
+                            3
+                        ],
+                        "end": [
+                            0.5,
+                            6,
+                            5
+                        ]
+                    }
+                ]
+            },
+            {   "name": "left fence2",
+                "position": [
+                    -13, // right and left
+                    -7, // up ans down
+                    -350
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.7,
+                    0.7,
+                    0.7
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -800  ////translatopn in z
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -678,7 +670,103 @@
                     }
                 ]
             },
-            {   "name":" left train",
+            {   "name": "right fence1",
+                "position": [
+                    13, // right and left
+                    -7, // up ans down
+                    -100
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.7,
+                    0.7,
+                    0.7
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -500  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    },
+                    {
+                        "type": "fence"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.5,
+                            -5,
+                            3
+                        ],
+                        "end": [
+                            0.5,
+                            6,
+                            3
+                        ]
+                    }
+                ]
+            },
+            {   "name": "right fence2",
+                "position": [
+                    13, // right and left
+                    -7, // up ans down
+                    -100
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.7,
+                    0.7,
+                    0.7
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -700  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    },
+                    {
+                        "type": "fence"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.5,
+                            -5,
+                            3
+                        ],
+                        "end": [
+                            0.5,
+                            6,
+                            3
+                        ]
+                    }
+                ]
+            },
+            {   "name":" left train1",
                 "position": [
                     -11, // right and left
                     -10, // up and down
@@ -694,6 +782,14 @@
                     1,
                     1
                 ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -800  ////translatopn in z
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -718,11 +814,11 @@
                     }
                 ]
             },
-            {   "name":" right train",
+            {   "name":" right train1",
                 "position": [
                     11, // right and left
                     -10, // up and down
-                    -300 // far and near direction
+                    -400 // far and near direction
                 ],
                 "rotation": [
                     0,
@@ -734,6 +830,14 @@
                     1,
                     1
                 ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -700  ////translatopn in z
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -758,7 +862,103 @@
                     }
                 ]
             },
-            {   "name":"coin1",
+            {   "name":" left train2",
+                "position": [
+                    -11, // right and left
+                    -10, // up and down
+                    -500 // far and near direction
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    0
+                ],
+                "scale": [
+                    0.6,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -500  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "train",
+                        "material": "train"
+                    },
+                    {
+                        "type": "train"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -10,
+                            -10,
+                            -24
+                        ],
+                        "end": [
+                            10,
+                            10,
+                            30
+                        ]
+                    }
+                ]
+            },
+            {   "name":" right train2",
+                "position": [
+                    11, // right and left
+                    -10, // up and down
+                    -200 // far and near direction
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    0
+                ],
+                "scale": [
+                    0.6,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -600  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "train",
+                        "material": "train"
+                    },
+                    {
+                        "type": "train"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -10,
+                            -10,
+                            -24
+                        ],
+                        "end": [
+                            10,
+                            10,
+                            30
+                        ]
+                    }
+                ]
+            },
+            {   "name":"coin",
             "position": [
                     8, // right and left
                     -2, // up and down
@@ -818,12 +1018,12 @@
                         ]
                     }
                 ]
-            }, 
+            },
             {   "name":"end_line",
                 "position": [
                     0, //right & left
                     -9, //up & down
-                    -400 //near & far
+                    -3000 //near & far
                 ],
                 "rotation": [
                     90,
