@@ -530,7 +530,7 @@
                 "position": [
                     0, // right and left
                     -7, // up ans down
-                    -20
+                    -50
                 ],
                 "rotation": [
                     0,
@@ -569,7 +569,7 @@
                         "end": [
                             0.5,
                             6,
-                            5
+                            3.5
                         ]
                     }
                 ]
@@ -610,15 +610,14 @@
                     {
                         "type": "Collision",
                         "start": [
-                            -0.5,
-                            -5,
+                             8,
+                            1,
                             3
                         ],
                         "end": [
-                            0.5,
-                            6,
-                            5
-                        ]
+                            12,
+                            10,
+                            3.5]
                     }
                 ]
             },
@@ -657,16 +656,15 @@
                     },
                     {
                         "type": "Collision",
-                        "start": [
-                            -0.5,
-                            -5,
+                       "start": [
+                             8,
+                            1,
                             3
                         ],
                         "end": [
-                            0.5,
-                            6,
-                            3
-                        ]
+                            12,
+                            10,
+                            3.5]
                     }
                 ]
             },
@@ -686,14 +684,14 @@
                     0.7,
                     0.7
                 ],
-                "duplicates": [
-                    0,   ///number of repeats in x
-                    0,  ////translatopn in x
-                    0,   ///number of repeats in y
-                    0,  ////translatopn in y
-                    100,   ///number of repeats in z
-                    -500  ////translatopn in z
-                ],
+                // "duplicates": [
+                //     0,   ///number of repeats in x
+                //     0,  ////translatopn in x
+                //     0,   ///number of repeats in y
+                //     0,  ////translatopn in y
+                //     100,   ///number of repeats in z
+                //     -500  ////translatopn in z
+                // ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -706,15 +704,14 @@
                     {
                         "type": "Collision",
                         "start": [
-                            -0.5,
-                            -5,
+                             -12,
+                            1,
                             3
                         ],
                         "end": [
-                            0.5,
-                            6,
-                            3
-                        ]
+                            -8,
+                            10,
+                            3.5]
                     }
                 ]
             },
@@ -754,15 +751,14 @@
                     {
                         "type": "Collision",
                         "start": [
-                            -0.5,
-                            -5,
+                             -12,
+                            1,
                             3
                         ],
                         "end": [
-                            0.5,
-                            6,
-                            3
-                        ]
+                            -8,
+                            10,
+                            3.5]
                     }
                 ]
             },
