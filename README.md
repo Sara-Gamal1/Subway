@@ -6,6 +6,10 @@
 
 
 
+## <img align="center"  width =70px  height =70px src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXRucnFpajFldmNqZXZuYjUyNW0zOHVnNDc1aGxqdDVpZmtxenAyOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SsIZQ5my0eba5y3r2m/giphy.gif"> Overview
+
+
+
 <h2>💻 Built with</h2>
 
 <div align="center">
@@ -32,6 +36,18 @@ git clone https://github.com/Sara-Gamal1/graphics-project
 ```
 ./bin/GAME_APPLICATION.exe
 ```
+
+## <img align= center width=60px height=60px src="https://media1.giphy.com/media/igsIZv3VwIIlRIpq5G/giphy.gif?cid=ecf05e47faatmwdhcst7c2d4eontr459hjd35zf3an324elo&rid=giphy.gif&ct=s"> File Structure 
+<br>
+<div align= center>
+<img  height="450px" src="https://github.com/BasmaElhoseny01/frog-frenzy/assets/71986226/97bd1f07-1cae-4d27-9366-4e4624015c96">
+</div>
+
+## <img  align= center width= 70px height =70px src="https://img.genial.ly/5f91608064ad990c6ee12237/bd7195a3-a8bb-494b-8a6d-af48dd4deb4b.gif?genial&1643587200063"> Demo
+
+<div  align="center">
+  <video align="center" height=300px  src="">
+</div>
 
 
 
