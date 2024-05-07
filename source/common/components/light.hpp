@@ -13,7 +13,7 @@ namespace our
         glm::vec3 color;
         glm::vec3 attenuation;
         glm::vec2 cone_angles;
-        static std::string getID() { return "LightComponent"; }
+        static std::string getID() { return "Light"; }
         void deserialize(const nlohmann::json &data) override;
     };
 

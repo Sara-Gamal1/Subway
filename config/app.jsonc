@@ -22,6 +22,10 @@
                 "textured": {
                     "vs": "assets/shaders/textured.vert",
                     "fs": "assets/shaders/textured.frag"
+                },
+                "lighted": {
+                    "vs": "assets/shaders/light.vert",
+                    "fs": "assets/shaders/light.frag"
                 }
             },
             "textures": {
@@ -30,7 +34,12 @@
                 "jake": "assets/textures/Jake.jpg",
                 "train":"assets/textures/trains.png",
                 "coin":"assets/textures/coin.png",
-                "end_line":"assets/textures/endLine.jpg"
+                "end_line":"assets/textures/endLine.jpg",
+                "black":"assets/textures/black.jpg",
+                "white":"assets/textures/white.png",
+                "gray":"assets/textures/gray.png",
+                "lamp":"assets/textures/lamp.jpg"
+
             },
             "meshes": {
                 "plane": "assets/models/plane.obj",
@@ -40,7 +49,8 @@
                 "fence": "assets/models/fence.obj",
                 "train": "assets/models/train4.obj",
                 "coin":"assets/models/coin3.obj",
-                "heart":"assets/models/heart.obj"
+                "heart":"assets/models/heart.obj",
+                "lamp": "assets/models/lamp.obj"
 
             },
             "samplers": {
@@ -103,8 +113,8 @@
                     "sampler": "default"
                 },
                  "wood": {
-                    "type": "textured",
-                    "shader": "textured",
+                    "type": "lighted",
+                    "shader": "lighted",
                     "pipelineState": {
                         "faceCulling": {
                             "enabled": false
@@ -120,7 +130,12 @@
                         1
                     ],
                     "texture": "wood",
-                    "sampler": "default"
+                    "sampler": "default",
+                    "albedo":"wood",
+                    "specular":"white",
+                    "roughness": "gray",
+                    "emissive": "black",
+                    "ambient_occlusion": "wood"
                 },
                 "wall": {
                     "type": "textured",
@@ -141,6 +156,12 @@
                     ],
                     "texture": "wall",
                     "sampler": "default"
+                    // "albedo":"wall",
+                    // "specular":"white",
+                    // "roughness": "gray",
+                    // "emissive": "black",
+                    // "ambient_occlusion": "wall"
+
                 },
                 "jake": {
                     "type": "textured",
@@ -188,6 +209,26 @@
                         }
                     },
                     "texture": "end_line",
+                    "sampler": "default"
+                },
+                "lamp": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ], 
+                    "texture": "lamp",
                     "sampler": "default"
                 }
             }
@@ -920,6 +961,55 @@
                             10
                         ]
                     }
+                ]
+            },
+            {
+                "name":"lamp",
+                "position": [
+                    10, //right & left
+                    -10, //up & down
+                    10 //near & far
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ]
+                ,
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "lamp",
+                        "material": "lamp"
+                    },
+                    {
+                        "type": "lamp"
+                    },
+                    {
+                        "type": "Light",
+                        "light_type": 2,
+                        "color": [
+                            1,
+                            0.5,
+                            0.5
+                        ],
+                        "attenuation": [
+                            0,
+                            0,
+                            0.01         
+                        ],
+                        "cone_angles": [
+                            60,
+                            120        
+                        ]
+
+                    }
+                   
                 ]
             }
         ]
