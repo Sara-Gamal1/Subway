@@ -31,18 +31,20 @@
                 "train":"assets/textures/trains.png",
                 "coin":"assets/textures/coin.png",
                 "end_line":"assets/textures/endLine.jpg",
-                "dog":"assets/textures/dog.png"
+                "dog":"assets/textures/dog.png",
+                "police":"assets/textures/police.png"
             },
             "meshes": {
                 "plane": "assets/models/plane.obj",
                 "sphere": "assets/models/sphere.obj",
-                "jake": "assets/models/jake.obj",
+                "jake": "assets/models/jakes.obj",
                 "wall":"assets/models/wall.obj",
                 "fence": "assets/models/fence.obj",
                 "train": "assets/models/train4.obj",
                 "coin":"assets/models/coin3.obj",
                 "heart":"assets/models/heart.obj",
-                "dog":"assets/models/dog.obj"
+                "dog":"assets/models/dog.obj",
+                "police":"assets/models/police.obj"
 
             },
             "samplers": {
@@ -69,6 +71,21 @@
                         0,
                         1
                     ]
+                },
+                   "police": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    
+                    "texture": "police",
+                    "sampler": "default"
                 },
                  "heart": {
                     "type": "tinted",
@@ -230,7 +247,7 @@
                         "linearVelocity": [
                             0,
                             0,
-                            -5
+                           -5
                             //   0
                         ],
                         "angularVelocity": [
@@ -347,7 +364,7 @@
                     "scale": [
                         0.45,
                         0.55,
-                        0.005
+                       0.0009
                     ],
                     "components": [
                     {
@@ -379,7 +396,7 @@
                         "linearVelocity": [
                             0,
                             0,
-                            -5
+                           -5
                     //  0
                         ],
                         "angularVelocity": [
@@ -392,9 +409,9 @@
             },
             { "name":"dog",
                     "position": [
-                        2,
+                        1.5,
                         -5,
-                        35
+                        38
                     ],
                     "rotation": [
                         0,
@@ -402,9 +419,9 @@
                         0
                     ],
                     "scale": [
-                        5,
-                        5,
-                        5
+                        3,
+                        3,
+                        3
                     ],
                     "components": [
                     {
@@ -430,6 +447,49 @@
                     }
                     ]
             },
+
+  { "name":"police",
+                    "position": [
+                        0,
+                        -5,
+                        32
+                    ],
+                    "rotation": [
+                        0,
+                        180,
+                        0
+                    ],
+                    "scale": [
+                        5,
+                        6,
+                        5
+                    ],
+                    "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "police",
+                        "material": "police"
+                    },
+                    {
+                        "type": "police"
+                    },
+                        {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                            -5
+                        ],
+                        "angularVelocity": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                    ]
+            },
+
+
             {   "name":"wood",
                 "position": [
                     0,
@@ -799,12 +859,12 @@
                         "type": "Collision",
                         "start": [
                             -10,
-                            -10,
+                            -100,
                             -24
                         ],
                         "end": [
                             10,
-                            10,
+                            100,
                             30
                         ]
                     }
@@ -847,12 +907,12 @@
                         "type": "Collision",
                         "start": [
                             -10,
-                            -10,
+                            -100,
                             -24
                         ],
                         "end": [
                             10,
-                            10,
+                            100,
                             30
                         ]
                     }
@@ -895,12 +955,12 @@
                         "type": "Collision",
                         "start": [
                             -10,
-                            -10,
+                            -100,
                             -24
                         ],
                         "end": [
                             10,
-                            10,
+                            100,
                             30
                         ]
                     }
@@ -943,12 +1003,12 @@
                         "type": "Collision",
                         "start": [
                             -10,
-                            -10,
+                            -100,
                             -24
                         ],
                         "end": [
                             10,
-                            10,
+                            100,
                             30
                         ]
                     }

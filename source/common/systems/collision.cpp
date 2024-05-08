@@ -6,6 +6,7 @@
 #include "../components/collision.hpp"
 #include "../components/player.hpp"
 #include "../components/coin.hpp"
+#include "../components/police.hpp"
 #include "../components/train.hpp"
 #include "../components/fence.hpp"
 #include "../components/end-line.hpp"
@@ -26,7 +27,7 @@
 
 namespace our
 {
-    bool debug = true;
+    bool debug = false;
     struct BoundingBox
     {
         float minX, maxX;
@@ -47,9 +48,12 @@ namespace our
         PlayerComponent *player;  // The player component if it exists
         glm::vec3 playerPosition; // The player's position in the world
         Entity *playerEntity;     // The player entity if it exists
-        DogComponent *dog;  // The player component if it exists
-        glm::vec3 dogPosition; // The player's position in the world
-        Entity *dogEntity;     // The player entity if it exists
+        DogComponent *dog;        // The player component if it exists
+        PoliceComponent *police;        // The player component if it exists
+        glm::vec3 dogPosition;    // The player's position in the world
+        glm::vec3 policePosition;    // The player's position in the world
+        Entity *dogEntity;        // The player entity if it exists
+        Entity *policeEntity;        // The player entity if it exists
         bool collided = false;
         for (auto entity : world->getEntities())
         {
@@ -63,6 +67,22 @@ namespace our
                 playerPosition =
                     glm::vec3(playerEntity->getLocalToWorldMatrix() *
                               glm::vec4(playerEntity->localTransform.position, 1)); // get the player's position in the world
+                break;
+                // glm::vec3 &position = entity->localTransform.position;
+            }
+        }
+        for (auto entity : world->getEntities())
+        {
+            // search for the player entity
+            // Get the player component if it exists
+            policeEntity = entity;
+            police = policeEntity->getComponent<PoliceComponent>();
+            // If the player component exists
+            if (police)
+            {
+                policePosition =
+                    glm::vec3(policeEntity->getLocalToWorldMatrix() *
+                              glm::vec4(policeEntity->localTransform.position, 1)); // get the player's position in the world
                 break;
                 // glm::vec3 &position = entity->localTransform.position;
             }
@@ -155,6 +175,10 @@ namespace our
                             {
                                 Entity *entity = camera->getOwner();
                                 glm::vec3 &position = entity->localTransform.position;
+
+                                decreaseHearts(world, player->hearts);
+                                player->hearts = player->hearts - 1;
+
                                 position.x = 0;
                                 position.y = 5;
                                 position.z = 50;
@@ -164,14 +188,16 @@ namespace our
                                 dogEntity->localTransform.position.x = 2;
                                 dogEntity->localTransform.position.y = -5;
                                 dogEntity->localTransform.position.z = 35;
-                                decreaseHearts(world, player->hearts);
-                                player->hearts = player->hearts - 1;
+
+                                policeEntity->localTransform.position.x = 0;
+                                policeEntity->localTransform.position.y = -5;
+                                policeEntity->localTransform.position.z = 32;
                             }
                         }
                     }
                     else if (entity->getComponent<TrainComponent>())
                     {
-                        
+
                         std::cout << "my hearts =" << player->hearts << std::endl;
                         std::cout << "collided with obstacle : TrainComponent " << std::endl;
                         if (player->hearts <= 1)
@@ -193,6 +219,10 @@ namespace our
                             {
                                 Entity *entity = camera->getOwner();
                                 glm::vec3 &position = entity->localTransform.position;
+
+                                decreaseHearts(world, player->hearts);
+                                player->hearts = player->hearts - 1;
+
                                 position.x = 0;
                                 position.y = 5;
                                 position.z = 50;
@@ -202,15 +232,16 @@ namespace our
                                 dogEntity->localTransform.position.x = 2;
                                 dogEntity->localTransform.position.y = -5;
                                 dogEntity->localTransform.position.z = 35;
-                                decreaseHearts(world, player->hearts);
-                                player->hearts = player->hearts - 1;
+                                policeEntity->localTransform.position.x = 0;
+                                policeEntity->localTransform.position.y = -5;
+                                policeEntity->localTransform.position.z = 32;
                             }
                         }
                     }
                     else if (entity->getComponent<CoinComponent>())
                     {
                         // if the object is an obstacle
-                        if (this->lastCoinPosition != entity->localTransform.position && entity->localTransform.scale.x!=0)
+                        if (this->lastCoinPosition != entity->localTransform.position && entity->localTransform.scale.x != 0)
                         {
                             hideCoins(entity);
                             // increase the player score by 10

@@ -4,6 +4,7 @@
 #include "camera.hpp"
 #include "mesh-renderer.hpp"
 #include "free-camera-controller.hpp"
+#include "police.hpp"
 #include "movement.hpp"
 #include "player.hpp"
 #include "collision.hpp"
@@ -70,6 +71,10 @@ namespace our
         else if (type == DogComponent::getID())
         {
             component = entity->addComponent<DogComponent>();
+        }
+        else if (type == PoliceComponent::getID())
+        {
+            component = entity->addComponent<PoliceComponent>();
         }
         if (component)
             component->deserialize(data);
