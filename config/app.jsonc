@@ -609,7 +609,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        100,   ///number of repeats in z
+                        2,   ///number of repeats in z
                         -2000  ////translatopn in z
                     ],
                     "components": [
@@ -641,7 +641,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        200,   ///number of repeats in z
+                        30,   ///number of repeats in z
                         -70  ////translatopn in z
                     ],
                     "components": [
@@ -673,7 +673,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        200,   ///number of repeats in z
+                        30,   ///number of repeats in z
                         -70  ////translatopn in z
                     ],
                     "components": [
@@ -705,7 +705,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        200,   ///number of repeats in z
+                        5,   ///number of repeats in z
                         -400  ////translatopn in z
                     ],
                     "components": [
@@ -727,7 +727,7 @@
                             "end": [
                                 0.5,
                                 6,
-                                5.5
+                                3.5
                             ]
                         }
                     ]
@@ -753,7 +753,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        100,   ///number of repeats in z
+                        2,   ///number of repeats in z
                         -1000  ////translatopn in z
                     ],
                     "components": [
@@ -775,7 +775,7 @@
                             "end": [
                                 12,
                                 10,
-                                5.5
+                                3.5
                             ]
                         }
                     ]
@@ -801,7 +801,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        100,   ///number of repeats in z
+                        3,   ///number of repeats in z
                         -800  ////translatopn in z
                     ],
                     "components": [
@@ -823,7 +823,7 @@
                             "end": [
                                 12,
                                 10,
-                                5.5
+                                3.5
                             ]
                         }
                     ]
@@ -849,7 +849,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        100,   ///number of repeats in z
+                        4,   ///number of repeats in z
                         -500  ////translatopn in z
                     ],
                     "components": [
@@ -871,7 +871,7 @@
                             "end": [
                                 -8,
                                 10,
-                                5.5
+                                3.5
                             ]
                         }
                     ]
@@ -897,7 +897,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        100,   ///number of repeats in z
+                        3,   ///number of repeats in z
                         -700  ////translatopn in z
                     ],
                     "components": [
@@ -919,7 +919,7 @@
                             "end": [
                                 -8,
                                 10,
-                                5.5
+                                3.5
                             ]
                         }
                     ]
@@ -945,7 +945,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        100,   ///number of repeats in z
+                        2,   ///number of repeats in z
                         -800  ////translatopn in z
                     ],
                     "components": [
@@ -993,7 +993,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        100,   ///number of repeats in z
+                        2,   ///number of repeats in z
                         -700  ////translatopn in z
                     ],
                     "components": [
@@ -1041,7 +1041,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        100,   ///number of repeats in z
+                        2,   ///number of repeats in z
                         -500  ////translatopn in z
                     ],
                     "components": [
@@ -1089,7 +1089,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        100,   ///number of repeats in z
+                        2,   ///number of repeats in z
                         -600  ////translatopn in z
                     ],
                     "components": [
@@ -1137,7 +1137,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        100,   ///number of repeats in z
+                        5,   ///number of repeats in z
                         -300  ////translatopn in z
                     ],
                     "train_of_coins": [
@@ -1206,7 +1206,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        100,   ///number of repeats in z
+                        5,   ///number of repeats in z
                         -100  ////translatopn in z
                     ],
                     "train_of_coins": [
@@ -1275,7 +1275,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        100,   ///number of repeats in z
+                        5,   ///number of repeats in z
                         -100  ////translatopn in z
                     ],
                     "train_of_coins": [
@@ -1327,7 +1327,7 @@
                     "position": [
                         0, //right & left
                         -9, //up & down
-                        -3000 //near & far
+                        -2000 //near & far
                     ],
                     "rotation": [
                         90,
@@ -1386,8 +1386,8 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        7,   ///number of repeats in z
-                        -375  ////translatopn in z
+                        4,   ///number of repeats in z
+                        -400  ////translatopn in z
                     ],
                     "components": [
                         {
@@ -1433,8 +1433,8 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        7,   ///number of repeats in z
-                        -375  ////translatopn in z
+                        4,   ///number of repeats in z
+                        -400  ////translatopn in z
                     ],
                     
                     "components": [
@@ -1449,7 +1449,7 @@
                     "position": [
                         -16, 
                         8, 
-                        -300 
+                        -150 
                     ],
                     "rotation": [
                         25,
@@ -1467,8 +1467,8 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        7,   ///number of repeats in z
-                        -375 ////translatopn in z
+                        4,   ///number of repeats in z
+                        -400 ////translatopn in z
                     ],
                     "components": [
                         {
@@ -1497,7 +1497,7 @@
                     "position": [
                         -18, 
                         3, ///up and down
-                        -300
+                        -150
                     ],
                     "rotation": [
                         0,
@@ -1514,8 +1514,8 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        7,   ///number of repeats in z
-                        -375 ////translatopn in z
+                        4,   ///number of repeats in z
+                        -400 ////translatopn in z
                     ],
                     
                     "components": [
@@ -1526,8 +1526,6 @@
                         }
                     ]
                 },
-
-            
                 {"name":"light_pole_right",
                     "position": [
                         14, //right & left
@@ -1658,12 +1656,11 @@
                 }
             ]
                 },
-
                 {"name":"light_pole_right_end",
                     "position": [
                         14, //right & left
                         10, //up & down
-                        -3020//near & far
+                        -1980//near & far
                     ],
                     "rotation": [
                         0,
@@ -1684,7 +1681,7 @@
                             "color": [
                                 0.3,
                                 0.3,
-                                0.3
+                                0.8
                             ],
                             "attenuation": [
                                 0.0,
@@ -1703,7 +1700,7 @@
                 "position": [
                     14, //right & left
                     -10, //up & down
-                    -3020 //near & far
+                    -1980 //near & far
                 ],
                 "rotation": [
                     0,
@@ -1728,7 +1725,7 @@
                 "position": [
                     -14, //right & left
                     10, //up & down
-                    -3020//near & far
+                    -1980//near & far
                 ],
                 "rotation": [
                     0,
@@ -1747,7 +1744,7 @@
                         "type": "Light",
                         "light_type": 2,
                         "color": [
-                            0.3,
+                            0.8,
                             0.3,
                             0.3
                         ],
@@ -1763,12 +1760,11 @@
                     }
                     ]
                 },
-
                 {"name":"key1",
                     "position": [
                         0, 
                         -2, ///up and down
-                        -1950
+                        -1600
                     ],
                     "rotation": [
                         0,
@@ -1877,7 +1873,7 @@
                 "position": [
                     -14, //right & left
                     -10, //up & down
-                    -3020//near & far
+                    -1980//near & far
                 ],
                 "rotation": [
                     0,
