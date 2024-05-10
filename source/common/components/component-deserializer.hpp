@@ -13,6 +13,8 @@
 #include "fence.hpp"
 #include "end-line.hpp"
 #include "heart.hpp"
+#include "light.hpp"
+#include "lamp.hpp"
 #include "dog.hpp"
 namespace our
 {
@@ -68,6 +70,13 @@ namespace our
         {
             component = entity->addComponent<HeartComponent>();
         }
+        else if (type == LightComponent::getID())
+        {
+            component = entity->addComponent<LightComponent>();
+        }
+        else if (type == LampComponent::getID())
+        {
+            component = entity->addComponent<LampComponent>();
         else if (type == DogComponent::getID())
         {
             component = entity->addComponent<DogComponent>();
