@@ -39,7 +39,7 @@
                 "white":"assets/textures/white.png",
                 "gray":"assets/textures/gray.png",
                 "lamp":"assets/textures/lamp.jpg",
-                "wall_lamp":"assets/textures/wall_lamp.png"
+                "wall_lamp":"assets/textures/wall_lamp5.png",
                 "dog":"assets/textures/dog.png",
                 "police":"assets/textures/police.png"
             },
@@ -53,7 +53,7 @@
                 "coin":"assets/models/coin3.obj",
                 "heart":"assets/models/heart.obj",
                 "lamp": "assets/models/lamp.obj",
-                "wall_lamp":"assets/models/wall_lamp.obj"
+                "wall_lamp":"assets/models/wall_lamp5.obj",
                 "dog":"assets/models/dog.obj",
                 "police":"assets/models/police.obj"
             },
@@ -129,7 +129,7 @@
                     
                     "texture": "train",
                     "sampler": "default"
-                }
+                },
                     
                 "dog": {
                     "type": "textured",
@@ -309,8 +309,8 @@
                         "linearVelocity": [
                             0,
                             0,
-                           -5
-                            //   0
+                        //    -5
+                              0
                         ],
                         "angularVelocity": [
                             0,
@@ -458,8 +458,8 @@
                         "linearVelocity": [
                             0,
                             0,
-                           -5
-                    //  0
+                        //    -5
+                     0
                         ],
                         "angularVelocity": [
                             0,
@@ -1178,8 +1178,7 @@
                     }
                 ]
             },
-            {
-                "name":"right_light",
+            {"name":"right_light",
                 "position": [
                     18, //right & left
                     8, //up & down
@@ -1201,8 +1200,8 @@
                         "type": "Light",
                         "light_type": 2,
                         "color": [
-                            0.3,
-                            0.3,
+                            0.5,
+                            0.5,
                             0.3
                         ],
                         "attenuation": [
@@ -1219,12 +1218,11 @@
                    
                 ]
             },
-            {
-                "name":"right_wall_lamp",
+            {"name":"right_wall_lamp",
                 "position": [
-                    21, //right & left
-                    5, //up & down
-                    -20//near & far
+                    18, 
+                    3, ///up and down
+                    -16
                 ],
                 "rotation": [
                     0,
@@ -1232,9 +1230,9 @@
                     0
                 ],
                 "scale": [
-                    0.01,
-                    0.01,
-                    0.007
+                    10,
+                    10,
+                    10
                 ]
                 ,
                 "components": [
@@ -1245,12 +1243,11 @@
                     }
                 ]
             },
-            {
-                "name":"left_light",
+            {"name":"left_light",
                 "position": [
-                    -18, //right & left
-                    8, //up & down
-                    -20 //near & far
+                    -18, 
+                    8, 
+                    -20 
                 ],
                 "rotation": [
                     0,
@@ -1268,8 +1265,8 @@
                         "type": "Light",
                         "light_type": 2,
                         "color": [
-                            0.3,
-                            0.3,
+                            0.5,
+                            0.5,
                             0.3
                         ],
                         "attenuation": [
@@ -1286,12 +1283,11 @@
                    
                 ]
             },
-            {
-                "name":"left_wall_lamp",
+            {"name":"left_wall_lamp",
                 "position": [
-                    -21, //right & left
-                    5, //up & down
-                    -20//near & far
+                    -18, 
+                    3, ///up and down
+                    -16
                 ],
                 "rotation": [
                     0,
@@ -1299,9 +1295,9 @@
                     0
                 ],
                 "scale": [
-                    0.01,
-                    0.01,
-                    0.007
+                    10,
+                    10,
+                    10
                 ]
                 ,
                 "components": [
