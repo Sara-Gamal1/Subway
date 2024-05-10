@@ -10,8 +10,10 @@
     },
     "scene": {
         "renderer": {
-            "sky": "assets/textures/sky2.jpg",
+            "sky": "assets/textures/sky5.jpg",
             "postprocess": "assets/shaders/postprocess/vignette.frag"
+            // "postprocess": "assets/shaders/postprocess/grain.frag"
+            // "postprocess": "assets/shaders/postprocess/fog.frag"
         },
         "assets": {
             "shaders": {
@@ -41,7 +43,8 @@
                 "lamp":"assets/textures/lamp.jpg",
                 "wall_lamp":"assets/textures/wall_lamp5.png",
                 "dog":"assets/textures/dog.png",
-                "police":"assets/textures/police.png"
+                "police":"assets/textures/police.png",
+                "key":"assets/textures/key.jpg"
             },
             "meshes": {
                 "plane": "assets/models/plane.obj",
@@ -55,7 +58,8 @@
                 "lamp": "assets/models/lamp.obj",
                 "wall_lamp":"assets/models/wall_lamp5.obj",
                 "dog":"assets/models/dog.obj",
-                "police":"assets/models/police.obj"
+                "police":"assets/models/police.obj",
+                "key":"assets/models/key.obj"
             },
             "samplers": {
                 "default": {},
@@ -63,7 +67,6 @@
                     "MAG_FILTER": "GL_NEAREST"
                 }
             },"materials": {
-               
                 "fence": {
                     "type": "tinted",
                     "shader": "tinted",
@@ -102,7 +105,7 @@
                     "emissive": "black",
                     "ambient_occlusion": "police"
                 },
-                 "heart": {
+                "heart": {
                     "type": "tinted",
                     "shader": "tinted",
                     "pipelineState": {
@@ -134,8 +137,7 @@
                     
                     "texture": "train",
                     "sampler": "default"
-                },
-                    
+                },  
                 "dog": {
                     "type": "lighted",
                     "shader": "lighted",
@@ -309,11 +311,23 @@
                     ], 
                     "texture": "wall_lamp",
                     "sampler": "default"
+                },
+                "key": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "texture": "key",
+                    "sampler": "default"
                 }
             }
         },
-
-        
         "world": [
                 {
                 "position": [
@@ -334,7 +348,8 @@
                         "linearVelocity": [
                             0,
                             0,
-                            -5
+                          -5
+
                         ],
                         "angularVelocity": [
                             0,
@@ -483,7 +498,7 @@
                             0,
                             0,
                            -5
-                     
+
                         ],
                         "angularVelocity": [
                             0,
@@ -533,8 +548,7 @@
                     }
                     ]
             },
-
-  { "name":"police",
+            { "name":"police",
                     "position": [
                         0,
                         -5,
@@ -574,8 +588,6 @@
                     }
                     ]
             },
-
-
             {   "name":"wood",
                 "position": [
                     0,
@@ -715,7 +727,7 @@
                         "end": [
                             0.5,
                             6,
-                            3.5
+                            5.5
                         ]
                     }
                 ]
@@ -763,7 +775,8 @@
                         "end": [
                             12,
                             10,
-                            3.5]
+                            5.5
+                        ]
                     }
                 ]
             },
@@ -810,7 +823,8 @@
                         "end": [
                             12,
                             10,
-                            3.5]
+                            5.5
+                        ]
                     }
                 ]
             },
@@ -818,7 +832,7 @@
                 "position": [
                     13, // right and left
                     -7, // up ans down
-                    -100
+                    -200
                 ],
                 "rotation": [
                     0,
@@ -830,14 +844,14 @@
                     0.7,
                     0.7
                 ],
-                // "duplicates": [
-                //     0,   ///number of repeats in x
-                //     0,  ////translatopn in x
-                //     0,   ///number of repeats in y
-                //     0,  ////translatopn in y
-                //     100,   ///number of repeats in z
-                //     -500  ////translatopn in z
-                // ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -500  ////translatopn in z
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -857,7 +871,8 @@
                         "end": [
                             -8,
                             10,
-                            3.5]
+                            5.5
+                        ]
                     }
                 ]
             },
@@ -865,7 +880,7 @@
                 "position": [
                     13, // right and left
                     -7, // up ans down
-                    -100
+                    -300
                 ],
                 "rotation": [
                     0,
@@ -904,7 +919,8 @@
                         "end": [
                             -8,
                             10,
-                            3.5]
+                            5.5
+                        ]
                     }
                 ]
             },
@@ -1100,11 +1116,11 @@
                     }
                 ]
             },
-            {   "name":"coin",
+            {   "name":"middle-coin",
             "position": [
-                    8, // right and left
+                    0, // right and left
                     -2, // up and down
-                    -15 // far and near direction
+                    -55 // far and near direction
                 ],
                 "rotation": [
                     0,
@@ -1112,16 +1128,24 @@
                     90
                 ],
                 "scale": [
-                    0.03,
-                    0.015,
-                    0.01
+                    0.06,
+                    0.045,
+                    0.03
                 ],
                 "duplicates": [
                     0,   ///number of repeats in x
                     0,  ////translatopn in x
                     0,   ///number of repeats in y
                     0,  ////translatopn in y
-                    5,   ///number of repeats in z
+                    100,   ///number of repeats in z
+                    -300  ////translatopn in z
+                ],
+                "train_of_coins": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    7,   ///number of repeats in z
                     -5  ////translatopn in z
                 ],
                 "components": [
@@ -1142,6 +1166,144 @@
                         ],
                         "end": [
                             3.5,
+                            4.5,
+                            2
+                        ]
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "angularVelocity": [
+                            0,
+                            60,
+                            0
+                        ]
+                    }
+                ]
+            },
+            {   "name":"left-coin",
+            "position": [
+                    9, // right and left
+                    -2, // up and down
+                    -75 // far and near direction
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ],
+                "scale": [
+                    0.06,
+                    0.045,
+                    0.03
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -100  ////translatopn in z
+                ],
+                "train_of_coins": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    5,   ///number of repeats in z
+                    -5  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "coin",
+                        "material": "coin"
+                    },
+                    {
+                        "type": "coin"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -4.5,
+                            -4.5,
+                            -2
+                        ],
+                        "end": [
+                            4.5,
+                            4.5,
+                            2
+                        ]
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "angularVelocity": [
+                            0,
+                            60,
+                            0
+                        ]
+                    }
+                ]
+            },
+            {   "name":"right-coin",
+            "position": [
+                    -9, // right and left
+                    -2, // up and down
+                    -110 // far and near direction
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ],
+                "scale": [
+                    0.06,
+                    0.045,
+                    0.03
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -100  ////translatopn in z
+                ],
+                "train_of_coins": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    6,   ///number of repeats in z
+                    -5  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "coin",
+                        "material": "coin"
+                    },
+                    {
+                        "type": "coin"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -4.5,
+                            -4.5,
+                            -2
+                        ],
+                        "end": [
+                            4.5,
                             4.5,
                             2
                         ]
@@ -1364,6 +1526,7 @@
                     }
                 ]
             },
+
             
             {"name":"light_pole_right",
                 "position": [
@@ -1596,6 +1759,116 @@
                 "cone_angles": [
                     10,
                     20       
+                ]
+              ]
+            },
+
+            {"name":"key1",
+                "position": [
+                    0, 
+                    -2, ///up and down
+                    -1950
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    2,
+                    2,
+                    2
+                ]
+                ,
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "key",
+                        "material": "key"
+                    },
+                    {
+                        "type": "key"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -4.5,
+                            -4.5,
+                            -2
+                        ],
+                        "end": [
+                            4.5,
+                            4.5,
+                            2
+                        ]
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "angularVelocity": [
+                            0,
+                            60,
+                            0
+                        ]
+                    }
+                ]
+            },
+            {"name":"key2",
+                "position": [
+                    -9, 
+                    -2, ///up and down
+                    -700
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    2,
+                    2,
+                    2
+                ]
+                ,
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "key",
+                        "material": "key"
+                    },
+                    {
+                        "type": "key"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -4.5,
+                            -4.5,
+                            -2
+                        ],
+                        "end": [
+                            4.5,
+                            4.5,
+                            2
+                        ]
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "angularVelocity": [
+                            0,
+                            60,
+                            0
+                        ]
+                    }
                 ]
 
             }

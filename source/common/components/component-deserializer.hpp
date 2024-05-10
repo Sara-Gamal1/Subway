@@ -16,6 +16,7 @@
 #include "light.hpp"
 #include "lamp.hpp"
 #include "dog.hpp"
+#include "key.hpp"
 namespace our
 {
 
@@ -85,6 +86,10 @@ namespace our
         else if (type == PoliceComponent::getID())
         {
             component = entity->addComponent<PoliceComponent>();
+        }
+        else if (type == KeyComponent::getID())
+        {
+            component = entity->addComponent<KeyComponent>();
         }
         if (component)
             component->deserialize(data);

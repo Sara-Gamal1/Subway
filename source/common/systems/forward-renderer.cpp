@@ -205,6 +205,8 @@ namespace our
         {
             // TODO: (Req 11) bind the framebuffer
             glBindFramebuffer(GL_DRAW_FRAMEBUFFER, postprocessFrameBuffer);
+            postprocessMaterial->shader->set("camera_position", cameraPosition);
+
         }
 
         // TODO: (Req 9) Clear the color and depth buffers

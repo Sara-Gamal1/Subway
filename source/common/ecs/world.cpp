@@ -71,12 +71,27 @@ namespace our
                 }
 
                 for (int i = 1; i <= (int)duplicates[4]; ++i)
-                {
+                {   
+                    if (entityData.contains("train_of_coins"))
+                    {
+                        nlohmann::json train_of_coins = entityData["train_of_coins"];
+                        for (int j = 1; j<= (int)train_of_coins[4]; ++j)
+                        {
+                        Entity *newDuplicateEntity = add();  // create a new entity using the add function in world.hpp
+                        newDuplicateEntity->parent = parent; // set the parent of the new entity to the given parent
+                        newDuplicateEntity->deserialize(     // deserialize the new entity using the given entityData
+                            entityData);
+                        newDuplicateEntity->localTransform.position.z += (int(i) * (int)duplicates[5])+((int(j)) * (int)train_of_coins[5]);
+                        }
+                    }
+                    else
+                    {
                     Entity *newDuplicateEntity = add();  // create a new entity using the add function in world.hpp
                     newDuplicateEntity->parent = parent; // set the parent of the new entity to the given parent
                     newDuplicateEntity->deserialize(     // deserialize the new entity using the given entityData
                     entityData);
                     newDuplicateEntity->localTransform.position.z += int(i) * (int)duplicates[5];
+                    }
                 }
             }
         }
