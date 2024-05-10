@@ -13,6 +13,7 @@
 #include "../components/heart.hpp"
 #include "../components/camera.hpp"
 #include "../components/dog.hpp"
+#include "../components/key.hpp"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
@@ -49,11 +50,11 @@ namespace our
         glm::vec3 playerPosition; // The player's position in the world
         Entity *playerEntity;     // The player entity if it exists
         DogComponent *dog;        // The player component if it exists
-        PoliceComponent *police;        // The player component if it exists
+        PoliceComponent *police;  // The player component if it exists
         glm::vec3 dogPosition;    // The player's position in the world
-        glm::vec3 policePosition;    // The player's position in the world
+        glm::vec3 policePosition; // The player's position in the world
         Entity *dogEntity;        // The player entity if it exists
-        Entity *policeEntity;        // The player entity if it exists
+        Entity *policeEntity;     // The player entity if it exists
         bool collided = false;
         for (auto entity : world->getEntities())
         {
@@ -119,6 +120,13 @@ namespace our
             std::cout << "start player x " << playerStart.x << "  start player y " << playerStart.y << "   start player z " << playerStart.z << std::endl;
             std::cout << "end player x " << playerEnd.x << "  end player y " << playerEnd.y << "   end player z " << playerEnd.z << std::endl;
         }
+        CameraComponent *camera;
+        for (auto entity : world->getEntities())
+        {
+            camera = entity->getComponent<CameraComponent>();
+            if (camera)
+                break;
+        }
 
         // For each entity in the world
         for (auto entity : world->getEntities())
@@ -163,19 +171,11 @@ namespace our
                         }
                         else
                         {
-                            CameraComponent *camera;
-                            for (auto entity : world->getEntities())
-                            {
-                                camera = entity->getComponent<CameraComponent>();
-                                if (camera)
-                                    break;
-                            }
-
                             if (camera)
                             {
                                 Entity *entity = camera->getOwner();
                                 glm::vec3 &position = entity->localTransform.position;
-
+                                lastRemovedheart = player->hearts;
                                 decreaseHearts(world, player->hearts);
                                 player->hearts = player->hearts - 1;
 
@@ -195,7 +195,7 @@ namespace our
                             }
                         }
                     }
-                    else if (entity->getComponent<TrainComponent>())
+                    if (entity->getComponent<TrainComponent>())
                     {
 
                         std::cout << "my hearts =" << player->hearts << std::endl;
@@ -207,19 +207,13 @@ namespace our
                         }
                         else
                         {
-                            CameraComponent *camera;
-                            for (auto entity : world->getEntities())
-                            {
-                                camera = entity->getComponent<CameraComponent>();
-                                if (camera)
-                                    break;
-                            }
 
                             if (camera)
                             {
                                 Entity *entity = camera->getOwner();
                                 glm::vec3 &position = entity->localTransform.position;
 
+                                lastRemovedheart = player->hearts;
                                 decreaseHearts(world, player->hearts);
                                 player->hearts = player->hearts - 1;
 
@@ -238,7 +232,7 @@ namespace our
                             }
                         }
                     }
-                    else if (entity->getComponent<CoinComponent>())
+                    if (entity->getComponent<CoinComponent>())
                     {
                         // if the object is an obstacle
                         if (this->lastCoinPosition != entity->localTransform.position && entity->localTransform.scale.x != 0)
@@ -252,15 +246,43 @@ namespace our
                         std::cout << "my score =" << player->score << std::endl;
                         std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
                     }
-                    else if (entity->getComponent<EndLineComponent>())
+                    if (entity->getComponent<KeyComponent>())
+                    {
+                        // if the object is an obstacle
+                        if (this->lastKeyPosition != entity->localTransform.position && entity->localTransform.scale.x != 0)
+                        {
+                            hideCoins(entity);
+                            this->lastKeyPosition = entity->localTransform.position;
+                            // if you have 3 hearts take +100 score else increase hearts
+                            if (player->hearts == 3)
+                            {
+                                player->score = player->score + 100;
+                                playerScore = player->score;
+                            }
+                            else
+                            {
+                                player->hearts = player->hearts + 1;
+                                for (auto heartEntity : world->getEntities())
+                                {
+                                    HeartComponent *heart = heartEntity->getComponent<HeartComponent>();
+                                    if (heart && heart->heartNumber == lastRemovedheart )
+                                    {
+                                        heartEntity->localTransform.scale.x = 0.0f;
+                                        heartEntity->localTransform.scale.y = 0.01f;
+                                        heartEntity->localTransform.scale.z = 0.009f;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        std::cout << "my score =" << player->score << std::endl;
+                        std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
+                    }
+                    if (entity->getComponent<EndLineComponent>())
                     { // if the object is an obstacle
 
                         std::cout << "congratulation you won with score" << player->score << std::endl;
                         app->changeState("win");
-                    }
-                    else
-                    {
-                        std::cout << "other Obstacle " << std::endl;
                     }
                 }
                 // else if (debug)

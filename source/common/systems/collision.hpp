@@ -16,7 +16,9 @@ namespace our
 
     public:
         glm::vec3 lastCoinPosition;
+        glm::vec3 lastKeyPosition;
         glm::vec3 lastFencePosition;
+        int lastRemovedheart;
         CollisionSystem()
         {
         }
