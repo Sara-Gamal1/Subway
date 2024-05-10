@@ -13,17 +13,19 @@
 // This state shows how to use the ECS framework and deserialization.
 class Playstate : public our::State
 {
-
+    public:
     our::World world;
     our::ForwardRenderer renderer;
     our::FreeCameraControllerSystem cameraController;
     our::MovementSystem movementSystem;
     our::CollisionSystem collisionSystem;
     int playerScore = 0;
+    int level;
 
     void onInitialize() override
     {
         // First of all, we get the scene configuration from the app config
+        world.level = this->level;
         auto &config = getApp()->getConfig()["scene"];
         // If we have assets in the scene config, we deserialize them
         if (config.contains("assets"))

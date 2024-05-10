@@ -13,6 +13,7 @@ namespace our
         std::unordered_set<Entity *> markedForRemoval; // These are the entities that are awaiting to be deleted
                                                        // when deleteMarkedEntities is called
     public:
+        int level;
         World() = default;
 
         // This will deserialize a json array of entities and add the new entities to the current world

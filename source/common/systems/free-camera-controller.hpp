@@ -2,14 +2,17 @@
 
 #include "../ecs/world.hpp"
 #include "../components/camera.hpp"
+#include "../components/dog.hpp"
 #include "../components/free-camera-controller.hpp"
 #include "../components/player.hpp"
+#include "../components/police.hpp"
 #include "../application.hpp"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
 #include <glm/trigonometric.hpp>
 #include <glm/gtx/fast_trigonometry.hpp>
+
 
 namespace our
 {
@@ -45,8 +48,34 @@ namespace our
         void update(World *world, float deltaTime)
         {
 
-            PlayerComponent *player; // The player component if it exists
             Entity *playerEntity;    // The player entity if it exists
+            PlayerComponent *player; // The player component if it exists
+            Entity *dogEntity;       // The dog entity if it exists
+            Entity *policeEntity;    // The dog entity if it exists
+            DogComponent *dog;       // The dog component if it exists
+            PoliceComponent *police;    
+
+            for (auto entity : world->getEntities())
+            {
+                // search for the dog entity
+                // Get the dog component if it exists
+                dogEntity = entity;
+                dog = dogEntity->getComponent<DogComponent>();
+                if (dog)
+                    break;
+                // If the dog component exists
+            }
+
+            for (auto entity : world->getEntities())
+            {
+                // search for the dog entity
+                // Get the dog component if it exists
+                policeEntity = entity;
+                police = policeEntity->getComponent<PoliceComponent>();
+                if (police)
+                    break;
+                // If the dog component exists
+            }
 
             for (auto entity : world->getEntities())
             {
@@ -54,10 +83,11 @@ namespace our
                 // Get the player component if it exists
                 playerEntity = entity;
                 player = playerEntity->getComponent<PlayerComponent>();
-                if (player)
+                if (player )
                     break;
                 // If the player component exists
             }
+
 
             // First of all, we search for an entity containing both a CameraComponent and a FreeCameraControllerComponent
             // As soon as we find one, we break
@@ -92,6 +122,8 @@ namespace our
             // We get a reference to the entity's position and rotation
             glm::vec3 &position = entity->localTransform.position;
             glm::vec3 &positionjake = playerEntity->localTransform.position;
+            glm::vec3 &positionDog = dogEntity->localTransform.position;
+            glm::vec3 &positionPolice = policeEntity->localTransform.position;
             glm::vec3 &rotation = entity->localTransform.rotation;
 
             // If the left mouse button is pressed, we get the change in the mouse location
@@ -138,6 +170,11 @@ namespace our
                     // Start the jump
                     positionjake.y += (deltaTime * jumpSpeed * collisionFactor);
                     positionjake.z -= (deltaTime * 4);
+                    positionDog.y += (deltaTime * jumpSpeed * collisionFactor);
+                    positionDog.z -= (deltaTime * 4);
+                    positionPolice.y += (deltaTime * jumpSpeed * collisionFactor);
+                    positionPolice.z -= (deltaTime * 4);
+
                     position.z -= (deltaTime * 4);
                 }
             }
@@ -157,6 +194,11 @@ namespace our
             {
                 positionjake.y += (deltaTime * jumpSpeed);
                 positionjake.z -= deltaTime * 4;
+                positionDog.y += (deltaTime * jumpSpeed);
+                positionDog.z -= deltaTime * 4;
+
+                positionPolice.y += (deltaTime * jumpSpeed);
+                positionPolice.z -= deltaTime * 4;
                 position.z -= deltaTime * 4;
             }
             else if (jumpState == our::JumpState::FALLING)
@@ -164,12 +206,18 @@ namespace our
                 // We update the player position based on the jump state
                 positionjake.y -= (deltaTime * jumpSpeed);
                 positionjake.z -= deltaTime * 4;
+                positionDog.y -= (deltaTime * jumpSpeed);
+                positionDog.z -= deltaTime * 4;
+                positionPolice.y -= (deltaTime * jumpSpeed);
+                positionPolice.z -= deltaTime * 4;
                 position.z -= deltaTime * 4;
             }
             else
             {
                 // We make sure the player is grounded
                 positionjake.y = -4;
+                positionDog.y = -4;
+                positionPolice.y = -4;
             }
             if (app->getKeyboard().isPressed(GLFW_KEY_D) && jumpState == our::JumpState::GROUNDED)
             {
@@ -177,7 +225,11 @@ namespace our
                 {
                     key1_pressed = true;
                     if (positionjake.x < 8)
-                        positionjake.x += 8;
+                        {
+                            positionjake.x += 8;
+                            positionDog.x += 8;
+                            positionPolice.x += 8;
+                        }
                 }
             }
             else
@@ -193,7 +245,11 @@ namespace our
                 {
                     key2_pressed = true;
                     if (positionjake.x > -8)
-                        positionjake.x -= 8;
+                        {
+                            positionjake.x -= 8;
+                            positionDog.x -= 8;
+                            positionPolice.x -= 8;
+                        }
                 }
             }
             else

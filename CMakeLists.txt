@@ -99,6 +99,11 @@ set(COMMON_SOURCES
         source/common/components/lamp.hpp
         source/common/components/lamp.cpp
 
+        source/common/components/police.cpp
+        source/common/components/police.hpp
+        source/common/components/dog.hpp
+        source/common/components/dog.cpp
+
 
         source/common/systems/forward-renderer.hpp
         source/common/systems/forward-renderer.cpp

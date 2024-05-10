@@ -105,17 +105,26 @@ class Menustate: public our::State {
 
         buttons[0].position = {250.0f, 540.0f};
         buttons[0].size = {280.0f, 61.0f};
-        buttons[0].action = [this](){this->getApp()->changeState("play");}; //2nd parameter for hardness(level)
+        buttons[0].action = [this](){
+            this->getApp()->setLevel(1);
+            this->getApp()->changeState("play");
+            }; //2nd parameter for hardness(level)
 
         //medium button
         buttons[1].position = {750.0f, 540.0f};
         buttons[1].size = {280.0f, 61.0f};
-        buttons[1].action = [this](){this->getApp()->changeState("play");};
+        buttons[1].action = [this](){
+            this->getApp()->setLevel(2);
+            this->getApp()->changeState("play");
+            };
 
         //hard button
         buttons[2].position = {470.0f, 640.0f};
         buttons[2].size = {350.0f, 61.0f};
-        buttons[2].action = [this](){this->getApp()->changeState("play");};
+        buttons[2].action = [this](){
+            this->getApp()->setLevel(3);
+            this->getApp()->changeState("play");
+            };
 
         //exit button
         buttons[3].position = {1130.0f, 620.0f};
@@ -174,14 +183,14 @@ class Menustate: public our::State {
         rectangle->draw();
 
         // For every button, check if the mouse is inside it. If the mouse is inside, we draw the highlight rectangle over it.
-        for(auto& button: buttons){
-            if(button.isInside(mousePosition)){
-                highlightMaterial->setup();
-                highlightMaterial->shader->set("transform", VP*button.getLocalToWorld());
-                rectangle->draw();
-            }
-        }
-        
+        // for(auto& button: buttons){
+        //     if(button.isInside(mousePosition)){
+        //         highlightMaterial->setup();
+        //         highlightMaterial->shader->set("transform", VP*button.getLocalToWorld());
+        //         rectangle->draw();
+        //     }
+        // }
+
     }
 
     void onDestroy() override {

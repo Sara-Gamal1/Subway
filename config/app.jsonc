@@ -40,12 +40,13 @@
                 "gray":"assets/textures/gray.png",
                 "lamp":"assets/textures/lamp.jpg",
                 "wall_lamp":"assets/textures/wall_lamp.png"
-
+                "dog":"assets/textures/dog.png",
+                "police":"assets/textures/police.png"
             },
             "meshes": {
                 "plane": "assets/models/plane.obj",
                 "sphere": "assets/models/sphere.obj",
-                "jake": "assets/models/jake.obj",
+                "jake": "assets/models/jakes.obj",
                 "wall":"assets/models/wall.obj",
                 "fence": "assets/models/fence.obj",
                 "train": "assets/models/train4.obj",
@@ -53,16 +54,15 @@
                 "heart":"assets/models/heart.obj",
                 "lamp": "assets/models/lamp.obj",
                 "wall_lamp":"assets/models/wall_lamp.obj"
-
-
+                "dog":"assets/models/dog.obj",
+                "police":"assets/models/police.obj"
             },
             "samplers": {
                 "default": {},
                 "pixelated": {
                     "MAG_FILTER": "GL_NEAREST"
                 }
-            },
-            "materials": {
+            },"materials": {
                
                 "fence": {
                     "type": "tinted",
@@ -81,6 +81,21 @@
                         0,
                         1
                     ]
+                },
+                   "police": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    
+                    "texture": "police",
+                    "sampler": "default"
                 },
                  "heart": {
                     "type": "tinted",
@@ -114,8 +129,24 @@
                     
                     "texture": "train",
                     "sampler": "default"
+                }
+                    
+                "dog": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    
+                    "texture": "dog",
+                    "sampler": "default"
                 },
-                 "wood": {
+                "wood": {
                     "type": "lighted",
                     "shader": "lighted",
                     "pipelineState": {
@@ -197,7 +228,7 @@
                             "enabled": true
                         }
                     },
-                   "texture": "coin",
+                    "texture": "coin",
                     "sampler": "default"
                 }
                 ,"end_line": {
@@ -259,16 +290,14 @@
 
         
         "world": [
-            {
+                {
                 "position": [
                     0,
                     5, // z direction
-                    40 //is the start of road
+                    50 //is the start of road
                     // -100
                 ],
-                "components": [
-                   
-                    
+                "components": [ 
                     { 
                         "type": "Camera"
                     },
@@ -280,8 +309,7 @@
                         "linearVelocity": [
                             0,
                             0,
-                            // -10
-                            -5
+                           -5
                             //   0
                         ],
                         "angularVelocity": [
@@ -292,9 +320,7 @@
                     }
                 ],
                 "children": [
-                      
-                           {
-                "name": "heart1",
+                {"name": "heart1",
                 "position": [
                     1.02, 
                     0.85, 
@@ -323,11 +349,10 @@
                     }
                     
                 ]
-            },
-                            {
-                "name": "heart2",
+                },
+                {"name": "heart2",
                 "position": [
-                   0.94, 
+                    0.94, 
                     0.85, 
                     -1
                 ],
@@ -354,13 +379,10 @@
                     }
                     
                 ]
-            },                {
-                "name": "heart3",
-                
-                   
-                
+                },                
+                {"name": "heart3",
                 "position": [
-                   0.86, 
+                    0.86, 
                     0.85, 
                     -1
                 ],
@@ -370,7 +392,7 @@
                     0
                 ],
                 "scale": [
-                   0,
+                    0,
                     0.01,
                     0.009
                 ],
@@ -387,66 +409,150 @@
                     }
                     
                 ]
-            }
+                }
                 ]
-            },  {  "name":"jake",
-                            "position": [
-                                0,
-                                -5,
-                                30
-                            ],
-                            "rotation": [
-                                0,
-                                180,
-                                0
-                            ],
-                            "scale": [
-                                0.45,
-                                0.55,
-                            0.005
-                            ],
-                            "components": [
-                                {
-                                    "type": "player",
-                                    "speed": 4,
-                                    "score":0,
-                                    "hearts":3
-                                },
-                                {
-                                    "type": "Collision",
-                                    "start": [
-                                        -0.3,
-                                        -0.6,
-                                        -0.2
-                                    ],
-                                    "end": [
-                                        0.3,
-                                        1,
-                                        0.2
-                                    ]
-                                },
-                                {
-                                    "type": "Mesh Renderer",
-                                    "mesh": "jake",
-                                    "material": "jake"
-                                },
-                                 {
-                                    "type": "Movement",
-                                    "linearVelocity": [
-                                        0,
-                                        0,
-                                       -5
-                                //  0
-                                    ],
-                                    "angularVelocity": [
-                                        0,
-                                        0,
-                                        0
-                                    ]
-                                }
-                            ]
-                        },
-            {
+            },  
+            { "name":"jake",
+                    "position": [
+                        0,
+                        -5,
+                        30
+                    ],
+                    "rotation": [
+                        0,
+                        180,
+                        0
+                    ],
+                    "scale": [
+                        0.45,
+                        0.55,
+                       0.0009
+                    ],
+                    "components": [
+                    {
+                        "type": "player",
+                        "speed": 4,
+                        "score":0,
+                        "hearts":3
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -0.3,
+                            -0.6,
+                            -0.2
+                        ],
+                        "end": [
+                            0.3,
+                            1,
+                            0.2
+                        ]
+                    },
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "jake",
+                        "material": "jake"
+                    },
+                        {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                           -5
+                    //  0
+                        ],
+                        "angularVelocity": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                    ]
+            },
+            { "name":"dog",
+                    "position": [
+                        1.5,
+                        -5,
+                        38
+                    ],
+                    "rotation": [
+                        0,
+                        180,
+                        0
+                    ],
+                    "scale": [
+                        3,
+                        3,
+                        3
+                    ],
+                    "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "dog",
+                        "material": "dog"
+                    },
+                    {
+                        "type": "dog"
+                    },
+                        {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                            -5
+                        ],
+                        "angularVelocity": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                    ]
+            },
+
+  { "name":"police",
+                    "position": [
+                        0,
+                        -5,
+                        32
+                    ],
+                    "rotation": [
+                        0,
+                        180,
+                        0
+                    ],
+                    "scale": [
+                        5,
+                        6,
+                        5
+                    ],
+                    "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "police",
+                        "material": "police"
+                    },
+                    {
+                        "type": "police"
+                    },
+                        {
+                        "type": "Movement",
+                        "linearVelocity": [
+                            0,
+                            0,
+                            -5
+                        ],
+                        "angularVelocity": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                    ]
+            },
+
+
+            {   "name":"wood",
                 "position": [
                     0,
                     -10,
@@ -462,6 +568,14 @@
                     1000,
                     1
                 ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -2000  ////translatopn in z
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -470,7 +584,7 @@
                     }
                 ]
             },
-            {
+            {   "name":"wall1",
                 "position": [
                     -22,
                     -20,
@@ -486,29 +600,13 @@
                     0.1,
                     0.15
                 ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "wall",
-                        "material": "wall"
-                    }
-                ]
-            },
-            {
-                "position": [
-                    -22,
-                    -20,
-                    -90
-                ],
-                "rotation": [
-                    -90,
-                    0,
-                    270
-                ],
-                "scale": [
-                    0.2,
-                    0.1,
-                    0.15
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    200,   ///number of repeats in z
+                    -70  ////translatopn in z
                 ],
                 "components": [
                     {
@@ -518,31 +616,7 @@
                     }
                 ]
             },
-            {
-                "position": [
-                    -22,
-                    -20,
-                    -160
-                ],
-                "rotation": [
-                    -90,
-                    0,
-                    270
-                ],
-                "scale": [
-                    0.2,
-                    0.1,
-                    0.15
-                ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "wall",
-                        "material": "wall"
-                    }
-                ]
-            },
-            {
+            {   "name":"wall2",
                 "position": [
                     22,
                     -20,
@@ -558,30 +632,13 @@
                     0.1,
                     0.15
                 ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "wall",
-                        "material": "wall"
-                    }
-                ]
-            },
-            {
-                "name":"wall",
-                "position": [
-                    22,
-                    -20,
-                    -80
-                ],
-                "rotation": [
-                    -90,
-                    0,
-                    90
-                ],
-                "scale": [
-                    0.2,
-                    0.1,
-                    0.15
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    200,   ///number of repeats in z
+                    -70  ////translatopn in z
                 ],
                 "components": [
                     {
@@ -591,118 +648,11 @@
                     }
                 ]
             },
-            {
-                "position": [
-                    22,
-                    -20,
-                    -150
-                ],
-                "rotation": [
-                    -90,
-                    0,
-                    90
-                ],
-                "scale": [
-                    0.2,
-                    0.1,
-                    0.15
-                ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "wall",
-                        "material": "wall"
-                    }
-                ]
-            },
-            // {
-            //     "name": "left fence",
-            //     "position": [
-            //         -13, // right and left
-            //         -7, // up ans down
-            //         -5
-            //     ],
-            //     "rotation": [
-            //         0,
-            //         90,
-            //         0
-            //     ],
-            //     "scale": [
-            //         0.7,
-            //         0.7,
-            //         0.7
-            //     ],
-            //     "components": [
-            //         {
-            //             "type": "Mesh Renderer",
-            //             "mesh": "fence",
-            //             "material": "fence"
-            //         },
-            //         {
-            //             "type": "fence"
-            //         },
-            //         {
-            //             "type": "Collision",
-            //             "start": [
-            //                 -0.5,
-            //                 -5,
-            //                 -0.2
-            //             ],
-            //             "end": [
-            //                 0.5,
-            //                 6,
-            //                 0.1
-            //             ]
-            //         }
-            //     ]
-            // },
-            // {
-            //     "name": "right fence",
-            //     "position": [
-            //         13, // right and left
-            //         -7, // up ans down
-            //         -5
-            //     ],
-            //     "rotation": [
-            //         0,
-            //         90,
-            //         0
-            //     ],
-            //     "scale": [
-            //         0.7,
-            //         0.7,
-            //         0.7
-            //     ],
-            //     "components": [
-            //         {
-            //             "type": "Mesh Renderer",
-            //             "mesh": "fence",
-            //             "material": "fence"
-            //         },
-            //         {
-            //             "type": "fence"
-            //         },
-            //         {
-            //             "type": "Collision",
-            //             "start": [
-            //                 -0.5,
-            //                 -5,
-            //                 -0.2
-            //             ],
-            //             "end": [
-            //                 0.5,
-            //                 6,
-            //                 0.1
-            //             ]
-            //         }
-            //     ]
-            // },
-            {
-                "name": "middle fence",
+            {   "name": "middle fence",
                 "position": [
                     0, // right and left
                     -7, // up ans down
-                    -20
+                    -50
                 ],
                 "rotation": [
                     0,
@@ -713,6 +663,14 @@
                     0.7,
                     0.7,
                     0.7
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    200,   ///number of repeats in z
+                    -400  ////translatopn in z
                 ],
                 "components": [
                     {
@@ -733,15 +691,201 @@
                         "end": [
                             0.5,
                             6,
-                            3
+                            3.5
                         ]
                     }
                 ]
-            }
-            ,
-            {
-                "name":" middle train",
-                 "position": [
+            },
+            {   "name": "left fence1",
+                "position": [
+                    -13, // right and left
+                    -7, // up ans down
+                    -200
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.7,
+                    0.7,
+                    0.7
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -1000  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    },
+                    {
+                        "type": "fence"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                             8,
+                            1,
+                            3
+                        ],
+                        "end": [
+                            12,
+                            10,
+                            3.5]
+                    }
+                ]
+            },
+            {   "name": "left fence2",
+                "position": [
+                    -13, // right and left
+                    -7, // up ans down
+                    -350
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.7,
+                    0.7,
+                    0.7
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -800  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    },
+                    {
+                        "type": "fence"
+                    },
+                    {
+                        "type": "Collision",
+                       "start": [
+                             8,
+                            1,
+                            3
+                        ],
+                        "end": [
+                            12,
+                            10,
+                            3.5]
+                    }
+                ]
+            },
+            {   "name": "right fence1",
+                "position": [
+                    13, // right and left
+                    -7, // up ans down
+                    -100
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.7,
+                    0.7,
+                    0.7
+                ],
+                // "duplicates": [
+                //     0,   ///number of repeats in x
+                //     0,  ////translatopn in x
+                //     0,   ///number of repeats in y
+                //     0,  ////translatopn in y
+                //     100,   ///number of repeats in z
+                //     -500  ////translatopn in z
+                // ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    },
+                    {
+                        "type": "fence"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                             -12,
+                            1,
+                            3
+                        ],
+                        "end": [
+                            -8,
+                            10,
+                            3.5]
+                    }
+                ]
+            },
+            {   "name": "right fence2",
+                "position": [
+                    13, // right and left
+                    -7, // up ans down
+                    -100
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.7,
+                    0.7,
+                    0.7
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -700  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    },
+                    {
+                        "type": "fence"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                             -12,
+                            1,
+                            3
+                        ],
+                        "end": [
+                            -8,
+                            10,
+                            3.5]
+                    }
+                ]
+            },
+            {   "name":" left train1",
+                "position": [
                     -11, // right and left
                     -10, // up and down
                     -100 // far and near direction
@@ -756,6 +900,14 @@
                     1,
                     1
                 ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -800  ////translatopn in z
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -769,19 +921,162 @@
                         "type": "Collision",
                         "start": [
                             -10,
-                            -10,
+                            -100,
                             -24
                         ],
                         "end": [
                             10,
-                            10,
+                            100,
                             30
                         ]
                     }
                 ]
             },
-            {
-            "name":"coin",
+            {   "name":" right train1",
+                "position": [
+                    11, // right and left
+                    -10, // up and down
+                    -400 // far and near direction
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    0
+                ],
+                "scale": [
+                    0.6,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -700  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "train",
+                        "material": "train"
+                    },
+                    {
+                        "type": "train"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -10,
+                            -100,
+                            -24
+                        ],
+                        "end": [
+                            10,
+                            100,
+                            30
+                        ]
+                    }
+                ]
+            },
+            {   "name":" left train2",
+                "position": [
+                    -11, // right and left
+                    -10, // up and down
+                    -500 // far and near direction
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    0
+                ],
+                "scale": [
+                    0.6,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -500  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "train",
+                        "material": "train"
+                    },
+                    {
+                        "type": "train"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -10,
+                            -100,
+                            -24
+                        ],
+                        "end": [
+                            10,
+                            100,
+                            30
+                        ]
+                    }
+                ]
+            },
+            {   "name":" right train2",
+                "position": [
+                    11, // right and left
+                    -10, // up and down
+                    -200 // far and near direction
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    0
+                ],
+                "scale": [
+                    0.6,
+                    1,
+                    1
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    100,   ///number of repeats in z
+                    -600  ////translatopn in z
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "train",
+                        "material": "train"
+                    },
+                    {
+                        "type": "train"
+                    },
+                    {
+                        "type": "Collision",
+                        "start": [
+                            -10,
+                            -100,
+                            -24
+                        ],
+                        "end": [
+                            10,
+                            100,
+                            30
+                        ]
+                    }
+                ]
+            },
+            {   "name":"coin",
             "position": [
                     8, // right and left
                     -2, // up and down
@@ -797,6 +1092,14 @@
                     0.015,
                     0.01
                 ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    5,   ///number of repeats in z
+                    -5  ////translatopn in z
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -834,122 +1137,11 @@
                     }
                 ]
             },
-            {
-                "name": "coin",
-                "position": [
-                    8, // right and left
-                    -2, // up and down
-                    -25 // far and near direction
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    90
-                ],
-                "scale": [
-                    0.03,
-                    0.015,
-                    0.01
-                ],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "coin",
-                        "material": "coin"
-                    },
-                    {
-                        "type": "coin"
-                    },
-                    {
-                        "type": "Collision",
-                        "start": [
-                            -3.5,
-                            -4.5,
-                            -2
-                        ],
-                        "end": [
-                            3.5,
-                            4.5,
-                            2
-                        ]
-                    },
-                    {
-                        "type": "Movement",
-                        "linearVelocity": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "angularVelocity": [
-                            0,
-                            60,
-                            0
-                        ]
-                    }
-                ]
-            }
-        //       , {
-        //     "name":"coin",
-        //    "position": [
-        //             8, // right and left
-        //             -2, // up and down
-        //            -150 // far and near direction
-        //         ],
-        //         "rotation": [
-        //             0,
-        //             0,
-        //             90
-        //         ],
-        //         "scale": [
-        //             0.03,
-        //             0.015,
-        //             0.01
-        //         ],
-        //         "components": [
-        //             {
-        //                 "type": "Mesh Renderer",
-        //                 "mesh": "coin",
-        //                 "material": "coin"
-        //             },
-        //             {
-        //             {
-        //                 "type": "coin"
-        //             },
-        //             {
-        //                 "type": "Collision",
-        //                 "start": [
-        //                     -8,
-        //                     -8,
-        //                     6.5
-        //                 ],
-        //                 "end": [
-        //                   8,
-        //                     8,
-        //                     7
-        //                 ]
-        //             },
-        //             {
-        //                 "type": "Movement",
-        //                 "linearVelocity": [
-        //                     0,
-        //                     0,
-        //                     0
-        //                 ],
-        //                 "angularVelocity": [
-        //                     0,
-        //                     60,
-        //                     0
-        //                 ]
-        //             }
-        //         ]
-        //     }
-        ,  
-            {
-                "name":"end_line",
+            {   "name":"end_line",
                 "position": [
                     0, //right & left
                     -9, //up & down
-                    -400 //near & far
+                    -3000 //near & far
                 ],
                 "rotation": [
                     90,
