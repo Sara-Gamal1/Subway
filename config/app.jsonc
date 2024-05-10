@@ -85,9 +85,9 @@
                         1
                     ]
                 },
-                "police": {
-                    "type": "textured",
-                    "shader": "textured",
+                   "police": {
+                    "type": "lighted",
+                    "shader": "lighted",
                     "pipelineState": {
                         "faceCulling": {
                             "enabled": false
@@ -98,7 +98,12 @@
                     },
                     
                     "texture": "police",
-                    "sampler": "default"
+                    "sampler": "default",
+                    "albedo":"police",
+                    "specular":"white",
+                    "roughness": "gray",
+                    "emissive": "black",
+                    "ambient_occlusion": "police"
                 },
                 "heart": {
                     "type": "tinted",
@@ -134,8 +139,8 @@
                     "sampler": "default"
                 },  
                 "dog": {
-                    "type": "textured",
-                    "shader": "textured",
+                    "type": "lighted",
+                    "shader": "lighted",
                     "pipelineState": {
                         "faceCulling": {
                             "enabled": false
@@ -146,7 +151,12 @@
                     },
                     
                     "texture": "dog",
-                    "sampler": "default"
+                    "sampler": "default",
+                    "albedo":"dog",
+                    "specular":"white",
+                    "roughness": "white",
+                    "emissive": "black",
+                    "ambient_occlusion": "dog"
                 },
                 "wood": {
                     "type": "lighted",
@@ -200,8 +210,8 @@
 
                 },
                 "jake": {
-                    "type": "textured",
-                    "shader": "textured",
+                    "type": "lighted",
+                    "shader": "lighted",
                     "pipelineState": {
                         "faceCulling": {
                             "enabled": false
@@ -217,11 +227,16 @@
                         1
                     ],
                     "texture": "jake",
-                    "sampler": "default"
+                    "sampler": "default",
+                    "albedo":"jake",
+                    "specular":"white",
+                    "roughness": "gray",
+                    "emissive": "black",
+                    "ambient_occlusion": "jake"
                 }
                 ,"coin": {
-                    "type": "textured",
-                    "shader": "textured",
+                    "type": "lighted",
+                    "shader": "lighted",
                     "pipelineState": {
                         "faceCulling": {
                             "enabled": false
@@ -231,11 +246,16 @@
                         }
                     },
                     "texture": "coin",
-                    "sampler": "default"
+                    "sampler": "default",
+                    "albedo":"coin",
+                    "specular":"white",
+                    "roughness": "gray",
+                    "emissive": "black",
+                    "ambient_occlusion": "coin"
                 }
                 ,"end_line": {
-                    "type": "textured",
-                    "shader": "textured",
+                    "type": "lighted",
+                    "shader": "lighted",
                     "pipelineState": {
                         "faceCulling": {
                             "enabled": false
@@ -245,7 +265,12 @@
                         }
                     },
                     "texture": "end_line",
-                    "sampler": "default"
+                    "sampler": "default",
+                    "albedo":"end_line",
+                    "specular":"white",
+                    "roughness": "gray",
+                    "emissive": "black",
+                    "ambient_occlusion": "end_line"
                 },
                 "lamp": {
                     "type": "textured",
@@ -323,8 +348,8 @@
                         "linearVelocity": [
                             0,
                             0,
-                           -5
-                            //   0
+                          -5
+
                         ],
                         "angularVelocity": [
                             0,
@@ -473,7 +498,7 @@
                             0,
                             0,
                            -5
-                    //  0
+
                         ],
                         "angularVelocity": [
                             0,
@@ -1341,12 +1366,12 @@
             },
             {"name":"right_light",
                 "position": [
-                    18, //right & left
+                    16, //right & left
                     8, //up & down
-                    -20 //near & far
+                    -150 //near & far
                 ],
                 "rotation": [
-                    0,
+                    25,
                     0,
                     0
                 ],
@@ -1356,6 +1381,14 @@
                     1
                 ]
                 ,
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    7,   ///number of repeats in z
+                    -375  ////translatopn in z
+                ],
                 "components": [
                     {
                         "type": "Light",
@@ -1372,7 +1405,7 @@
                          ],
                         "cone_angles": [
                             20,
-                            30       
+                            50       
                         ]
 
                     }
@@ -1383,7 +1416,7 @@
                 "position": [
                     18, 
                     3, ///up and down
-                    -16
+                    -150
                 ],
                 "rotation": [
                     0,
@@ -1394,8 +1427,16 @@
                     10,
                     10,
                     10
-                ]
-                ,
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    7,   ///number of repeats in z
+                    -375  ////translatopn in z
+                ],
+                
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -1406,12 +1447,12 @@
             },
             {"name":"left_light",
                 "position": [
-                    -18, 
+                    -16, 
                     8, 
-                    -20 
+                    -300 
                 ],
                 "rotation": [
-                    0,
+                    25,
                     0,
                     0
                 ],
@@ -1421,6 +1462,14 @@
                     1
                 ]
                 ,
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    7,   ///number of repeats in z
+                    -375 ////translatopn in z
+                ],
                 "components": [
                     {
                         "type": "Light",
@@ -1437,18 +1486,18 @@
                          ],
                         "cone_angles": [
                             20,
-                            30       
+                            50       
                         ]
 
                     }
                    
                 ]
-            },
-            {"name":"left_wall_lamp",
+             },
+             {"name":"left_wall_lamp",
                 "position": [
                     -18, 
                     3, ///up and down
-                    -16
+                    -300
                 ],
                 "rotation": [
                     0,
@@ -1459,8 +1508,16 @@
                     10,
                     10,
                     10
-                ]
-                ,
+                ],
+                "duplicates": [
+                    0,   ///number of repeats in x
+                    0,  ////translatopn in x
+                    0,   ///number of repeats in y
+                    0,  ////translatopn in y
+                    7,   ///number of repeats in z
+                    -375 ////translatopn in z
+                ],
+                
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -1469,6 +1526,243 @@
                     }
                 ]
             },
+
+            
+            {"name":"light_pole_right",
+                "position": [
+                     14, //right & left
+                     10, //up & down
+                     0//near & far
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ]
+                ,
+                "components": [
+                    
+                    {
+                        "type": "Light",
+                        "light_type": 2,
+                        "color": [
+                            0.3,
+                            0.3,
+                            0.3
+                        ],
+                        "attenuation": [
+                            0.0,
+                            0.0,
+                            0.0009
+                         ],
+                        "cone_angles": [
+                            10,
+                            20       
+                        ]
+
+                    }
+                ]
+            },
+            {"name":"pole_right",
+            "position": [
+                 14, //right & left
+                -10, //up & down
+                0 //near & far
+            ],
+            "rotation": [
+                0,
+                0,
+                0
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ]
+           ,
+            "components": [
+                {
+                    "type": "Mesh Renderer",
+                    "mesh": "lamp",
+                    "material": "lamp"
+                }
+            ]
+        },
+        {"name":"light_pole_left",
+        "position": [
+             -14, //right & left
+             10, //up & down
+             0//near & far
+        ],
+        "rotation": [
+            0,
+            0,
+            0
+        ],
+        "scale": [
+            1,
+            1,
+            1
+        ]
+        ,
+        "components": [
+            
+            {
+                "type": "Light",
+                "light_type": 2,
+                "color": [
+                    0.3,
+                    0.3,
+                    0.3
+                ],
+                "attenuation": [
+                    0.0,
+                    0.0,
+                    0.0009
+                 ],
+                "cone_angles": [
+                    10,
+                    20       
+                ]
+
+            }
+        ]
+    },
+    {"name":"pole_left",
+    "position": [
+         -14, //right & left
+        -10, //up & down
+        0 //near & far
+    ],
+    "rotation": [
+        0,
+        0,
+        0
+    ],
+    "scale": [
+        1,
+        1,
+        1
+    ]
+   ,
+    "components": [
+        {
+            "type": "Mesh Renderer",
+            "mesh": "lamp",
+            "material": "lamp"
+        }
+    ]
+},
+
+{"name":"light_pole_right_end",
+                "position": [
+                     14, //right & left
+                     10, //up & down
+                     -3020//near & far
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ]
+                ,
+                "components": [
+                    
+                    {
+                        "type": "Light",
+                        "light_type": 2,
+                        "color": [
+                            0.3,
+                            0.3,
+                            0.3
+                        ],
+                        "attenuation": [
+                            0.0,
+                            0.0,
+                            0.0009
+                         ],
+                        "cone_angles": [
+                            10,
+                            20       
+                        ]
+
+                    }
+                ]
+            },
+            {"name":"pole_right_end",
+            "position": [
+                 14, //right & left
+                -10, //up & down
+                -3020 //near & far
+            ],
+            "rotation": [
+                0,
+                0,
+                0
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ]
+           ,
+            "components": [
+                {
+                    "type": "Mesh Renderer",
+                    "mesh": "lamp",
+                    "material": "lamp"
+                }
+            ]
+        },
+        {"name":"light_pole_left_end",
+        "position": [
+             -14, //right & left
+             10, //up & down
+             -3020//near & far
+        ],
+        "rotation": [
+            0,
+            0,
+            0
+        ],
+        "scale": [
+            1,
+            1,
+            1
+        ]
+        ,
+        "components": [
+            
+            {
+                "type": "Light",
+                "light_type": 2,
+                "color": [
+                    0.3,
+                    0.3,
+                    0.3
+                ],
+                "attenuation": [
+                    0.0,
+                    0.0,
+                    0.0009
+                 ],
+                "cone_angles": [
+                    10,
+                    20       
+                ]
+              ]
+            },
+
             {"name":"key1",
                 "position": [
                     0, 
@@ -1576,7 +1870,40 @@
                         ]
                     }
                 ]
+
             }
+        ]
+    },
+    {"name":"pole_left_end",
+    "position": [
+         -14, //right & left
+        -10, //up & down
+        -3020//near & far
+    ],
+    "rotation": [
+        0,
+        0,
+        0
+    ],
+    "scale": [
+        1,
+        1,
+        1
+    ]
+   ,
+    "components": [
+        {
+            "type": "Mesh Renderer",
+            "mesh": "lamp",
+            "material": "lamp"
+        }
+    ]
+}
+
+
+       
+        
+           
         ]
     }
 }

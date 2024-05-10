@@ -16,7 +16,7 @@ namespace our
    
     class Entity
     {
-         bool debug = true;
+         bool debug = false;
         World *world;                      // This defines what world own this entity
         std::list<Component *> components; // A list of components that are owned by this entity
 

@@ -1,6 +1,6 @@
 #version 330 core
 
-#define MAX_LIGHT_COUNT 16
+#define MAX_LIGHT_COUNT 30
 #define DIRECTIONAL 0
 #define POINT 1
 #define SPOT 2

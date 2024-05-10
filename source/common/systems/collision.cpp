@@ -117,8 +117,8 @@ namespace our
             std::cout << "player position " << playerPosition.x << " " << playerPosition.y << " " << playerPosition.z << std::endl;
             // Get player collision bounding box
 
-            std::cout << "start player x " << playerStart.x << "  start player y " << playerStart.y << "   start player z " << playerStart.z << std::endl;
-            std::cout << "end player x " << playerEnd.x << "  end player y " << playerEnd.y << "   end player z " << playerEnd.z << std::endl;
+            //std::cout << "start player x " << playerStart.x << "  start player y " << playerStart.y << "   start player z " << playerStart.z << std::endl;
+            //std::cout << "end player x " << playerEnd.x << "  end player y " << playerEnd.y << "   end player z " << playerEnd.z << std::endl;
         }
         CameraComponent *camera;
         for (auto entity : world->getEntities())
@@ -147,8 +147,8 @@ namespace our
 
                 if (entity->getComponent<FenceComponent>() && entity->name == "right fence1" && debug)
                 {
-                    std::cout << "start fence x " << objectStart.x << "  start fence y " << objectStart.y << "   start fence z " << objectStart.z << std::endl;
-                    std::cout << "end fence x " << objectEnd.x << "  end fence y " << objectEnd.y << "   end fence z " << objectEnd.z << std::endl;
+                    //std::cout << "start fence x " << objectStart.x << "  start fence y " << objectStart.y << "   start fence z " << objectStart.z << std::endl;
+                    //std::cout << "end fence x " << objectEnd.x << "  end fence y " << objectEnd.y << "   end fence z " << objectEnd.z << std::endl;
                 }
 
                 if (collided)
@@ -162,8 +162,8 @@ namespace our
                     if (entity->getComponent<FenceComponent>())
                     { // if the object is an obstacle
 
-                        std::cout << "my hearts =" << player->hearts << std::endl;
-                        std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
+                        //std::cout << "my hearts =" << player->hearts << std::endl;
+                        //std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
                         if (player->hearts <= 1)
                         {
                             app->changeState("game-over");
@@ -198,8 +198,8 @@ namespace our
                     if (entity->getComponent<TrainComponent>())
                     {
 
-                        std::cout << "my hearts =" << player->hearts << std::endl;
-                        std::cout << "collided with obstacle : TrainComponent " << std::endl;
+                        //std::cout << "my hearts =" << player->hearts << std::endl;
+                        //std::cout << "collided with obstacle : TrainComponent " << std::endl;
                         if (player->hearts <= 1)
                         {
 
@@ -243,8 +243,8 @@ namespace our
                             playerScore = player->score;
                             this->lastCoinPosition = entity->localTransform.position;
                         }
-                        std::cout << "my score =" << player->score << std::endl;
-                        std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
+                       // std::cout << "my score =" << player->score << std::endl;
+                        //std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
                     }
                     if (entity->getComponent<KeyComponent>())
                     {
@@ -281,7 +281,7 @@ namespace our
                     if (entity->getComponent<EndLineComponent>())
                     { // if the object is an obstacle
 
-                        std::cout << "congratulation you won with score" << player->score << std::endl;
+                        //std::cout << "congratulation you won with score" << player->score << std::endl;
                         app->changeState("win");
                     }
                 }
