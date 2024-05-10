@@ -1,11 +1,11 @@
-#include "player.hpp"
+#include "coin.hpp"
 #include "../ecs/entity.hpp"
 #include "../deserialize-utils.hpp"
 #include "component-deserializer.hpp"
 
 namespace our
 {
-    // Moves the player by given speed from json
+    
     void CoinComponent::deserialize(const nlohmann::json &data)
     {
         if (!data.is_object())

@@ -77,6 +77,7 @@ namespace our
         else if (type == LampComponent::getID())
         {
             component = entity->addComponent<LampComponent>();
+        }
         else if (type == DogComponent::getID())
         {
             component = entity->addComponent<DogComponent>();
