@@ -20,10 +20,11 @@ out Varyings {
 
 void main() {
     
-   vsout.world = (M * vec4(position, 1.0f)).xyz;
-   vsout.view = camera_position - vsout.world;
+   vec3 world= (M * vec4(position, 1.0f)).xyz;
+   gl_Position = VP * vec4(world, 1.0);
+   vsout.world =world;
+   vsout.view = normalize(camera_position - world);
    vsout.normal = normalize((MIT * vec4(normal, 0.0f)).xyz);
-   gl_Position = VP * vec4(vsout.world, 1.0);
    vsout.color = color;
    vsout.tex_coord = tex_coord;
 }

@@ -38,7 +38,8 @@
                 "black":"assets/textures/black.jpg",
                 "white":"assets/textures/white.png",
                 "gray":"assets/textures/gray.png",
-                "lamp":"assets/textures/lamp.jpg"
+                "lamp":"assets/textures/lamp.jpg",
+                "wall_lamp":"assets/textures/wall_lamp.png"
 
             },
             "meshes": {
@@ -50,7 +51,9 @@
                 "train": "assets/models/train4.obj",
                 "coin":"assets/models/coin3.obj",
                 "heart":"assets/models/heart.obj",
-                "lamp": "assets/models/lamp.obj"
+                "lamp": "assets/models/lamp.obj",
+                "wall_lamp":"assets/models/wall_lamp.obj"
+
 
             },
             "samplers": {
@@ -138,8 +141,8 @@
                     "ambient_occlusion": "wood"
                 },
                 "wall": {
-                    "type": "textured",
-                    "shader": "textured",
+                    "type": "lighted",
+                    "shader": "lighted",
                     "pipelineState": {
                         "faceCulling": {
                             "enabled": false
@@ -155,12 +158,12 @@
                         1
                     ],
                     "texture": "wall",
-                    "sampler": "default"
-                    // "albedo":"wall",
-                    // "specular":"white",
-                    // "roughness": "gray",
-                    // "emissive": "black",
-                    // "ambient_occlusion": "wall"
+                    "sampler": "default",
+                    "albedo":"wall",
+                    "specular":"white",
+                    "roughness": "gray",
+                    "emissive": "black",
+                    "ambient_occlusion": "wall"
 
                 },
                 "jake": {
@@ -229,6 +232,26 @@
                         1
                     ], 
                     "texture": "lamp",
+                    "sampler": "default"
+                },
+                "wall_lamp": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ], 
+                    "texture": "wall_lamp",
                     "sampler": "default"
                 }
             }
@@ -964,11 +987,11 @@
                 ]
             },
             {
-                "name":"lamp",
+                "name":"right_light",
                 "position": [
-                    10, //right & left
-                    -10, //up & down
-                    10 //near & far
+                    18, //right & left
+                    8, //up & down
+                    -20 //near & far
                 ],
                 "rotation": [
                     0,
@@ -983,33 +1006,118 @@
                 ,
                 "components": [
                     {
-                        "type": "Mesh Renderer",
-                        "mesh": "lamp",
-                        "material": "lamp"
-                    },
-                    {
-                        "type": "lamp"
-                    },
-                    {
                         "type": "Light",
                         "light_type": 2,
                         "color": [
-                            1,
-                            0.5,
-                            0.5
+                            0.3,
+                            0.3,
+                            0.3
                         ],
                         "attenuation": [
-                            0,
-                            0,
-                            0.01         
-                        ],
+                            0.0,
+                            0.0,
+                            0.0009
+                         ],
                         "cone_angles": [
-                            60,
-                            120        
+                            20,
+                            30       
                         ]
 
                     }
                    
+                ]
+            },
+            {
+                "name":"right_wall_lamp",
+                "position": [
+                    21, //right & left
+                    5, //up & down
+                    -20//near & far
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    0.01,
+                    0.01,
+                    0.007
+                ]
+                ,
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "wall_lamp",
+                        "material": "wall_lamp"
+                    }
+                ]
+            },
+            {
+                "name":"left_light",
+                "position": [
+                    -18, //right & left
+                    8, //up & down
+                    -20 //near & far
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ]
+                ,
+                "components": [
+                    {
+                        "type": "Light",
+                        "light_type": 2,
+                        "color": [
+                            0.3,
+                            0.3,
+                            0.3
+                        ],
+                        "attenuation": [
+                            0.0,
+                            0.0,
+                            0.0009
+                         ],
+                        "cone_angles": [
+                            20,
+                            30       
+                        ]
+
+                    }
+                   
+                ]
+            },
+            {
+                "name":"left_wall_lamp",
+                "position": [
+                    -21, //right & left
+                    5, //up & down
+                    -20//near & far
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": [
+                    0.01,
+                    0.01,
+                    0.007
+                ]
+                ,
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "wall_lamp",
+                        "material": "wall_lamp"
+                    }
                 ]
             }
         ]

@@ -218,7 +218,7 @@ namespace our
             if (auto light_material = dynamic_cast<LightedMaterial *>(command.material); light_material)
             {
                 light_material->shader->set("M", command.localToWorld);
-                light_material->shader->set("M_IT", glm::transpose(glm::inverse(command.localToWorld)));
+                light_material->shader->set("MIT", glm::transpose(glm::inverse(command.localToWorld)));
                 light_material->shader->set("VP", VP);
                 light_material->shader->set("camera_position", cameraPosition);
 
@@ -227,7 +227,8 @@ namespace our
                 for (int i = 0; i < lights.size(); i++)
                 {
 
-                    glm::vec3 light_position = lights[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(lights[i]->getOwner()->localTransform.position, 1.0f);
+                    glm::vec3 light_position = lights[i]->getOwner()->localTransform.position;
+                    //lights[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(lights[i]->getOwner()->localTransform.position, 1.0f);
                     glm::vec3 light_direction = lights[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0.0, -1.0, 0.0, 0.0);
 
                     light_material->shader->set("lights[" + std::to_string(i) + "].type", (int)lights[i]->light_type);
@@ -288,7 +289,7 @@ namespace our
             if (auto light_material = dynamic_cast<LightedMaterial *>(command.material); light_material)
             {
                 light_material->shader->set("M", command.localToWorld);
-                light_material->shader->set("M_IT", glm::transpose(glm::inverse(command.localToWorld)));
+                light_material->shader->set("MIT", glm::transpose(glm::inverse(command.localToWorld)));
                 light_material->shader->set("VP", VP);
                 light_material->shader->set("camera_position", cameraPosition);
 

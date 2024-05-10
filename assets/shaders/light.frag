@@ -56,27 +56,24 @@ void main() {
       vec3 light_direction;
       float attenuation = 1;
       if(light.type == DIRECTIONAL)
-         light_direction = light.direction;
+         light_direction = -light.direction;
       else {
-         light_direction = fsin.world - light.position;
-         float distance = length(light_direction);
-         light_direction /= distance;
-         attenuation *= 1.0f / (light.attenuation[0] +
-                        light.attenuation[1] * distance +
-                        light.attenuation[2] * distance * distance);
+         light_direction = light.position-fsin.world;
+         float dist = length(light_direction);
+         light_direction /= dist;
+         attenuation *= 1.0f / dot(light.attenuation, vec3(1.0, dist, dist*dist));
          if(light.type == SPOT){
-            float angle = acos(dot(light.direction, light_direction));
-            attenuation *= smoothstep(light.cone_angles[0], light.cone_angles[1], angle);
+            float angle = acos(dot(light.direction, -light_direction));
+            attenuation *= smoothstep(light.cone_angles[1], light.cone_angles[0], angle);
          }
       }
-      vec3 reflected = reflect(light_direction, normal);
-      float lambert = max(0.0f, dot(normal, -light_direction));
+      vec3 reflected = reflect(-light_direction, normal);
+      float lambert = max(0.0f, dot(normal, light_direction));
       float phong = pow(max(0.0f, dot(view, reflected)), mat_shininess);
       vec3 diffuse = mat_diffuse * light.color * lambert;
       vec3 specular = mat_specular * light.color * phong;
-      vec3 ambient = mat_ambient * light.color;
       accumulated_light += (diffuse + specular) * attenuation ;
    }
-   frag_color = fsin.color * vec4(accumulated_light, 1.0f);
+   frag_color =  vec4(accumulated_light, 1.0f);
 
 }
