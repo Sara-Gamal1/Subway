@@ -22,7 +22,6 @@ Jake is the main character. Jake needs your help to cross the road. You should h
 <li>Scene Deserialization</li>
 <li>Scene Serialization</li>
 <li>Game logic</li>
-<li>Scene Deserialization</li>
 <li>Play state & Menu state & Game Over state</li>
 </ul>
 </li>
