@@ -8,7 +8,6 @@
 
 ## <img align="center"  width =70px  height =70px src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXRucnFpajFldmNqZXZuYjUyNW0zOHVnNDc1aGxqdDVpZmtxenAyOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SsIZQ5my0eba5y3r2m/giphy.gif"> Overview
 
-<br>
 <ul> 
 <li>
 Jake is the main character. Jake needs your help to cross the road. You should help him without making any accident.</li>
@@ -33,7 +32,8 @@ You can view <a href="https://github.com/Sara-Gamal1/graphics-project/blob/main/
 </li>
 <li>
 The project has 2 phases.</li>
-<br>
+<be>
+	
  - <a href="">Project Phase 1</a>
  - <a href="https://github.com/Sara-Gamal1/graphics-project">Project Phase 2</a>
 <br>
