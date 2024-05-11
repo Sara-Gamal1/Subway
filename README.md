@@ -8,6 +8,37 @@
 
 ## <img align="center"  width =70px  height =70px src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXRucnFpajFldmNqZXZuYjUyNW0zOHVnNDc1aGxqdDVpZmtxenAyOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SsIZQ5my0eba5y3r2m/giphy.gif"> Overview
 
+<br>
+<ul> 
+<li>
+Frogger is the main character. Jake needs your help to cross the road. You should help him without making any accident.</li>
+<li>The game satisfies the requirements:
+<ul>
+<li>Usage of 3D models</li>
+<li>Lighting with multiple lights in the scene</li>
+<li>Texture mapping</li>
+<li>A sky</li>
+<li>3D motion.</li>
+<li>Game logic</li>
+<li>Scene Deserialization</li>
+<li>Scene Serialization</li>
+<li>Game logic</li>
+<li>Scene Deserialization</li>
+<li>Play state & Menu state & Game Over state</li>
+</ul>
+</li>
+</li>
+<li>
+You can view <a href="https://github.com/Sara-Gamal1/graphics-project/blob/main/instructions.pdf">instructions</a> file
+</li>
+<li>
+The project has 2 phases.</li>
+<br>
+ - <a href="">Project Phase 1</a>
+ - <a href="https://github.com/Sara-Gamal1/graphics-project">Project Phase 2</a>
+<br>
+<li> Build using <a href="https://docs.gl/">OpenGl 3</a> &&<a href="https://isocpp.org/"> C++ language</a> .</li>
+</ul>
 
 
 <h2>💻 Built with</h2>
