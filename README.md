@@ -11,7 +11,7 @@
 <br>
 <ul> 
 <li>
-Frogger is the main character. Jake needs your help to cross the road. You should help him without making any accident.</li>
+Jake is the main character. Jake needs your help to cross the road. You should help him without making any accident.</li>
 <li>The game satisfies the requirements:
 <ul>
 <li>Usage of 3D models</li>
