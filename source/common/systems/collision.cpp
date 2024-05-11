@@ -96,10 +96,9 @@ namespace our
         if (debug)
         {
             std::cout << "player position " << playerPosition.x << " " << playerPosition.y << " " << playerPosition.z << std::endl;
-            // Get player collision bounding box
 
-            // std::cout << "start player x " << playerStart.x << "  start player y " << playerStart.y << "   start player z " << playerStart.z << std::endl;
-            // std::cout << "end player x " << playerEnd.x << "  end player y " << playerEnd.y << "   end player z " << playerEnd.z << std::endl;
+            std::cout << "start player x " << playerStart.x << "  start player y " << playerStart.y << "   start player z " << playerStart.z << std::endl;
+            std::cout << "end player x " << playerEnd.x << "  end player y " << playerEnd.y << "   end player z " << playerEnd.z << std::endl;
         }
         CameraComponent *camera;
         for (auto entity : world->getEntities())
@@ -129,7 +128,6 @@ namespace our
 
                 if (collided)
                 {
-                    std::cout << entity->name << std::endl;
                     if (entity->getComponent<PlayerComponent>())
                     {
                         // std::cout << "Collide with Player"<< std::endl;
@@ -139,7 +137,7 @@ namespace our
                     if (entity->getComponent<FenceComponent>())
                     { // if the object is an obstacle
 
-                        std::cout << "my hearts =" << player->hearts << std::endl;
+                        // std::cout << "my hearts =" << player->hearts << std::endl;
                         // std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
                         if (player->hearts <= 1)
                         {
@@ -249,8 +247,8 @@ namespace our
                                 }
                             }
                         }
-                        std::cout << "my score =" << player->score << std::endl;
-                        std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
+                        // std::cout << "my score =" << player->score << std::endl;
+                        // std::cout << "collided with " << entity->name << " " << objectPosition.x << " " << objectPosition.y << " " << objectPosition.z << std::endl;
                     }
                     if (entity->getComponent<EndLineComponent>())
                     { // if the object is an obstacle
