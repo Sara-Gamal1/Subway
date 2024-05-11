@@ -1,5 +1,5 @@
 {
-    "start-scene": "win",
+    "start-scene": "menu",
     "window": {
         "title": "Default Game Window",
         "size": {
@@ -12,8 +12,7 @@
         "renderer": {
             "sky": "assets/textures/sky5.jpg",
             "postprocess": "assets/shaders/postprocess/vignette.frag"
-            // "postprocess": "assets/shaders/postprocess/grain.frag"
-            // "postprocess": "assets/shaders/postprocess/fog.frag"
+           
         },
         "assets": {
             "shaders": {

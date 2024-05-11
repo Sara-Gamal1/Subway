@@ -1,7 +1,6 @@
 #pragma once
 
 #include <application.hpp>
-
 #include <ecs/world.hpp>
 #include <systems/forward-renderer.hpp>
 #include <systems/free-camera-controller.hpp>
@@ -11,6 +10,10 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <../../irrKlang/include/irrKlang.h>
+using namespace irrklang;
+#pragma comment(lib, "irrKlang.lib") 
+
 // This state shows how to use the ECS framework and deserialization.
 class Playstate : public our::State
 {
@@ -23,6 +26,7 @@ public:
     int playerScore = 0;
     int level;
     bool flag=0;
+    ISoundEngine *engine;    
 
     void onInitialize() override
     {
@@ -45,6 +49,12 @@ public:
         // Then we initialize the renderer
         auto size = getApp()->getFrameBufferSize();
         renderer.initialize(size, config["renderer"]);
+
+        engine = createIrrKlangDevice();
+        if (!engine)
+            std::cout << "Could not startup engine" << std::endl;
+        //else
+            //engine->play2D("assets/sound/subway.mp3", true);
     }
 
     void onDraw(double deltaTime) override
@@ -82,6 +92,7 @@ public:
         world.clear();
         // and we delete all the loaded assets to free memory on the RAM and the VRAM
         our::clearAllAssets();
+        engine->drop();
     }
     void onImmediateGui()
     {

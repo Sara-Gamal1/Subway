@@ -378,7 +378,7 @@ namespace our
             {
                 if (flag)
                 {
-                    std::chrono::duration<double> duration_seconds(2);
+                    std::chrono::duration<double> duration_seconds(0.5);
 
                     // Introduce a delay of 2 seconds
                     std::this_thread::sleep_for(duration_seconds);
@@ -388,8 +388,6 @@ namespace our
                     postprocessShader->attach("assets/shaders/postprocess/vignette.frag", GL_FRAGMENT_SHADER);
                     postprocessShader->link();
 
-                    // Create a post processing material
-                    // postprocessMaterial = new TexturedMaterial();
                     postprocessMaterial->shader = postprocessShader;
                 }
             }

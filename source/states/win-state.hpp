@@ -14,6 +14,10 @@
 #include <functional>
 #include <array>
 
+#include <../../irrKlang/include/irrKlang.h>
+using namespace irrklang;
+#pragma comment(lib, "irrKlang.lib") 
+
 // This state shows how to use some of the abstractions we created to make a menu.
 class Winstate : public our::State
 {
@@ -27,6 +31,8 @@ class Winstate : public our::State
     std::array<Button, 1> buttons;
 
     float time;
+
+    ISoundEngine *engine;
 
     void onInitialize() override
     {
@@ -61,6 +67,12 @@ class Winstate : public our::State
         buttons[0].position = {340.0f, 20.0f};
         buttons[0].size = {516.0f, 58.0f};
         buttons[0].action = [this](){ this->getApp()->changeState("menu"); };
+
+        engine = createIrrKlangDevice();
+        if (!engine)
+            std::cout << "Could not startup engine" << std::endl;
+        else
+            engine->play2D("assets/sound/win.mp3", false);
     }
     void onDraw(double deltaTime) override{
         // Get a reference to the keyboard object
@@ -134,5 +146,6 @@ class Winstate : public our::State
         delete MenuMaterial;
         delete HighlightedMaterial->shader;
         delete HighlightedMaterial;
+        engine->drop();
     }
 };
