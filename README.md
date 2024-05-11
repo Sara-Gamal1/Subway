@@ -37,7 +37,6 @@ The project has 2 phases.</li>
  - <a href="">Project Phase 1</a>
  - <a href="https://github.com/Sara-Gamal1/graphics-project">Project Phase 2</a>
 <br>
-<li> Build using <a href="https://docs.gl/">OpenGl 3</a> &&<a href="https://isocpp.org/"> C++ language</a> .</li>
 </ul>
 
 
