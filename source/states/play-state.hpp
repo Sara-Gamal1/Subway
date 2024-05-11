@@ -9,11 +9,12 @@
 #include <asset-loader.hpp>
 #include <systems/collision.hpp>
 #include <iostream>
-
+#include <thread>
+#include <chrono>
 // This state shows how to use the ECS framework and deserialization.
 class Playstate : public our::State
 {
-    public:
+public:
     our::World world;
     our::ForwardRenderer renderer;
     our::FreeCameraControllerSystem cameraController;
@@ -21,6 +22,7 @@ class Playstate : public our::State
     our::CollisionSystem collisionSystem;
     int playerScore = 0;
     int level;
+    bool flag=0;
 
     void onInitialize() override
     {
@@ -47,14 +49,19 @@ class Playstate : public our::State
 
     void onDraw(double deltaTime) override
     {
+
         bool didCollide = false;
         // Here, we just run a bunch of systems to control the world logic
         movementSystem.update(&world, (float)deltaTime);
         cameraController.update(&world, (float)deltaTime);
         didCollide = collisionSystem.update(&world, 0, 0, 0, playerScore);
         // And finally we use the renderer system to draw the scene
-        renderer.render(&world);
 
+        renderer.render(&world, didCollide,flag);
+        if (flag == 1)
+            flag = 0;
+        if (didCollide)
+            flag = 1;
         // Get a reference to the keyboard object
         auto &keyboard = getApp()->getKeyboard();
 

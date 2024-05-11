@@ -1,5 +1,5 @@
 {
-    "start-scene": "menu",
+    "start-scene": "win",
     "window": {
         "title": "Default Game Window",
         "size": {
@@ -508,46 +508,7 @@
                         }
                         ]
                 },
-                { "name":"dog",
-                        "position": [
-                            1.5,
-                            -5,
-                            38
-                        ],
-                        "rotation": [
-                            0,
-                            180,
-                            0
-                        ],
-                        "scale": [
-                            3,
-                            3,
-                            3
-                        ],
-                        "components": [
-                        {
-                            "type": "Mesh Renderer",
-                            "mesh": "dog",
-                            "material": "dog"
-                        },
-                        {
-                            "type": "dog"
-                        },
-                            {
-                            "type": "Movement",
-                            "linearVelocity": [
-                                0,
-                                0,
-                                -5
-                            ],
-                            "angularVelocity": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                        ]
-                },
+            
                 { "name":"police",
                         "position": [
                             0,

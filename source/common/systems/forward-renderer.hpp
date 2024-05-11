@@ -10,6 +10,7 @@
 #include <glad/gl.h>
 #include <vector>
 #include <algorithm>
+#include <string.h>
 
 namespace our
 {
@@ -37,7 +38,7 @@ namespace our
         // We define them here (instead of being local to the "render" function) as an optimization to prevent reallocating them every frame
         std::vector<RenderCommand> opaqueCommands;
         std::vector<RenderCommand> transparentCommands;
-        std::vector<LightComponent*> lights;
+        std::vector<LightComponent *> lights;
 
         // Objects used for rendering a skybox
         Mesh *skySphere;
@@ -54,8 +55,8 @@ namespace our
         // Clean up the renderer
         void destroy();
         // This function should be called every frame to draw the given world
-        void render(World *world);
-      void showGUI(World *world)
+        void render(World *world, bool collided = false , bool flag=false);
+        void showGUI(World *world)
         {
             bool showDemoWindow = true;
             ImGui::ShowDemoWindow(&showDemoWindow);

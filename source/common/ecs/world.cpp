@@ -1,6 +1,5 @@
 #include "world.hpp"
 #include "../common/components/movement.hpp"
-#include "../common/components/dog.hpp"
 #include "../common/components/player.hpp"
 #include "../common/components/police.hpp"
 #include <iostream>
@@ -26,11 +25,7 @@ namespace our
                 MovementComponent *move = element->getComponent<MovementComponent>();
                 move->linearVelocity.z *=  2 * this->level;
             }
-            if (element->getComponent<DogComponent>() )
-            {
-                MovementComponent *move = element->getComponent<MovementComponent>();
-                move->linearVelocity.z *= 2 * this->level;
-            }
+           
             if (element->getComponent<PoliceComponent>())
             {
                 MovementComponent *move = element->getComponent<MovementComponent>();

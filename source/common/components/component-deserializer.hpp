@@ -14,8 +14,7 @@
 #include "end-line.hpp"
 #include "heart.hpp"
 #include "light.hpp"
-#include "lamp.hpp"
-#include "dog.hpp"
+
 #include "key.hpp"
 namespace our
 {
@@ -75,14 +74,8 @@ namespace our
         {
             component = entity->addComponent<LightComponent>();
         }
-        else if (type == LampComponent::getID())
-        {
-            component = entity->addComponent<LampComponent>();
-        }
-        else if (type == DogComponent::getID())
-        {
-            component = entity->addComponent<DogComponent>();
-        }
+       
+      
         else if (type == PoliceComponent::getID())
         {
             component = entity->addComponent<PoliceComponent>();

@@ -96,13 +96,9 @@ set(COMMON_SOURCES
         source/common/components/heart.cpp
         source/common/components/light.hpp
         source/common/components/light.cpp
-        source/common/components/lamp.hpp
-        source/common/components/lamp.cpp
-
+      
         source/common/components/police.cpp
         source/common/components/police.hpp
-        source/common/components/dog.hpp
-        source/common/components/dog.cpp
         source/common/components/key.hpp
         source/common/components/key.cpp
 

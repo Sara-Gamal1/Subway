@@ -1,7 +1,9 @@
 #include "forward-renderer.hpp"
 #include "../mesh/mesh-utils.hpp"
 #include "../texture/texture-utils.hpp"
-
+#include <iostream>
+#include <thread> // Include the thread library
+#include <chrono>
 namespace our
 {
     void ForwardRenderer::initialize(glm::ivec2 windowSize, const nlohmann::json &config)
@@ -133,8 +135,42 @@ namespace our
         }
     }
 
-    void ForwardRenderer::render(World *world)
+    void ForwardRenderer::render(World *world, bool collided, bool flag)
     {
+        if (collided)
+        {
+
+            // Create the post processing shader
+            ShaderProgram *postprocessShader = new ShaderProgram();
+            postprocessShader->attach("assets/shaders/fullscreen.vert", GL_VERTEX_SHADER);
+            postprocessShader->attach("assets/shaders/postprocess/grain.frag", GL_FRAGMENT_SHADER);
+            postprocessShader->link();
+
+            postprocessMaterial->shader = postprocessShader;
+            // TODO: (Req 11) bind the framebuffer
+          
+            CameraComponent *camera=NULL;
+            for (auto entity : world->getEntities())
+            {
+                // If we hadn't found a camera yet, we look for a camera in this entity
+                if (!camera)
+                    camera = entity->getComponent<CameraComponent>();
+                else
+                    break;
+            }
+            glm::vec3 cameraPosition = camera->getOwner()->getLocalToWorldMatrix() * glm::vec4(0.0, 0.0, 0.0, 1.0);
+            glBindFramebuffer(GL_DRAW_FRAMEBUFFER, postprocessFrameBuffer);
+            postprocessMaterial->shader->set("camera_position", cameraPosition);
+            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+            // TODO: (Req 11) Setup the postprocess material and draw the fullscreen triangle
+            postprocessMaterial->setup();
+            glBindVertexArray(postProcessVertexArray);
+            glDrawArrays(GL_TRIANGLES, 0, 3);
+            // postprocessMaterial->shader->set("camera_position", cameraPosition);
+            return;
+        }
+
         // First of all, we search for a camera and for all the mesh renderers
         CameraComponent *camera = nullptr;
         opaqueCommands.clear();
@@ -206,7 +242,6 @@ namespace our
             // TODO: (Req 11) bind the framebuffer
             glBindFramebuffer(GL_DRAW_FRAMEBUFFER, postprocessFrameBuffer);
             postprocessMaterial->shader->set("camera_position", cameraPosition);
-
         }
 
         // TODO: (Req 9) Clear the color and depth buffers
@@ -230,7 +265,7 @@ namespace our
                 {
 
                     glm::vec3 light_position = lights[i]->getOwner()->localTransform.position;
-                    //lights[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(lights[i]->getOwner()->localTransform.position, 1.0f);
+                    // lights[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(lights[i]->getOwner()->localTransform.position, 1.0f);
                     glm::vec3 light_direction = lights[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0.0, -1.0, 0.0, 0.0);
 
                     light_material->shader->set("lights[" + std::to_string(i) + "].type", (int)lights[i]->light_type);
@@ -286,7 +321,7 @@ namespace our
         //  Don't forget to set the "transform" uniform to be equal the model-view-projection matrix for each render command
         for (auto command : transparentCommands)
         {
-           command.material->setup();
+            command.material->setup();
 
             if (auto light_material = dynamic_cast<LightedMaterial *>(command.material); light_material)
             {
@@ -340,9 +375,26 @@ namespace our
 
             // TODO: (Req 11) Setup the postprocess material and draw the fullscreen triangle
             postprocessMaterial->setup();
+            {
+                if (flag)
+                {
+                    std::chrono::duration<double> duration_seconds(2);
+
+                    // Introduce a delay of 2 seconds
+                    std::this_thread::sleep_for(duration_seconds);
+
+                    ShaderProgram *postprocessShader = new ShaderProgram();
+                    postprocessShader->attach("assets/shaders/fullscreen.vert", GL_VERTEX_SHADER);
+                    postprocessShader->attach("assets/shaders/postprocess/vignette.frag", GL_FRAGMENT_SHADER);
+                    postprocessShader->link();
+
+                    // Create a post processing material
+                    // postprocessMaterial = new TexturedMaterial();
+                    postprocessMaterial->shader = postprocessShader;
+                }
+            }
             glBindVertexArray(postProcessVertexArray);
             glDrawArrays(GL_TRIANGLES, 0, 3);
         }
     }
-
 }

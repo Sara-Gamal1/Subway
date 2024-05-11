@@ -58,8 +58,8 @@ class Winstate : public our::State
             {{0.0f, 1.0f, 0.0f}, {255, 255, 255, 255}, {0.0f, 0.0f}, {0.0f, 0.0f, 1.0f}},},
             {0,1,2,2,3,0,});
         time = 0;
-        buttons[0].position = {380.0f, 100.0f};
-        buttons[0].size = {480.0f, 65.0f};
+        buttons[0].position = {340.0f, 20.0f};
+        buttons[0].size = {516.0f, 58.0f};
         buttons[0].action = [this](){ this->getApp()->changeState("menu"); };
     }
     void onDraw(double deltaTime) override{
