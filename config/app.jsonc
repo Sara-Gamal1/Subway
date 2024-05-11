@@ -1620,7 +1620,7 @@
                     "position": [
                         14, //right & left
                         10, //up & down
-                        -1980//near & far
+                        -1480//near & far
                     ],
                     "rotation": [
                         0,
@@ -1660,7 +1660,7 @@
                 "position": [
                     14, //right & left
                     -10, //up & down
-                    -1980 //near & far
+                    -1480 //near & far
                 ],
                 "rotation": [
                     0,
@@ -1685,7 +1685,7 @@
                 "position": [
                     -14, //right & left
                     10, //up & down
-                    -1980//near & far
+                    -1480//near & far
                 ],
                 "rotation": [
                     0,
@@ -1833,7 +1833,7 @@
                 "position": [
                     -14, //right & left
                     -10, //up & down
-                    -1980//near & far
+                    -1480//near & far
                 ],
                 "rotation": [
                     0,
