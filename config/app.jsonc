@@ -857,7 +857,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        3,   ///number of repeats in z
+                        2,   ///number of repeats in z
                         -700  ////translatopn in z
                     ],
                     "components": [
@@ -905,7 +905,7 @@
                         0,  ////translatopn in x
                         0,   ///number of repeats in y
                         0,  ////translatopn in y
-                        2,   ///number of repeats in z
+                        1,   ///number of repeats in z
                         -800  ////translatopn in z
                     ],
                     "components": [
