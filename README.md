@@ -27,14 +27,14 @@ Jake is the main character. Jake needs your help to cross the road. You should h
 </li>
 </li>
 <li>
-You can view <a href="https://github.com/Sara-Gamal1/graphics-project/blob/main/instructions.pdf">instructions</a> file
+You can view <a href="https://github.com/Sara-Gamal1/Subway/blob/main/instructions.pdf">instructions</a> file
 </li>
 <li>
 The project has 2 phases.</li>
 <be>
 	
  - <a href="">Project Phase 1</a>
- - <a href="https://github.com/Sara-Gamal1/graphics-project">Project Phase 2</a>
+ - <a href="https://github.com/Sara-Gamal1/Subway">Project Phase 2</a>
 <br>
 </ul>
 
@@ -55,7 +55,7 @@ The project has 2 phases.</li>
 <p>1. Clone the repository</p>
 
 ```
-git clone https://github.com/Sara-Gamal1/graphics-project
+git clone https://github.com/Sara-Gamal1/Subway
 ```
 
 <p>2. Build using CMake</p>
